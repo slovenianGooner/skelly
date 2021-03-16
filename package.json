@@ -1,0 +1,25 @@
+{
+  "name": "sg-skelly",
+  "version": "1.0.22",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slovenianGooner/skelly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slovenianGooner/skelly/issues"
+  },
+  "homepage": "https://github.com/slovenianGooner/skelly#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.8.6",
+    "lodash": "^4.17.20",
+    "nanoid": "^3.1.20",
+    "vue": "^2.6.12",
+    "vue-clickaway": "^2.2.2",
+    "vuedraggable": "^2.24.3"
+  }
+}
