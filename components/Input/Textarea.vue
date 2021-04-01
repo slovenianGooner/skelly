@@ -8,8 +8,7 @@
           : '',
         inputClass,
       ]"
-      :value="value"
-      @input="$emit('input', $event.target.value)"
+      v-model="modelValue"
       v-bind="$attrs"
       rows="3"
     >
@@ -18,11 +17,7 @@
       class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <x-icon-exclamation-circle
-        size="w-5 h-5"
-        class="text-red-500"
-        viewBox="0 0 20 20"
-      />
+      <SolidExclamationCircleIcon class="text-red-500 w-5 h-5" />
     </div>
   </div>
 </template>
@@ -35,10 +30,10 @@ export default {
       default: "",
     },
     errors: {
-      type: Array | String,
+      type: [Array, String],
       default: () => [],
     },
-    value: {
+    modelValue: {
       required: true,
     },
   },

@@ -1,7 +1,7 @@
 <template>
   <div
     class="relative inline-block text-left"
-    v-on-clickaway="closeDropdown"
+    v-click-away="closeDropdown"
     v-updown
   >
     <div>
@@ -36,11 +36,10 @@
   </div>
 </template>
 <script>
-import { mixin as clickaway } from "vue-clickaway";
-
+import { directive } from "vue3-click-away";
 export default {
-  mixins: [clickaway],
   directives: {
+    ClickAway: directive,
     updown: {
       inserted(el, binding, vnode) {
         el.addEventListener("click", () => {

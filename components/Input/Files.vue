@@ -3,35 +3,42 @@
     class="relative border rounded flex flex-col items-center"
     :class="[errors.length > 0 ? 'border-red-500' : 'border-gray-300']"
   >
-    <slot name="selected" :value="value">
+    <slot name="selected" :value="modelValue">
       <div class="text-sm w-full border-b text-gray-700">
-        <div v-if="value.length > 0">
-          <draggable v-model="files" class="divide-y" @change="sort">
-            <div
-              v-for="(file, index) in files"
-              :key="index"
-              class="py-2 px-2 flex items-center justify-between"
-            >
-              <x-icon-selector size="w-5 h-5" class="mr-1.5 cursor-pointer" />
-              <div class="truncate w-96">{{ file.name }}</div>
-              <button class="underline" @click="removeFile(index)">
-                Remove
-              </button>
-            </div>
+        <div v-if="modelValue.length > 0">
+          <draggable
+            v-model="files"
+            class="divide-y"
+            @change="sort"
+            item-key="index"
+          >
+            <template #item="{ element, index }">
+              <div class="py-2 px-2 flex items-center justify-between">
+                <SolidSelectorIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
+                <div class="truncate w-96">{{ element.name }}</div>
+                <button class="underline" @click="removeFile(index)">
+                  Remove
+                </button>
+              </div>
+            </template>
           </draggable>
         </div>
         <div v-else class="p-4 flex justify-center">No files selected.</div>
       </div>
     </slot>
     <div class="space-x-2 p-4">
-      <x-button-form-xs @click="$refs.fileInput.click()">
-        <x-icon-folder size="w-4 h-4" class="mr-1.5" />
+      <XButtonForm size="xs" @click="$refs.fileInput.click()">
+        <SolidFolderIcon class="w-4 h-4 mr-1.5" />
         {{ button }}
-      </x-button-form-xs>
-      <x-button-form-xs @click="$emit('input', [])" v-if="value">
-        <x-icon-trash size="w-4 h-4" class="mr-1.5" />
+      </XButtonForm>
+      <XButtonForm
+        size="xs"
+        @click="$emit('update:modelValue', [])"
+        v-if="modelValue"
+      >
+        <SolidTrashIcon class="w-4 h-4 mr-1.5" />
         {{ clear }}
-      </x-button-form-xs>
+      </XButtonForm>
     </div>
     <input
       multiple
@@ -45,11 +52,7 @@
       class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <x-icon-exclamation-circle
-        size="w-5 h-5"
-        class="text-red-500"
-        viewBox="0 0 20 20"
-      />
+      <SolidExclamationCircleIcon class="w-5 h-5 text-red-500" />
     </div>
   </div>
 </template>
@@ -75,10 +78,10 @@ export default {
       default: "",
     },
     errors: {
-      type: Array | String,
+      type: [Array, String],
       default: () => [],
     },
-    value: {
+    modelValue: {
       required: true,
       type: Array,
     },
@@ -91,10 +94,10 @@ export default {
   methods: {
     handleFileChange(e) {
       this.files = Array.from(e.target.files);
-      this.$emit("input", this.files);
+      this.$emit("update:modelValue", this.files);
     },
     sort(e) {
-      this.$emit("input", this.files);
+      this.$emit("update:modelValue", this.files);
     },
     removeFile(index) {
       let newValue = [...this.files];
@@ -102,7 +105,7 @@ export default {
       newValue.splice(index, 1);
 
       this.files = newValue;
-      this.$emit("input", this.files);
+      this.$emit("update:modelValue", this.files);
     },
   },
 };

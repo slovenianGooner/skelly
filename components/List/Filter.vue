@@ -2,9 +2,9 @@
   <div v-if="open">
     <slot />
     <slot name="clear" v-if="activeFilters().length">
-      <x-button-form-md @click="$emit('clear', queryWithoutFilters())">
+      <XButtonForm @click="$emit('clear', queryWithoutFilters())">
         {{ clear }}
-      </x-button-form-md>
+      </XButtonForm>
     </slot>
   </div>
 </template>

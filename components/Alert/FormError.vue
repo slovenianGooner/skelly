@@ -2,13 +2,15 @@
   <div class="rounded-md bg-red-50 p-4" v-if="errorCount">
     <div class="flex items-center">
       <div class="flex-shrink-0">
-        <x-icon-exclamation-circle class="text-red-500" />
+        <SolidExclamationCircleIcon class="w-6 h-6 text-red-500" />
       </div>
       <div class="ml-3">
         <div class="text-sm text-red-700">
           <ul :class="{ 'list-disc pl-5 space-y-1': errorCount > 1 }">
             <template v-for="group in errors">
-              <li v-for="error in parseGroup(group)">{{ error }}</li>
+              <li v-for="(error, index) in parseGroup(group)" :key="index">
+                {{ error }}
+              </li>
             </template>
           </ul>
         </div>

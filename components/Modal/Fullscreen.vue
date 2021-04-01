@@ -1,10 +1,12 @@
 <template>
-  <x-modal
+  <XModal
     ref="modal"
     fullscreen
-    container-class="w-screen h-screen"
-    modal-class="flex flex-col block left-0 top-0 bg-white text-left transform transition-all w-screen h-screen divide-y divide-y-gray-200"
+    :transition="false"
     v-bind="$attrs"
+    class="overflow-y-none"
+    container-class="w-screen h-screen"
+    modal-class="flex flex-col left-0 top-0 bg-white text-left transform transition-all w-screen h-screen overflow-hidden divide-y divide-y-gray-200"
   >
     <template #header>
       <slot name="header" />
@@ -13,7 +15,7 @@
     <template #footer="{ close }">
       <slot name="footer" :close="close" />
     </template>
-  </x-modal>
+  </XModal>
 </template>
 <script>
 export default {

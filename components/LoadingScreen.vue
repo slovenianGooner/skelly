@@ -8,11 +8,11 @@
     leave-to-class="opacity-0"
   >
     <div
-      v-show="value"
+      v-show="modelValue"
       v-bind="$attrs"
       class="w-full h-screen fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-90 z-20 text-red-500"
     >
-      <x-icon-spinner />
+      <XSpinnerIcon />
     </div>
   </transition>
 </template>
@@ -20,7 +20,7 @@
 export default {
   inheritAttrs: false,
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       required: true,
     },

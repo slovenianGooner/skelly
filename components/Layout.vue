@@ -37,7 +37,7 @@
                 class="ml-1 flex items-center justify-center h-12 w-10 rounded-full focus:outline-none"
               >
                 <span class="sr-only">Close sidebar</span>
-                <x-icon-x class="text-white" />
+                <SolidXIcon class="w-6 h-6 text-white" />
               </button>
             </div>
             <!-- Logo or brand text display -->
@@ -100,8 +100,7 @@
           :class="[headerTextColor, mobileBreakpoint]"
         >
           <span class="sr-only">Open sidebar</span>
-          <!-- Heroicon name: outline/menu-alt-2 -->
-          <x-icon-hamburger />
+          <SolidMenuIcon class="w-6 h-6" />
         </button>
 
         <div class="flex-1 px-4 flex justify-end ml-4 md:ml-6">
@@ -113,7 +112,7 @@
           </div>
           <!-- User actions dropdown -->
           <div class="ml-3 flex items-center" v-if="userMenu">
-            <x-button-dropdown>
+            <XButtonDropdown>
               <template #button="{ toggleDropdown }">
                 <slot name="userMenuButton" :toggleUserMenu="toggleDropdown">
                   <button
@@ -123,7 +122,7 @@
                     @click="toggleDropdown"
                     aria-haspopup="true"
                   >
-                    <x-icon-user size="w-6 h-6 mr-1.5" />
+                    <OutlineUserIcon class="w-6 h-6 mr-1.5" />
                     {{ username }}
                   </button>
                 </slot>
@@ -138,7 +137,7 @@
                   >
                 </slot>
               </template>
-            </x-button-dropdown>
+            </XButtonDropdown>
           </div>
         </div>
       </div>

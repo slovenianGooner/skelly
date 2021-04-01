@@ -4,6 +4,8 @@
     @click="$emit('click', $event)"
     class="inline-flex items-center border border-transparent font-medium rounded-md shadow-sm focus:outline-none"
     :class="[
+      $attrs.class,
+      buttonSize,
       buttonColor,
       textColor,
       noRing ? '' : 'focus:ring-2 focus:ring-offset-2',
@@ -14,6 +16,7 @@
 </template>
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     handleClick: {
       type: Function,
@@ -21,6 +24,10 @@ export default {
     type: {
       type: String,
       default: "button",
+    },
+    size: {
+      type: String,
+      default: "md",
     },
     color: {
       type: String,
@@ -35,6 +42,29 @@ export default {
     },
   },
   computed: {
+    buttonSize() {
+      if (this.size === "xs") {
+        return "px-2.5 py-1.5 text-xs";
+      }
+
+      if (this.size === "sm") {
+        return "px-3 py-2 text-sm";
+      }
+
+      if (this.size === "md") {
+        return "px-4 py-2 text-sm";
+      }
+
+      if (this.size === "lg") {
+        return "px-4 py-2 text-base";
+      }
+
+      if (this.size === "xl") {
+        return "px-6 py-3 text-base";
+      }
+
+      return this.size;
+    },
     buttonColor() {
       if (this.color === "") {
         return "bg-white hover:bg-gray-50 focus:ring-gray-500 border-gray-300";

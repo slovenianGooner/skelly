@@ -1,13 +1,13 @@
 <template>
-  <x-modal ref="modal" v-bind="$attrs">
+  <XModal ref="modal" v-bind="$attrs">
     <template #header>
       <slot name="header" />
     </template>
     <slot />
     <template #footer="{ close }">
       <div class="flex justify-end items-center space-x-2">
-        <x-button-form-md @click="close">{{ cancel }}</x-button-form-md>
-        <x-button-form-md
+        <XButtonForm @click="close">{{ cancel }}</XButtonForm>
+        <XButtonForm
           color="red"
           text-color="text-white"
           @click="
@@ -16,10 +16,10 @@
           "
         >
           {{ confirm }}
-        </x-button-form-md>
+        </XButtonForm>
       </div>
     </template>
-  </x-modal>
+  </XModal>
 </template>
 <script>
 export default {

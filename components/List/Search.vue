@@ -6,7 +6,7 @@
       ref="form"
       class="relative flex flex-grow focus-within:z-10"
     >
-      <x-input-text-button
+      <XInputTextButton
         v-model="search"
         :button="searchTitle"
         :placeholder="placeholder"
@@ -23,7 +23,7 @@ export default {
       type: String,
       default: "Search here...",
     },
-    value: {
+    modelValue: {
       required: true,
     },
     searchTitle: {
@@ -33,12 +33,12 @@ export default {
   },
   data() {
     return {
-      search: this.value,
+      search: this.modelValue,
     };
   },
   methods: {
     submit() {
-      this.$emit("submit", this.search);
+      this.$emit("search", this.search);
     },
   },
 };

@@ -7,7 +7,7 @@
 export default {
   props: {
     errors: {
-      type: Array | String,
+      type: [Array, String],
       default: () => [],
       required: true,
     },

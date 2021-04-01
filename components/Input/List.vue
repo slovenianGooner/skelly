@@ -11,8 +11,8 @@
         <div v-if="header && !simple" class="flex items-center">
           <div class="border-r border-gray-300 p-2">
             <a href="#" @click.prevent="toggle(index)" class="text-gray-700">
-              <x-icon-minus v-if="item.open" size="w-5 h-5" />
-              <x-icon-plus v-else size="w-5 h-5" />
+              <SolidMinusIcon v-if="item.open" class="w-5 h-5" />
+              <SolidPlusIcon v-else class="w-5 h-5" />
             </a>
           </div>
           <div class="px-4 text-gray-700 font-semibold">#{{ index + 1 }}</div>
@@ -32,17 +32,17 @@
               v-if="index > 0 && !simple"
               @click.prevent="moveUp(index)"
             >
-              <x-icon-arrow-up size="w-5 h-5" />
+              <SolidArrowUpIcon class="w-5 h-5" />
             </a>
             <a
               href="#"
               v-if="index < items.length - 1 && !simple"
               @click.prevent="moveDown(index)"
             >
-              <x-icon-arrow-down size="w-5 h-5" />
+              <SolidArrowDownIcon class="w-5 h-5" />
             </a>
             <a href="#" @click.prevent="removeItem(index)">
-              <x-icon-trash size="w-5 h-5" />
+              <OutlineTrashIcon class="w-5 h-5" />
             </a>
           </div>
           <div
@@ -54,11 +54,11 @@
       </div>
     </div>
     <div class="mt-4 flex items-center space-x-2">
-      <x-button-form-sm @click="add">
-        <x-icon-plus size="w-5 h-5" class="mr-1.5" />
+      <XButtonForm size="sm" @click="add">
+        <SolidPlusIcon class="w-5 h-5 mr-1.5" />
         {{ addNew }}
-      </x-button-form-sm>
-      <div v-if="$slots.buttons || $scopedSlots.buttons">
+      </XButtonForm>
+      <div v-if="$slots.buttons">
         <slot name="buttons" />
       </div>
     </div>
@@ -81,7 +81,7 @@ export default {
       type: String,
       default: "Add new",
     },
-    value: {
+    modelValue: {
       type: Array,
       required: true,
     },
@@ -106,13 +106,13 @@ export default {
     items: {
       deep: true,
       handler() {
-        this.$emit("input", this.items);
+        this.$emit("update:modelValue", this.items);
       },
     },
   },
   data() {
     return {
-      items: this.value,
+      items: this.modelValue,
     };
   },
   created() {

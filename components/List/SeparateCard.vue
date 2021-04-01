@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="$slots.header || $scopedSlots.header" class="mb-3">
+    <div v-if="$slots.header" class="mb-3">
       <slot name="header" />
     </div>
     <div v-if="data.length">
@@ -23,7 +23,7 @@
       </span>
       <span v-else>{{ empty }}</span>
     </div>
-    <div v-if="$slots.footer || $scopedSlots.footer" class="mt-3">
+    <div v-if="$slots.footer" class="mt-3">
       <slot name="footer" />
     </div>
   </div>
@@ -36,7 +36,7 @@ export default {
       default: () => [],
     },
     empty: {
-      type: Boolean | String,
+      type: [Boolean, String],
       default: "No items yet.",
     },
   },

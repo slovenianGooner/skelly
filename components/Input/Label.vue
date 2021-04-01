@@ -13,13 +13,10 @@
 export default {
   props: {
     errors: {
-      type: Array | String,
-      default: () => [],
-    },
-  },
-  methods: {
-    handleInput(e) {
-      this.$emit("input", e.target.value);
+      type: [Array, String],
+      default: () => {
+        return [];
+      },
     },
   },
 };

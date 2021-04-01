@@ -1,6 +1,6 @@
 {
   "name": "sg-skelly",
-  "version": "1.0.22",
+  "version": "3.0.1",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -15,11 +15,12 @@
   },
   "homepage": "https://github.com/slovenianGooner/skelly#readme",
   "dependencies": {
+    "@heroicons/vue": "^1.0.0",
     "@popperjs/core": "^2.8.6",
     "lodash": "^4.17.20",
     "nanoid": "^3.1.20",
-    "vue": "^2.6.12",
-    "vue-clickaway": "^2.2.2",
-    "vuedraggable": "^2.24.3"
+    "vue": "^3.0.10",
+    "vue3-click-away": "^1.1.0",
+    "vuedraggable": "^4.0.1"
   }
 }

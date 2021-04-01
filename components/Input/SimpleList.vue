@@ -1,26 +1,24 @@
 <template>
-  <x-input-list
+  <XInputList
     :collapsed="false"
-    :value="items"
-    @input="handleInput"
+    :modelValue="items"
+    @update:modelValue="handleInput"
     v-bind="$attrs"
     simple
   >
     <template #default="{ item, index, extraData }">
       <slot :item="item" :index="index" :extraData="extraData" />
     </template>
-  </x-input-list>
+  </XInputList>
 </template>
 <script>
-import Template from "../Icon/Template.vue";
 export default {
-  components: { Template },
   props: {
     collapsed: {
       type: Boolean,
       default: false,
     },
-    value: {
+    modelValue: {
       type: Array,
       required: true,
     },
@@ -31,14 +29,14 @@ export default {
     };
   },
   created() {
-    this.items = this.value.map((item) => {
+    this.items = this.modelValue.map((item) => {
       return { value: item, collapsed: false };
     });
   },
   methods: {
     handleInput(e) {
       this.$emit(
-        "input",
+        "update:modelValue",
         e.map((item) => {
           return item.value;
         })

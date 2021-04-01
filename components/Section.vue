@@ -7,10 +7,10 @@
         </span>
         <span v-else>{{ title }}</span>
       </div>
-      <x-button-form-xs @click="toggle">
-        <x-icon-minus v-if="open" />
-        <x-icon-plus v-else />
-      </x-button-form-xs>
+      <XButtonForm size="xs" @click="toggle">
+        <SolidMinusIcon class="w-6 h-6" v-if="open" />
+        <SolidPlusIcon class="w-6 h-6" v-else />
+      </XButtonForm>
     </div>
     <div v-if="open" class="px-4 py-6 sm:px-6">
       <slot />

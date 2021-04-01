@@ -1,9 +1,8 @@
 <template>
-  <div class="mt-1 relative" v-on-clickaway="closeMenu" v-updown>
+  <div class="mt-1 relative" v-click-away="closeMenu" v-updown>
     <button
       @click="toggle"
       type="button"
-      ref="button"
       aria-haspopup="listbox"
       aria-expanded="true"
       aria-labelledby="listbox-label"
@@ -12,13 +11,13 @@
       <slot
         name="selectedLabel"
         :selected="selected"
-        v-if="$slots.selectedLabel || $scopedSlots.selectedLabel"
+        v-if="$slots.selectedLabel"
       />
       <span class="block truncate" v-html="resolveSelected()" v-else> </span>
       <span
         class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
       >
-        <x-icon-selector class="text-gray-400" size="w-5 h-5" />
+        <SolidSelectorIcon class="text-gray-400 w-5 h-5" />
       </span>
     </button>
 
@@ -26,11 +25,7 @@
       class="absolute inset-y-0 right-0 pr-8 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <x-icon-exclamation-circle
-        size="w-5 h-5"
-        class="text-red-500"
-        viewBox="0 0 20 20"
-      />
+      <SolidExclamationCircleIcon class="w-5 h-5 text-red-500" />
     </div>
 
     <transition
@@ -58,7 +53,7 @@
             class="group text-gray-900 cursor-default select-none relative py-2 px-3 cursor-pointer"
             v-if="search"
           >
-            <x-input-text
+            <XInputText
               :placeholder="searchPlaceholder"
               v-model="searchQuery"
             />
@@ -80,7 +75,7 @@
               v-if="isSelected(empty)"
               class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
             >
-              <x-icon-check size="w-5 h-5" />
+              <SolidCheckIcon class="w-5 h-5" />
             </span>
           </li>
           <li
@@ -92,7 +87,7 @@
           >
             <slot
               name="label"
-              v-if="$slots.label || $scopedSlots.label"
+              v-if="$slots.label"
               :resolve-label="resolveLabel"
               :is-selected="isSelected"
               :option="option"
@@ -110,17 +105,17 @@
               v-if="isSelected(option)"
               class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
             >
-              <x-icon-check size="w-5 h-5" />
+              <SolidCheckIcon class="w-5 h-5" />
             </span>
           </li>
         </ul>
       </div>
     </transition>
 
-    <div class="-mt-1" v-if="multiple && value.length > 0" ref="deselect">
+    <div class="-mt-1" v-if="multiple && modelValue.length > 0" ref="deselect">
       <button
         class="text-xs underline text-gray-700"
-        @click="$emit('input', [])"
+        @click="$emit('update:modelValue', [])"
       >
         {{ deselectAll }}
       </button>
@@ -128,43 +123,38 @@
   </div>
 </template>
 <script>
-import { mixin as clickaway } from "vue-clickaway";
+import { directive } from "vue3-click-away";
 
 export default {
   inheritAttrs: false,
-  mixins: [clickaway],
   directives: {
+    ClickAway: directive,
     updown: {
-      inserted(el, binding, vnode) {
+      mounted(el, binding, vnode, prevVNode) {
         el.addEventListener("click", () => {
           let space = window.innerHeight - el.getBoundingClientRect().bottom;
+          let button = el.children[0];
+          let dropdown = el.children[1];
+          let deselect = el.children[2];
+          let height = Math.max(button.offsetHeight);
 
-          let height = Math.max(vnode.context.$refs.button.offsetHeight);
-
-          if (vnode.context.$refs.dropdown) {
-            height += vnode.context.$refs.dropdown.offsetHeight;
+          if (dropdown) {
+            height += dropdown.offsetHeight;
           }
 
           // Button height
-          let buttonHeight = vnode.context.$refs.button.offsetHeight + 4;
-          if (vnode.context.$refs.deselect !== undefined) {
-            buttonHeight += vnode.context.$refs.deselect.offsetHeight - 4;
+          let buttonHeight = button.offsetHeight + 4;
+          if (deselect !== undefined) {
+            buttonHeight += deselect.offsetHeight - 4;
           }
 
-          if (vnode.context.$refs.dropdown) {
+          if (dropdown) {
             if (space < height) {
-              vnode.context.$refs.dropdown.classList.add(
-                "bottom-0",
-                "transform"
-              );
-              vnode.context.$refs.dropdown.style =
-                "--tw-translate-y: -" + buttonHeight + "px";
+              dropdown.classList.add("bottom-0", "transform");
+              dropdown.style = "--tw-translate-y: -" + buttonHeight + "px";
             } else {
-              vnode.context.$refs.dropdown.classList.remove(
-                "bottom-0",
-                "transform"
-              );
-              vnode.context.$refs.dropdown.style = "--tw-translate-y: 0px";
+              dropdown.classList.remove("bottom-0", "transform");
+              dropdown.style = "--tw-translate-y: 0px";
             }
           }
         });
@@ -173,7 +163,7 @@ export default {
   },
   props: {
     search: {
-      type: Boolean | Function,
+      type: [Boolean, Function],
     },
     searchPlaceholder: {
       type: String,
@@ -182,7 +172,7 @@ export default {
     multiple: {
       type: Boolean,
     },
-    value: {
+    modelValue: {
       required: true,
     },
     options: {
@@ -190,7 +180,7 @@ export default {
       default: () => [],
     },
     errors: {
-      type: Array | String,
+      type: [Array, String],
       default: () => [],
     },
     empty: {
@@ -257,12 +247,12 @@ export default {
       this.searchQuery = "";
     },
     selectEmpty(option) {
-      this.$emit("input", null);
+      this.$emit("update:modelValue", null);
       this.closeMenu();
     },
     select(option) {
       if (this.multiple) {
-        let newValue = [...this.value];
+        let newValue = [...this.modelValue];
 
         if (this.isSelected(option)) {
           newValue.splice(this.valueIndex(option), 1);
@@ -270,19 +260,19 @@ export default {
           newValue.push(this.resolveValue(option));
         }
 
-        this.$emit("input", newValue);
+        this.$emit("update:modelValue", newValue);
         return;
       }
 
-      this.$emit("input", this.resolveValue(option));
+      this.$emit("update:modelValue", this.resolveValue(option));
       this.closeMenu();
     },
     valueIndex(item) {
-      if (!this.value instanceof Array) {
+      if (!this.modelValue instanceof Array) {
         return -1;
       }
 
-      return this.value.indexOf(this.resolveValue(item));
+      return this.modelValue.indexOf(this.resolveValue(item));
     },
     selected() {
       let selected = this.optionsList.filter((option) => {
@@ -297,12 +287,12 @@ export default {
     },
     isSelected(item) {
       if (this.multiple) {
-        return this.value.indexOf(this.resolveValue(item)) !== -1;
+        return this.modelValue.indexOf(this.resolveValue(item)) !== -1;
       }
-      return this.resolveValue(item) === this.value;
+      return this.resolveValue(item) === this.modelValue;
     },
     resolveSelected() {
-      if (this.multiple && this.value.length === 0) {
+      if (this.multiple && this.modelValue.length === 0) {
         return this.noOptionsSelected;
       }
 
@@ -314,7 +304,7 @@ export default {
           .join(", ");
       }
 
-      if (this.value === this.empty.value) {
+      if (this.modelValue === this.empty.value) {
         return this.empty.title;
       }
 

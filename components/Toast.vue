@@ -18,16 +18,16 @@
           <div class="flex items-start">
             <div class="flex-shrink-0" v-if="type || $slots.icon">
               <slot name="icon" v-if="$slots.icon"></slot>
-              <x-icon-check-circle
-                class="text-green-400"
+              <SolidCheckCircleIcon
+                class="w-6 h-6 text-green-400"
                 v-else-if="type === 'success'"
               />
-              <x-icon-exclamation-circle
-                class="text-red-600"
+              <SolidExclamationCircleIcon
+                class="w-6 h-6 text-red-600"
                 v-else-if="type === 'error'"
               />
-              <x-icon-info-circle
-                class="text-blue-500"
+              <SolidInformationCircleIcon
+                class="w-6 h-6 text-blue-500"
                 v-else-if="type === 'info'"
               />
             </div>
@@ -43,7 +43,7 @@
                 class="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span class="sr-only">Close</span>
-                <x-icon-x size="w-5 h-5" />
+                <SolidXIcon class="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default {
       default: null,
     },
     hide: {
-      type: Number | Boolean,
+      type: [Number, Boolean],
       required: true,
     },
   },

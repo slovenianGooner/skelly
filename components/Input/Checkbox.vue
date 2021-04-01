@@ -70,11 +70,14 @@ export default {
           newValue.splice(newValue.indexOf(this.value), 1);
         }
 
-        this.$emit("change", newValue);
+        this.$emit("update:modelValue", newValue);
         return;
       }
 
-      this.$emit("change", isChecked ? this.trueValue : this.falseValue);
+      this.$emit(
+        "update:modelValue",
+        isChecked ? this.trueValue : this.falseValue
+      );
     },
   },
 };

@@ -15,6 +15,7 @@
         </h2>
       </slot>
     </div>
+
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <div>
@@ -26,37 +27,37 @@
           >
             <slot name="form">
               <slot name="errors">
-                <x-alert-form-error :errors="errors" />
+                <XAlertFormError :errors="errors" />
               </slot>
 
               <slot name="username">
                 <div>
-                  <x-input-label for="username" :errors="errors.username">
+                  <XInputLabel for="username" :errors="errors.username">
                     Username
-                  </x-input-label>
+                  </XInputLabel>
                   <div class="mt-1">
-                    <x-input-text
+                    <XInputText
                       v-model="form.username"
                       type="text"
                       name="username"
                       :errors="errors.username"
                     />
-                    <x-input-errors :errors="errors.username" />
+                    <XInputErrors :errors="errors.username" />
                   </div>
                 </div>
               </slot>
 
               <div>
-                <x-input-label for="password" :errors="errors.password"
-                  >Password</x-input-label
-                >
+                <XInputLabel for="password" :errors="errors.password">
+                  Password
+                </XInputLabel>
                 <div class="mt-1">
-                  <x-input-text
+                  <XInputText
                     v-model="form.password"
                     type="password"
                     :errors="errors.password"
-                  ></x-input-text>
-                  <x-input-errors :errors="errors.password" />
+                  />
+                  <XInputErrors :errors="errors.password" />
                 </div>
               </div>
 
@@ -74,7 +75,7 @@
                   class="w-full flex items-center justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2"
                   :class="[buttonColors]"
                 >
-                  <x-icon-login class="mr-1.5" />
+                  <OutlineLoginIcon class="w-6 h-6 mr-1.5" />
                   {{ button }}
                 </button>
               </div>

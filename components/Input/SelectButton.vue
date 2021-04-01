@@ -1,13 +1,12 @@
 <template>
   <div class="flex rounded-md shadow-sm">
-    <x-input-select
+    <XInputSelect
       input-class="rounded-r-none"
       class="flex items-stretch flex-grow focus-within:z-10"
-      :value="value"
+      v-model="modelValue"
       :options="options"
-      @input="$emit('input', $event)"
     />
-    <x-button-form-md
+    <XButtonForm
       @click="$emit('click', $event)"
       no-ring
       class="-ml-px rounded-l-none rounded-r-md"
@@ -16,7 +15,7 @@
         <slot name="button" />
       </span>
       <span v-else>{{ button }}</span>
-    </x-button-form-md>
+    </XButtonForm>
   </div>
 </template>
 <script>
@@ -28,19 +27,14 @@ export default {
       default: () => [],
     },
     errors: {
-      type: Array | String,
+      type: [Array, String],
       default: () => [],
     },
-    value: {
+    modelValue: {
       required: true,
     },
     button: {
       type: String,
-    },
-  },
-  methods: {
-    handleInput(e) {
-      this.$emit("input", e.target.value);
     },
   },
 };

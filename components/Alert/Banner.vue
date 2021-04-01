@@ -22,7 +22,7 @@
           class="flex p-2 rounded-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-white"
         >
           <span class="sr-only">Dismiss</span>
-          <x-icon-x class="text-white" />
+          <SolidXIcon class="w-6 h-6 text-white" />
         </button>
       </div>
     </div>

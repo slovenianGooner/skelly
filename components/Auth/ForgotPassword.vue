@@ -26,21 +26,21 @@
           >
             <slot name="form">
               <slot name="errors">
-                <x-alert-form-error :errors="errors" />
+                <XAlertFormError :errors="errors" />
               </slot>
 
               <slot name="username">
                 <div>
-                  <x-input-label for="username" :errors="errors.username">
+                  <XInputLabel for="username" :errors="errors.username">
                     Username
-                  </x-input-label>
+                  </XInputLabel>
                   <div class="mt-1">
-                    <x-input-text
+                    <XInputText
                       v-model="form.username"
                       type="email"
                       :errors="errors.username"
                     />
-                    <x-input-errors :errors="errors.username" />
+                    <XInputErrors :errors="errors.username" />
                   </div>
                 </div>
               </slot>

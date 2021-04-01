@@ -2,7 +2,7 @@
   <div
     class="bg-white shadow overflow-hidden rounded-md divide-y divide-gray-200"
   >
-    <div v-if="$slots.header || $scopedSlots.header">
+    <div v-if="$slots.header">
       <slot name="header" />
     </div>
     <slot name="body" :data="data">
@@ -23,7 +23,7 @@
         <span v-else>{{ empty }}</span>
       </div>
     </slot>
-    <div v-if="$slots.footer || $scopedSlots.footer">
+    <div v-if="$slots.footer">
       <slot name="footer" />
     </div>
   </div>
@@ -36,7 +36,7 @@ export default {
       default: () => [],
     },
     empty: {
-      type: Boolean | String,
+      type: [Boolean, String],
       default: "No items yet.",
     },
   },

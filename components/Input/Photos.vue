@@ -3,48 +3,58 @@
     class="relative border rounded flex flex-col items-center"
     :class="[errors.length > 0 ? 'border-red-500' : 'border-gray-300']"
   >
-    <slot name="selected" :value="value">
+    <slot name="selected" :value="modelValue">
       <div class="text-sm w-full border-b text-gray-700">
-        <div v-if="value.length > 0">
-          <draggable class="divide-y" v-model="photos" @change="sort">
-            <div
-              v-for="(photo, index) in photos"
-              class="py-2 px-2 grid gap-4 grid-cols-2 sm:grid-cols-6 md:grid-cols-2 lg:grid-cols-6"
-            >
-              <div class="flex col-span-2 xl:col-span-1">
-                <x-icon-selector size="w-5 h-5" class="mr-1.5 cursor-pointer" />
+        <div v-if="modelValue.length > 0">
+          <draggable
+            class="divide-y"
+            v-model="photos"
+            @change="sort"
+            item-key="index"
+          >
+            <template #item="{ element, index }">
+              <div
+                class="py-2 px-2 grid gap-4 grid-cols-2 sm:grid-cols-6 md:grid-cols-2 lg:grid-cols-6"
+              >
+                <div class="flex col-span-2 xl:col-span-1">
+                  <SolidSelectorIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
 
-                <div
-                  class="w-full border border-gray-300 rounded overflow-hidden"
-                >
-                  <img
-                    :src="photo.img"
-                    alt=""
-                    class="object-cover h-64 sm:h-32 md:h-64 lg:h-32 w-full"
-                  />
+                  <div
+                    class="w-full border border-gray-300 rounded overflow-hidden"
+                  >
+                    <img
+                      :src="element.img"
+                      alt=""
+                      class="object-cover h-64 sm:h-32 md:h-64 lg:h-32 w-full"
+                    />
+                  </div>
+                </div>
+                <div class="col-span-2 sm:col-span-4 xl:col-span-5">
+                  <div class="truncate">{{ element.name }}</div>
+                  <button class="underline" @click="removePhoto(index)">
+                    Remove
+                  </button>
                 </div>
               </div>
-              <div class="col-span-2 sm:col-span-4 xl:col-span-5">
-                <div class="truncate">{{ photo.name }}</div>
-                <button class="underline" @click="removePhoto(index)">
-                  Remove
-                </button>
-              </div>
-            </div>
+            </template>
           </draggable>
         </div>
         <div v-else class="p-4 flex justify-center">No photos selected.</div>
       </div>
     </slot>
     <div class="space-x-2 p-4">
-      <x-button-form-xs @click="$refs.fileInput.click()">
-        <x-icon-folder size="w-4 h-4" class="mr-1.5" />
+      <XButtonForm size="xs" @click="$refs.fileInput.click()">
+        <SolidFolderIcon class="w-4 h-4 mr-1.5" />
         {{ button }}
-      </x-button-form-xs>
-      <x-button-form-xs @click="$emit('input', [])" v-if="value">
-        <x-icon-trash size="w-4 h-4" class="mr-1.5" />
+      </XButtonForm>
+      <XButtonForm
+        size="xs"
+        @click="$emit('update:modelValue', [])"
+        v-if="modelValue"
+      >
+        <SolidTrashIcon class="w-4 h-4 mr-1.5" />
         {{ clear }}
-      </x-button-form-xs>
+      </XButtonForm>
     </div>
     <input
       multiple
@@ -59,11 +69,7 @@
       class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <x-icon-exclamation-circle
-        size="w-5 h-5"
-        class="text-red-500"
-        viewBox="0 0 20 20"
-      />
+      <SolidExclamationCircleIcon class="w-5 h-5 text-red-500" />
     </div>
   </div>
 </template>
@@ -89,10 +95,10 @@ export default {
       default: "",
     },
     errors: {
-      type: Array | String,
+      type: [Array, String],
       default: () => [],
     },
-    value: {
+    modelValue: {
       required: true,
       type: Array,
     },
@@ -128,11 +134,11 @@ export default {
 
       Promise.all(this.photos).then((photos) => {
         this.photos = photos;
-        this.$emit("input", this.photos);
+        this.$emit("update:modelValue", this.photos);
       });
     },
     sort(e) {
-      this.$emit("input", this.photos);
+      this.$emit("update:modelValue", this.photos);
     },
     removePhoto(index) {
       let newValue = [...this.photos];
@@ -140,7 +146,7 @@ export default {
       newValue.splice(index, 1);
 
       this.photos = newValue;
-      this.$emit("input", this.photos);
+      this.$emit("update:modelValue", this.photos);
     },
   },
 };

@@ -23,7 +23,7 @@
         class="flex-1 flex justify-between sm:justify-end space-x-2"
         v-if="data.next_page_url || data.prev_page_url"
       >
-        <x-button-form-md
+        <XButtonForm
           v-if="data.prev_page_url"
           @click="
             $emit('change', {
@@ -33,8 +33,8 @@
           "
         >
           {{ previous }}
-        </x-button-form-md>
-        <x-button-form-md
+        </XButtonForm>
+        <XButtonForm
           v-if="data.next_page_url"
           @click="
             $emit('change', {
@@ -44,7 +44,7 @@
           "
         >
           {{ next }}
-        </x-button-form-md>
+        </XButtonForm>
       </div>
     </slot>
   </nav>

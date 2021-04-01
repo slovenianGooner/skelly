@@ -26,52 +26,52 @@
           >
             <slot name="form">
               <slot name="errors">
-                <x-alert-form-error :errors="errors" />
+                <XAlertFormError :errors="errors" />
               </slot>
 
               <slot name="username">
                 <div>
-                  <x-input-label for="username" :errors="errors.username">
+                  <XInputLabel for="username" :errors="errors.username">
                     Username
-                  </x-input-label>
+                  </XInputLabel>
                   <div class="mt-1">
-                    <x-input-text
+                    <XInputText
                       v-model="form.username"
                       type="email"
                       :errors="errors.username"
                     />
-                    <x-input-errors :errors="errors.username" />
+                    <XInputErrors :errors="errors.username" />
                   </div>
                 </div>
               </slot>
 
               <div>
-                <x-input-label for="password" :errors="errors.password"
-                  >Password</x-input-label
+                <XInputLabel for="password" :errors="errors.password"
+                  >Password</XInputLabel
                 >
                 <div class="mt-1">
-                  <x-input-text
+                  <XInputText
                     v-model="form.password"
                     type="password"
                     :errors="errors.password"
-                  ></x-input-text>
-                  <x-input-errors :errors="errors.password" />
+                  ></XInputText>
+                  <XInputErrors :errors="errors.password" />
                 </div>
               </div>
 
               <div>
-                <x-input-label
+                <XInputLabel
                   for="password_confirmation"
                   :errors="errors.password_confirmation"
-                  >Confirm Password</x-input-label
+                  >Confirm Password</XInputLabel
                 >
                 <div class="mt-1">
-                  <x-input-text
+                  <XInputText
                     v-model="form.password_confirmation"
                     type="password"
                     :errors="errors.password_confirmation"
-                  ></x-input-text>
-                  <x-input-errors :errors="errors.password_confirmation" />
+                  ></XInputText>
+                  <XInputErrors :errors="errors.password_confirmation" />
                 </div>
               </div>
 

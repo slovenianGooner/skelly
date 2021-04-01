@@ -1,13 +1,12 @@
 <template>
   <div class="flex rounded-md shadow-sm">
-    <x-input-text
+    <XInputText
       input-class="rounded-r-none"
       class="flex items-stretch flex-grow focus-within:z-10 text-sm"
-      :value="value"
+      v-model="modelValue"
       v-bind="omit($attrs, 'type')"
-      @input="$emit('input', $event)"
     />
-    <x-button-form-md
+    <XButtonForm
       @click="$emit('click', $event)"
       :type="$attrs.type ? $attrs.type : 'button'"
       no-ring
@@ -17,7 +16,7 @@
         <slot name="button" />
       </span>
       <span v-else>{{ button }}</span>
-    </x-button-form-md>
+    </XButtonForm>
   </div>
 </template>
 <script>
@@ -26,10 +25,10 @@ export default {
   inheritAttrs: false,
   props: {
     errors: {
-      type: Array | String,
+      type: [Array, String],
       default: () => [],
     },
-    value: {
+    modelValue: {
       required: true,
     },
     button: {
@@ -43,7 +42,7 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.$emit("input", e.target.value);
+      this.$emit("update:modelValue", e.target.value);
     },
   },
 };

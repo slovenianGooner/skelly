@@ -1,27 +1,28 @@
 <template>
   <div class="fixed z-10 inset-0 overflow-y-auto" v-show="open" tabindex="0">
     <div :class="[containerClass]">
-      <component
-        :is="transition ? 'transition' : 'div'"
+      <transition
+        v-if="transition"
         name="modal-backdrop"
         enter-active-class="ease-out duration-300"
-        enter-class="opacity-0"
+        enter-from-class="opacity-0"
         enter-to-class="opacity-100"
         leave-active-class="ease-in duration-300"
-        leave-class="opacity-100"
+        leave-from-class="opacity-100"
         leave-to-class="opacity-0"
       >
-        <div
-          class="fixed inset-0 transition-opacity"
-          aria-hidden="true"
-          v-show="open"
+        <XModalBackdrop
           @click="dismissable ? (open = false) : null"
-        >
-          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-        </div>
-      </component>
+          v-show="open"
+        />
+      </transition>
+      <div v-else>
+        <XModalBackdrop
+          @click="dismissable ? (open = false) : null"
+          v-show="open"
+        />
+      </div>
 
-      <!-- This element is to trick the browser into centering the modal contents. -->
       <span
         class="hidden sm:inline-block sm:align-middle sm:h-screen"
         aria-hidden="true"
@@ -29,15 +30,14 @@
         >&#8203;</span
       >
 
-      <component
-        :is="transition ? 'transition' : 'div'"
-        :class="[!transition ? modalClass : '']"
+      <transition
+        v-if="transition"
         name="modal"
         enter-active-class="ease-out duration-300"
-        enter-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        enter-from-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         enter-to-class="opacity-100 translate-y-0 sm:scale-100"
         leave-active-class="ease-in duration-300"
-        leave-class="opacity-100 translate-y-0 sm:scale-100"
+        leave-from-class="opacity-100 translate-y-0 sm:scale-100"
         leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       >
         <div
@@ -47,23 +47,28 @@
           aria-labelledby="modal-headline"
           v-show="open"
         >
-          <div
-            class="px-4 py-5 sm:px-6"
-            v-if="$slots.header || $scopedSlots.header"
-          >
+          <div class="px-4 py-5 sm:px-6" v-if="$slots.header">
             <slot name="header" :close="close" />
           </div>
           <div class="px-4 py-5 sm:p-6 flex-1 overflow-y-auto">
             <slot :close="close" />
           </div>
-          <div
-            class="px-4 py-4 sm:px-6"
-            v-if="$slots.footer || $scopedSlots.footer"
-          >
+          <div class="px-4 py-4 sm:px-6" v-if="$slots.footer">
             <slot name="footer" :close="close" />
           </div>
         </div>
-      </component>
+      </transition>
+      <div v-else :class="[modalClass]">
+        <div class="px-4 py-5 sm:px-6" v-if="$slots.header">
+          <slot name="header" :close="close" />
+        </div>
+        <div class="px-4 py-5 sm:p-6 flex-1 overflow-y-auto">
+          <slot :close="close" />
+        </div>
+        <div class="px-4 py-4 sm:px-6" v-if="$slots.footer">
+          <slot name="footer" :close="close" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -116,9 +121,9 @@ export default {
       }
     };
     document.addEventListener("keydown", onEscape);
-    this.$once("hook:destroyed", () => {
-      document.removeEventListener("keydown", onEscape);
-    });
+    // this.$on("hook:destroyed", () => {
+    //   document.removeEventListener("keydown", onEscape);
+    // });
   },
   methods: {
     show() {

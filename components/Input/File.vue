@@ -3,20 +3,20 @@
     class="relative border rounded p-4 flex flex-col items-center"
     :class="[errors.length > 0 ? 'border-red-500' : 'border-gray-300']"
   >
-    <slot name="selected" :value="value">
+    <slot name="selected" :value="modelValue">
       <div class="text-sm mb-4">
-        {{ value ? value.name : "No file selected." }}
+        {{ modelValue ? modelValue.name : "No file selected." }}
       </div>
     </slot>
     <div class="space-x-2">
-      <x-button-form-xs @click="$refs.fileInput.click()">
-        <x-icon-folder size="w-4 h-4" class="mr-1.5" />
+      <XButtonForm size="xs" @click="$refs.fileInput.click()">
+        <SolidFolderIcon class="w-4 h-4 mr-1.5" />
         {{ button }}
-      </x-button-form-xs>
-      <x-button-form-xs @click="clearFileInputValue" v-if="value">
-        <x-icon-trash size="w-4 h-4" class="mr-1.5" />
+      </XButtonForm>
+      <XButtonForm size="xs" @click="clearFileInputValue" v-if="modelValue">
+        <SolidTrashIcon class="w-4 h-4 mr-1.5" />
         {{ clear }}
-      </x-button-form-xs>
+      </XButtonForm>
     </div>
     <input
       type="file"
@@ -28,11 +28,7 @@
       class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <x-icon-exclamation-circle
-        size="w-5 h-5"
-        class="text-red-500"
-        viewBox="0 0 20 20"
-      />
+      <SolidExclamationCircleIcon class="w-5 h-5 text-red-500" />
     </div>
   </div>
 </template>
@@ -53,21 +49,20 @@ export default {
       default: "",
     },
     errors: {
-      type: Array | String,
+      type: [Array, String],
       default: () => [],
     },
-    value: {
+    modelValue: {
       required: true,
-      type: File | null,
     },
   },
   methods: {
     handleFileChange(e) {
-      this.$emit("input", e.target.files[0]);
+      this.$emit("update:modelValue", e.target.files[0]);
     },
     clearFileInputValue() {
       this.$refs.fileInput.value = null;
-      this.$emit("input", null);
+      this.$emit("update:modelValue", null);
     },
   },
 };
