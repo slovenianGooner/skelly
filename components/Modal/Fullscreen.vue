@@ -18,7 +18,11 @@
   </XModal>
 </template>
 <script>
+import XModal from "../Modal";
 export default {
+  components: {
+    XModal,
+  },
   methods: {
     show() {
       this.$refs.modal.show();

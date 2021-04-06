@@ -10,7 +10,11 @@
 </template>
 <script>
 import omit from "lodash/omit";
+import XButtonForm from "../Button/Form";
 export default {
+  components: {
+    XButtonForm,
+  },
   props: {
     clear: {
       type: String,

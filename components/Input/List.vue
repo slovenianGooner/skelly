@@ -11,8 +11,8 @@
         <div v-if="header && !simple" class="flex items-center">
           <div class="border-r border-gray-300 p-2">
             <a href="#" @click.prevent="toggle(index)" class="text-gray-700">
-              <SolidMinusIcon v-if="item.open" class="w-5 h-5" />
-              <SolidPlusIcon v-else class="w-5 h-5" />
+              <MinusIcon v-if="item.open" class="w-5 h-5" />
+              <PlusIcon v-else class="w-5 h-5" />
             </a>
           </div>
           <div class="px-4 text-gray-700 font-semibold">#{{ index + 1 }}</div>
@@ -32,17 +32,17 @@
               v-if="index > 0 && !simple"
               @click.prevent="moveUp(index)"
             >
-              <SolidArrowUpIcon class="w-5 h-5" />
+              <ArrowUpIcon class="w-5 h-5" />
             </a>
             <a
               href="#"
               v-if="index < items.length - 1 && !simple"
               @click.prevent="moveDown(index)"
             >
-              <SolidArrowDownIcon class="w-5 h-5" />
+              <ArrowDownIcon class="w-5 h-5" />
             </a>
             <a href="#" @click.prevent="removeItem(index)">
-              <OutlineTrashIcon class="w-5 h-5" />
+              <TrashIcon class="w-5 h-5" />
             </a>
           </div>
           <div
@@ -55,7 +55,7 @@
     </div>
     <div class="mt-4 flex items-center space-x-2">
       <XButtonForm size="sm" @click="add">
-        <SolidPlusIcon class="w-5 h-5 mr-1.5" />
+        <PlusIcon class="w-5 h-5 mr-1.5" />
         {{ addNew }}
       </XButtonForm>
       <div v-if="$slots.buttons">
@@ -66,8 +66,23 @@
 </template>
 <script>
 import { nanoid } from "nanoid";
-
+import XButtonForm from "../Button/Form";
+import {
+  PlusIcon,
+  MinusIcon,
+  ArrowUpIcon,
+  ArrowDownIcon,
+} from "@heroicons/vue/solid";
+import { TrashIcon } from "@heroicons/vue/outline";
 export default {
+  components: {
+    XButtonForm,
+    PlusIcon,
+    MinusIcon,
+    ArrowUpIcon,
+    ArrowDownIcon,
+    TrashIcon,
+  },
   props: {
     collapsed: {
       type: Boolean,

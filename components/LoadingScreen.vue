@@ -17,7 +17,12 @@
   </transition>
 </template>
 <script>
+import XSpinnerIcon from "../components/SpinnerIcon";
+
 export default {
+  components: {
+    XSpinnerIcon,
+  },
   inheritAttrs: false,
   props: {
     modelValue: {

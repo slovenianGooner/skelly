@@ -10,7 +10,7 @@
             "
             class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
           >
-            <SolidChevronLeftIcon
+            <ChevronLeftIcon
               class="w-5 h-5 flex-shrink-0 -ml-1 mr-1 text-gray-400"
             />
             {{ breadcrumbs.length > 1 ? back : breadcrumbs[0].title }}
@@ -21,7 +21,7 @@
             <template v-for="(breadcrumb, index) in breadcrumbs" :key="index">
               <li>
                 <div class="flex items-center">
-                  <SolidChevronRightIcon
+                  <ChevronRightIcon
                     class="w-5 h-5 flex-shrink-0 text-gray-400"
                     v-if="index > 0"
                   />
@@ -60,7 +60,12 @@
   </div>
 </template>
 <script>
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/solid";
 export default {
+  components: {
+    ChevronLeftIcon,
+    ChevronRightIcon,
+  },
   props: {
     back: {
       type: String,

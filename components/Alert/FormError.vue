@@ -2,7 +2,7 @@
   <div class="rounded-md bg-red-50 p-4" v-if="errorCount">
     <div class="flex items-center">
       <div class="flex-shrink-0">
-        <SolidExclamationCircleIcon class="w-6 h-6 text-red-500" />
+        <ExclamationCircleIcon class="w-6 h-6 text-red-500" />
       </div>
       <div class="ml-3">
         <div class="text-sm text-red-700">
@@ -19,7 +19,12 @@
   </div>
 </template>
 <script>
+import { ExclamationCircleIcon } from "@heroicons/vue/solid";
+
 export default {
+  components: {
+    ExclamationCircleIcon,
+  },
   props: {
     errors: {
       type: Object,

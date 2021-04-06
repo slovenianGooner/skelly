@@ -18,15 +18,15 @@
           <div class="flex items-start">
             <div class="flex-shrink-0" v-if="type || $slots.icon">
               <slot name="icon" v-if="$slots.icon"></slot>
-              <SolidCheckCircleIcon
+              <CheckCircleIcon
                 class="w-6 h-6 text-green-400"
                 v-else-if="type === 'success'"
               />
-              <SolidExclamationCircleIcon
+              <ExclamationCircleIcon
                 class="w-6 h-6 text-red-600"
                 v-else-if="type === 'error'"
               />
-              <SolidInformationCircleIcon
+              <InformationCircleIcon
                 class="w-6 h-6 text-blue-500"
                 v-else-if="type === 'info'"
               />
@@ -43,7 +43,7 @@
                 class="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span class="sr-only">Close</span>
-                <SolidXIcon class="w-5 h-5" />
+                <XIcon class="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -53,7 +53,19 @@
   </transition>
 </template>
 <script>
+import {
+  CheckCircleIcon,
+  ExclamationCircleIcon,
+  InformationCircleIcon,
+  XIcon,
+} from "@heroicons/vue/solid";
 export default {
+  components: {
+    CheckCircleIcon,
+    ExclamationCircleIcon,
+    InformationCircleIcon,
+    XIcon,
+  },
   props: {
     type: {
       type: String,

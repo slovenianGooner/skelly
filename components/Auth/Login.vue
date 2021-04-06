@@ -23,7 +23,7 @@
             class="space-y-2"
             action="#"
             method="POST"
-            @submit.prevent="$emit('submit', form)"
+            @submit.prevent="$emit('sent', form)"
           >
             <slot name="form">
               <slot name="errors">
@@ -75,7 +75,7 @@
                   class="w-full flex items-center justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2"
                   :class="[buttonColors]"
                 >
-                  <OutlineLoginIcon class="w-6 h-6 mr-1.5" />
+                  <LoginIcon class="w-6 h-6 mr-1.5" />
                   {{ button }}
                 </button>
               </div>
@@ -89,7 +89,20 @@
   </div>
 </template>
 <script>
+import XAlertFormError from "../Alert/FormError";
+import XInputLabel from "../Input/Label";
+import XInputText from "../Input/Text";
+import XInputErrors from "../Input/Errors";
+import { LoginIcon } from "@heroicons/vue/outline";
+
 export default {
+  components: {
+    XAlertFormError,
+    XInputLabel,
+    XInputText,
+    XInputErrors,
+    LoginIcon,
+  },
   props: {
     title: {
       type: String,

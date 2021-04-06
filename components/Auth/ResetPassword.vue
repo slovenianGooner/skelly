@@ -22,7 +22,7 @@
             class="space-y-2"
             action="#"
             method="POST"
-            @submit.prevent="$emit('submit', form)"
+            @submit.prevent="$emit('sent', form)"
           >
             <slot name="form">
               <slot name="errors">
@@ -102,7 +102,18 @@
   </div>
 </template>
 <script>
+import XAlertFormError from "../Alert/FormError";
+import XInputLabel from "../Input/Label";
+import XInputText from "../Input/Text";
+import XInputErrors from "../Input/Errors";
+
 export default {
+  components: {
+    XAlertFormError,
+    XInputLabel,
+    XInputText,
+    XInputErrors,
+  },
   props: {
     title: {
       type: String,

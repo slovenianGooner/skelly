@@ -50,7 +50,12 @@
   </nav>
 </template>
 <script>
+import XButtonForm from "../Button/Form";
+
 export default {
+  components: {
+    XButtonForm,
+  },
   props: {
     data: {
       type: Object,

@@ -12,7 +12,11 @@
   </XInputList>
 </template>
 <script>
+import XInputList from "./List";
 export default {
+  components: {
+    XInputList,
+  },
   props: {
     collapsed: {
       type: Boolean,

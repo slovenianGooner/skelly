@@ -22,14 +22,19 @@
           class="flex p-2 rounded-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-white"
         >
           <span class="sr-only">Dismiss</span>
-          <SolidXIcon class="w-6 h-6 text-white" />
+          <XIcon class="w-6 h-6 text-white" />
         </button>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { XIcon } from "@heroicons/vue/solid";
+
 export default {
+  components: {
+    XIcon,
+  },
   props: {
     color: {
       type: String,

@@ -73,7 +73,12 @@
   </div>
 </template>
 <script>
+import XModalBackdrop from "../components/Modal/Backdrop";
+
 export default {
+  components: {
+    XModalBackdrop,
+  },
   props: {
     fullscreen: {
       type: Boolean,

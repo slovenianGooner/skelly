@@ -10,11 +10,11 @@
     </slot>
     <div class="space-x-2">
       <XButtonForm size="xs" @click="$refs.fileInput.click()">
-        <SolidFolderIcon class="w-4 h-4 mr-1.5" />
+        <FolderIcon class="w-4 h-4 mr-1.5" />
         {{ button }}
       </XButtonForm>
       <XButtonForm size="xs" @click="clearFileInputValue" v-if="modelValue">
-        <SolidTrashIcon class="w-4 h-4 mr-1.5" />
+        <TrashIcon class="w-4 h-4 mr-1.5" />
         {{ clear }}
       </XButtonForm>
     </div>
@@ -28,12 +28,24 @@
       class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <SolidExclamationCircleIcon class="w-5 h-5 text-red-500" />
+      <ExclamationCircleIcon class="w-5 h-5 text-red-500" />
     </div>
   </div>
 </template>
 <script>
+import XButtonForm from "../Button/Form";
+import {
+  ExclamationCircleIcon,
+  FolderIcon,
+  TrashIcon,
+} from "@heroicons/vue/solid";
 export default {
+  components: {
+    XButtonForm,
+    ExclamationCircleIcon,
+    FolderIcon,
+    TrashIcon,
+  },
   inheritAttrs: false,
   props: {
     button: {

@@ -17,7 +17,7 @@
       <span
         class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
       >
-        <SolidSelectorIcon class="text-gray-400 w-5 h-5" />
+        <SelectorIcon class="text-gray-400 w-5 h-5" />
       </span>
     </button>
 
@@ -25,7 +25,7 @@
       class="absolute inset-y-0 right-0 pr-8 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <SolidExclamationCircleIcon class="w-5 h-5 text-red-500" />
+      <ExclamationCircleIcon class="w-5 h-5 text-red-500" />
     </div>
 
     <transition
@@ -75,7 +75,7 @@
               v-if="isSelected(empty)"
               class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
             >
-              <SolidCheckIcon class="w-5 h-5" />
+              <CheckIcon class="w-5 h-5" />
             </span>
           </li>
           <li
@@ -105,7 +105,7 @@
               v-if="isSelected(option)"
               class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
             >
-              <SolidCheckIcon class="w-5 h-5" />
+              <CheckIcon class="w-5 h-5" />
             </span>
           </li>
         </ul>
@@ -124,8 +124,20 @@
 </template>
 <script>
 import { directive } from "vue3-click-away";
+import {
+  SelectorIcon,
+  ExclamationCircleIcon,
+  CheckIcon,
+} from "@heroicons/vue/solid";
+import XInputText from "./Text";
 
 export default {
+  components: {
+    SelectorIcon,
+    ExclamationCircleIcon,
+    CheckIcon,
+    XInputText,
+  },
   inheritAttrs: false,
   directives: {
     ClickAway: directive,

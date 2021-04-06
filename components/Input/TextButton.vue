@@ -21,7 +21,13 @@
 </template>
 <script>
 import omit from "lodash/omit";
+import XButtonForm from "../Button/Form";
+import XInputText from "./Text";
 export default {
+  components: {
+    XButtonForm,
+    XInputText,
+  },
   inheritAttrs: false,
   props: {
     errors: {

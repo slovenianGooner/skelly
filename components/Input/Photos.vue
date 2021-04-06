@@ -17,7 +17,7 @@
                 class="py-2 px-2 grid gap-4 grid-cols-2 sm:grid-cols-6 md:grid-cols-2 lg:grid-cols-6"
               >
                 <div class="flex col-span-2 xl:col-span-1">
-                  <SolidSelectorIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
+                  <SelectorIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
 
                   <div
                     class="w-full border border-gray-300 rounded overflow-hidden"
@@ -44,7 +44,7 @@
     </slot>
     <div class="space-x-2 p-4">
       <XButtonForm size="xs" @click="$refs.fileInput.click()">
-        <SolidFolderIcon class="w-4 h-4 mr-1.5" />
+        <FolderIcon class="w-4 h-4 mr-1.5" />
         {{ button }}
       </XButtonForm>
       <XButtonForm
@@ -52,7 +52,7 @@
         @click="$emit('update:modelValue', [])"
         v-if="modelValue"
       >
-        <SolidTrashIcon class="w-4 h-4 mr-1.5" />
+        <TrashIcon class="w-4 h-4 mr-1.5" />
         {{ clear }}
       </XButtonForm>
     </div>
@@ -69,15 +69,27 @@
       class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <SolidExclamationCircleIcon class="w-5 h-5 text-red-500" />
+      <ExclamationCircleIcon class="w-5 h-5 text-red-500" />
     </div>
   </div>
 </template>
 <script>
 import draggable from "vuedraggable";
+import XButtonForm from "../Button/Form";
+import {
+  ExclamationCircleIcon,
+  FolderIcon,
+  TrashIcon,
+  SelectorIcon,
+} from "@heroicons/vue/solid";
 
 export default {
   components: {
+    XButtonForm,
+    ExclamationCircleIcon,
+    FolderIcon,
+    TrashIcon,
+    SelectorIcon,
     draggable,
   },
   inheritAttrs: false,

@@ -17,7 +17,11 @@
   </div>
 </template>
 <script>
+import XInputTextButton from "../Input/TextButton";
 export default {
+  components: {
+    XInputTextButton,
+  },
   props: {
     placeholder: {
       type: String,

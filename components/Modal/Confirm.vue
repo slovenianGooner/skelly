@@ -22,7 +22,13 @@
   </XModal>
 </template>
 <script>
+import XModal from "../Modal";
+import XButtonForm from "../Button/Form";
 export default {
+  components: {
+    XModal,
+    XButtonForm,
+  },
   props: {
     cancel: {
       type: String,

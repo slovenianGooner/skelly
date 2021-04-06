@@ -19,7 +19,14 @@
   </div>
 </template>
 <script>
+import XInputSelect from "./Select";
+import XButtonForm from "../Button/Form";
+
 export default {
+  components: {
+    XInputSelect,
+    XButtonForm,
+  },
   inheritAttrs: false,
   props: {
     options: {

@@ -37,7 +37,7 @@
                 class="ml-1 flex items-center justify-center h-12 w-10 rounded-full focus:outline-none"
               >
                 <span class="sr-only">Close sidebar</span>
-                <SolidXIcon class="w-6 h-6 text-white" />
+                <XIcon class="w-6 h-6 text-white" />
               </button>
             </div>
             <!-- Logo or brand text display -->
@@ -100,7 +100,7 @@
           :class="[headerTextColor, mobileBreakpoint]"
         >
           <span class="sr-only">Open sidebar</span>
-          <SolidMenuIcon class="w-6 h-6" />
+          <MenuIcon class="w-6 h-6" />
         </button>
 
         <div class="flex-1 px-4 flex justify-end ml-4 md:ml-6">
@@ -122,7 +122,7 @@
                     @click="toggleDropdown"
                     aria-haspopup="true"
                   >
-                    <OutlineUserIcon class="w-6 h-6 mr-1.5" />
+                    <UserIcon class="w-6 h-6 mr-1.5" />
                     {{ username }}
                   </button>
                 </slot>
@@ -155,7 +155,17 @@
   </div>
 </template>
 <script>
+import XButtonDropdown from "../components/Button/Dropdown";
+import { XIcon, MenuIcon } from "@heroicons/vue/solid";
+import { UserIcon } from "@heroicons/vue/outline";
+
 export default {
+  components: {
+    XButtonDropdown,
+    XIcon,
+    MenuIcon,
+    UserIcon,
+  },
   props: {
     userMenu: {
       type: Boolean,

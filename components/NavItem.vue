@@ -9,11 +9,11 @@
       ref="link"
     >
       <div class="flex items-center">
-        <component
+        <!-- <component
           :is="icon + 'Icon'"
           class="w-6 h-6 mr-2"
           v-if="icon && !$slots.icon"
-        />
+        /> -->
         <slot name="icon" />
         <span>{{ title }}</span>
         <span
@@ -24,8 +24,8 @@
         </span>
       </div>
       <div class="flex items-center" v-if="$slots.default">
-        <SolidChevronUpIcon v-if="open" class="w-6 h-6" />
-        <SolidChevronDownIcon v-else class="w-6 h-6" />
+        <ChevronUpIcon v-if="open" class="w-6 h-6" />
+        <ChevronDownIcon v-else class="w-6 h-6" />
       </div>
     </component>
     <div
@@ -38,7 +38,12 @@
   </div>
 </template>
 <script>
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/vue/solid";
 export default {
+  components: {
+    ChevronDownIcon,
+    ChevronUpIcon,
+  },
   props: {
     inertia: {
       type: Boolean,

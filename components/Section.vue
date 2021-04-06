@@ -8,8 +8,8 @@
         <span v-else>{{ title }}</span>
       </div>
       <XButtonForm size="xs" @click="toggle">
-        <SolidMinusIcon class="w-6 h-6" v-if="open" />
-        <SolidPlusIcon class="w-6 h-6" v-else />
+        <MinusIcon class="w-6 h-6" v-if="open" />
+        <PlusIcon class="w-6 h-6" v-else />
       </XButtonForm>
     </div>
     <div v-if="open" class="px-4 py-6 sm:px-6">
@@ -18,7 +18,15 @@
   </div>
 </template>
 <script>
+import XButtonForm from "../components/Button/Form";
+import { MinusIcon, PlusIcon } from "@heroicons/vue/solid";
+
 export default {
+  components: {
+    XButtonForm,
+    MinusIcon,
+    PlusIcon,
+  },
   props: {
     collapsed: {
       type: Boolean,

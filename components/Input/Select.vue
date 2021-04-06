@@ -28,12 +28,16 @@
       class="absolute inset-y-0 right-0 pr-8 flex items-center pointer-events-none"
       v-if="errors.length"
     >
-      <SolidExclamationCircleIcon class="w-5 h-5 text-red-500" />
+      <ExclamationCircleIcon class="w-5 h-5 text-red-500" />
     </div>
   </div>
 </template>
 <script>
+import { ExclamationCircleIcon } from "@heroicons/vue/solid";
 export default {
+  components: {
+    ExclamationCircleIcon,
+  },
   inheritAttrs: false,
   props: {
     options: {

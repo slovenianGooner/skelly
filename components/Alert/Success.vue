@@ -2,7 +2,7 @@
   <div class="rounded-md bg-green-50 p-4">
     <div class="flex">
       <div class="flex-shrink-0">
-        <SolidCheckCircleIcon class="text-green-400 w-5 h-5" />
+        <CheckCircleIcon class="text-green-400 w-5 h-5" />
       </div>
       <div class="ml-3">
         <h3 class="text-sm font-medium text-green-800 mb-2" v-if="title">
@@ -19,7 +19,12 @@
   </div>
 </template>
 <script>
+import { CheckCircleIcon } from "@heroicons/vue/solid";
+
 export default {
+  components: {
+    CheckCircleIcon,
+  },
   props: {
     title: {
       type: String,
