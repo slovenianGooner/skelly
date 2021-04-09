@@ -1,6 +1,6 @@
 {
   "name": "sg-skelly",
-  "version": "3.0.12",
+  "version": "3.0.13",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -28,6 +28,7 @@
     "vue3-autocomplete": "^1.0.1",
     "vue3-click-away": "^1.1.0",
     "vue3-code-editor": "^0.0.9",
+    "vue3-treeselect": "^0.1.0",
     "vuedraggable": "^4.0.1"
   }
 }

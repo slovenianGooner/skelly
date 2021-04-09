@@ -54,6 +54,7 @@ import XInputTextarea from "./components/Input/Textarea.vue";
 import XInputTextButton from "./components/Input/TextButton.vue";
 import XInputTimePicker from "./components/Input/TimePicker.vue";
 import XInputTextGroup from "./components/Input/TextGroup.vue";
+import XInputTreeSelect from "./components/Input/TreeSelect.vue";
 
 // List
 import XListCard from "./components/List/Card.vue";
@@ -115,6 +116,7 @@ export {
   XInputTextButton,
   XInputTextGroup,
   XInputTimePicker,
+  XInputTreeSelect,
   XListCard,
   XListFilter,
   XListPagination,
