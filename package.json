@@ -1,6 +1,6 @@
 {
   "name": "sg-skelly",
-  "version": "3.0.11",
+  "version": "3.0.12",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -20,11 +20,14 @@
     "@heroicons/vue": "^1.0.0",
     "@popperjs/core": "^2.8.6",
     "buffer": "^6.0.3",
+    "js-beautify": "^1.13.5",
     "lodash": "^4.17.20",
     "nanoid": "^3.1.20",
     "vue": "^3.0.10",
     "vue-flatpickr-component": "^9.0.3",
+    "vue3-autocomplete": "^1.0.1",
     "vue3-click-away": "^1.1.0",
+    "vue3-code-editor": "^0.0.9",
     "vuedraggable": "^4.0.1"
   }
 }

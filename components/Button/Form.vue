@@ -2,7 +2,7 @@
   <button
     :type="type"
     @click="$emit('click', $event)"
-    class="inline-flex items-center border border-transparent font-medium rounded-md shadow-sm focus:outline-none"
+    class="inline-flex items-center border font-medium rounded-md shadow-sm focus:outline-none"
     :class="[
       $attrs.class,
       buttonSize,

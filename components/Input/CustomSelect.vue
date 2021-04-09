@@ -7,6 +7,7 @@
       aria-expanded="true"
       aria-labelledby="listbox-label"
       class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
+      :class="[buttonClass]"
     >
       <slot
         name="selectedLabel"
@@ -138,7 +139,7 @@ export default {
     CheckIcon,
     XInputText,
   },
-  inheritAttrs: false,
+  //   inheritAttrs: false,
   directives: {
     ClickAway: directive,
     updown: {
@@ -203,6 +204,10 @@ export default {
           title: "&mdash;",
         };
       },
+    },
+    buttonClass: {
+      type: String,
+      default: "",
     },
     labelResolver: {
       default: null,

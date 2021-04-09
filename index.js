@@ -4,6 +4,9 @@ import XLayout from "./components/Layout.vue";
 import XLoadingScreen from "./components/LoadingScreen.vue";
 import XModal from "./components/Modal.vue";
 import XNavItem from "./components/NavItem.vue";
+import XNestable from "./components/Nestable.vue";
+import XNestableHandle from "./components/Nestable/Handle.vue";
+import XNestableToggle from "./components/Nestable/Toggle.vue";
 import XPageHeader from "./components/PageHeader.vue";
 import XSection from "./components/Section.vue";
 import XSpinnerIcon from "./components/SpinnerIcon.vue";
@@ -25,8 +28,10 @@ import XButtonForm from "./components/Button/Form.vue";
 import XButtonLink from "./components/Button/Link.vue";
 
 // Input
+import XInputAutocomplete from "./components/Input/Autocomplete.vue";
 import XInputCheckbox from "./components/Input/Checkbox.vue";
 import XInputCheckboxToggle from "./components/Input/CheckboxToggle.vue";
+import XInputCode from "./components/Input/Code.vue";
 import XInputCustomSelect from "./components/Input/CustomSelect.vue";
 import XInputDatePicker from "./components/Input/DatePicker.vue";
 import XInputDateTimePicker from "./components/Input/DateTimePicker.vue";
@@ -48,6 +53,7 @@ import XInputText from "./components/Input/Text.vue";
 import XInputTextarea from "./components/Input/Textarea.vue";
 import XInputTextButton from "./components/Input/TextButton.vue";
 import XInputTimePicker from "./components/Input/TimePicker.vue";
+import XInputTextGroup from "./components/Input/TextGroup.vue";
 
 // List
 import XListCard from "./components/List/Card.vue";
@@ -67,6 +73,9 @@ export {
   XLoadingScreen,
   XModal,
   XNavItem,
+  XNestable,
+  XNestableHandle,
+  XNestableToggle,
   XPageHeader,
   XSection,
   XSpinnerIcon,
@@ -80,8 +89,10 @@ export {
   XButtonDropdown,
   XButtonForm,
   XButtonLink,
+  XInputAutocomplete,
   XInputCheckbox,
   XInputCheckboxToggle,
+  XInputCode,
   XInputCustomSelect,
   XInputDatePicker,
   XInputDateTimePicker,
@@ -102,6 +113,7 @@ export {
   XInputText,
   XInputTextarea,
   XInputTextButton,
+  XInputTextGroup,
   XInputTimePicker,
   XListCard,
   XListFilter,
