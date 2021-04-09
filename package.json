@@ -1,6 +1,6 @@
 {
   "name": "sg-skelly",
-  "version": "3.0.13",
+  "version": "3.0.14",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -19,6 +19,7 @@
     "@ckeditor/ckeditor5-vue": "^2.0.1",
     "@heroicons/vue": "^1.0.0",
     "@popperjs/core": "^2.8.6",
+    "@vueform/multiselect": "^1.4.0",
     "buffer": "^6.0.3",
     "js-beautify": "^1.13.5",
     "lodash": "^4.17.20",

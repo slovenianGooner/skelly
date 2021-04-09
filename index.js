@@ -49,6 +49,7 @@ import XInputRangePicker from "./components/Input/RangePicker.vue";
 import XInputSelect from "./components/Input/Select.vue";
 import XInputSelectButton from "./components/Input/SelectButton.vue";
 import XInputSimpleList from "./components/Input/SimpleList.vue";
+import XInputTags from "./components/Input/Tags.vue";
 import XInputText from "./components/Input/Text.vue";
 import XInputTextarea from "./components/Input/Textarea.vue";
 import XInputTextButton from "./components/Input/TextButton.vue";
@@ -111,6 +112,7 @@ export {
   XInputSelect,
   XInputSelectButton,
   XInputSimpleList,
+  XInputTags,
   XInputText,
   XInputTextarea,
   XInputTextButton,

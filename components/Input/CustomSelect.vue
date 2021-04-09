@@ -6,7 +6,7 @@
       aria-haspopup="listbox"
       aria-expanded="true"
       aria-labelledby="listbox-label"
-      class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
+      class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none sm:text-sm"
       :class="[buttonClass]"
     >
       <slot
@@ -207,7 +207,7 @@ export default {
     },
     buttonClass: {
       type: String,
-      default: "",
+      default: "focus:ring-1 focus:ring-gray-500 focus:border-gray-500",
     },
     labelResolver: {
       default: null,
