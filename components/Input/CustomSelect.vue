@@ -164,10 +164,10 @@ export default {
           if (dropdown) {
             if (space < height) {
               dropdown.classList.add("bottom-0", "transform");
-              dropdown.style = "--tw-translate-y: -" + buttonHeight + "px";
+              dropdown.style = "transform: translateY(-" + buttonHeight + "px)";
             } else {
               dropdown.classList.remove("bottom-0", "transform");
-              dropdown.style = "--tw-translate-y: 0px";
+              dropdown.style = "translate: transformY(0px)";
             }
           }
         });

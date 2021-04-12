@@ -18,7 +18,8 @@
     >
       <div
         v-show="open"
-        class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
+        class="z-10 absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
+        :class="[origin, maxHeight]"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="dropdown"
@@ -41,25 +42,33 @@ export default {
   directives: {
     ClickAway: directive,
     updown: {
-      inserted(el, binding, vnode) {
+      mounted(el, binding, vnode, prevVNode) {
         el.addEventListener("click", () => {
           let space = window.innerHeight - el.getBoundingClientRect().bottom;
-
-          let height = Math.max(
-            el.children[0].offsetHeight,
-            el.children[1].offsetHeight
-          );
+          let button = el.children[0].children[0];
+          let dropdown = el.children[1];
+          let height = Math.max(button.offsetHeight, dropdown.offsetHeight);
 
           if (space < height) {
-            el.children[1].classList.add("bottom-0", "transform");
-            el.children[1].style =
-              "--tw-translate-y: -" + (el.children[0].offsetHeight + 4) + "px";
+            dropdown.classList.add("bottom-0", "transform");
+            dropdown.style =
+              "transform: translateY(-" + (button.offsetHeight + 4) + "px)";
           } else {
-            el.children[1].classList.remove("bottom-0", "transform");
-            el.children[1].style = "--tw-translate-y: 0px";
+            dropdown.classList.remove("bottom-0", "transform");
+            dropdown.style = "transform: translateY(0px)";
           }
         });
       },
+    },
+  },
+  props: {
+    origin: {
+      type: String,
+      default: "origin-top-right right-0",
+    },
+    maxHeight: {
+      type: String,
+      default: "",
     },
   },
   data() {

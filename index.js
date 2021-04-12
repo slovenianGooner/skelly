@@ -29,6 +29,7 @@ import XButtonLink from "./components/Button/Link.vue";
 
 // Input
 import XInputAutocomplete from "./components/Input/Autocomplete.vue";
+import XInputBlocks from "./components/Input/Blocks.vue";
 import XInputCheckbox from "./components/Input/Checkbox.vue";
 import XInputCheckboxToggle from "./components/Input/CheckboxToggle.vue";
 import XInputCode from "./components/Input/Code.vue";
@@ -57,6 +58,19 @@ import XInputTimePicker from "./components/Input/TimePicker.vue";
 import XInputTextGroup from "./components/Input/TextGroup.vue";
 import XInputTreeSelect from "./components/Input/TreeSelect.vue";
 
+// Blocks
+import XBlockCode from "./components/Block/Code.vue";
+import XBlockFile from "./components/Block/File.vue";
+import XBlockImage from "./components/Block/Image.vue";
+import XBlockImageLeft from "./components/Block/ImageLeft.vue";
+import XBlockImageRight from "./components/Block/ImageRight.vue";
+import XBlockText from "./components/Block/Text.vue";
+import XBlockThreeImages from "./components/Block/ThreeImages.vue";
+import XBlockThreeTexts from "./components/Block/ThreeTexts.vue";
+import XBlockTwoImages from "./components/Block/TwoImages.vue";
+import XBlockTwoTexts from "./components/Block/TwoTexts.vue";
+import XBlockVideo from "./components/Block/Video.vue";
+
 // List
 import XListCard from "./components/List/Card.vue";
 import XListFilter from "./components/List/Filter.vue";
@@ -69,7 +83,11 @@ import XModalBackdrop from "./components/Modal/Backdrop.vue";
 import XModalConfirm from "./components/Modal/Confirm.vue";
 import XModalFullscreen from "./components/Modal/Fullscreen.vue";
 
+// Mixins
+import blockMixin from "./mixins/block";
+
 export {
+  blockMixin,
   XCard,
   XLayout,
   XLoadingScreen,
@@ -91,7 +109,19 @@ export {
   XButtonDropdown,
   XButtonForm,
   XButtonLink,
+  XBlockCode,
+  XBlockFile,
+  XBlockImage,
+  XBlockImageLeft,
+  XBlockImageRight,
+  XBlockText,
+  XBlockThreeImages,
+  XBlockThreeTexts,
+  XBlockTwoImages,
+  XBlockTwoTexts,
+  XBlockVideo,
   XInputAutocomplete,
+  XInputBlocks,
   XInputCheckbox,
   XInputCheckboxToggle,
   XInputCode,

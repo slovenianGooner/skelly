@@ -53,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-4 flex items-center space-x-2">
+    <div class="mt-4 flex items-center space-x-2" v-if="!disableAdding">
       <XButtonForm size="sm" @click="add">
         <PlusIcon class="w-5 h-5 mr-1.5" />
         {{ addNew }}
@@ -95,6 +95,10 @@ export default {
     addNew: {
       type: String,
       default: "Add new",
+    },
+    disableAdding: {
+      type: Boolean,
+      default: false,
     },
     modelValue: {
       type: Array,
