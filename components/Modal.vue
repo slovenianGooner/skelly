@@ -73,7 +73,7 @@
   </div>
 </template>
 <script>
-import XModalBackdrop from "../components/Modal/Backdrop";
+import XModalBackdrop from "./Modal/Backdrop";
 
 export default {
   components: {

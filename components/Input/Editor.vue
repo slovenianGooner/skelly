@@ -9,17 +9,9 @@
   </div>
 </template>
 <script>
-import ckeditor from "@ckeditor/ckeditor5-vue";
-import classicEditor from "@ckeditor/ckeditor5-build-classic";
+import wysiwygMixin from "../../mixins/wysiwyg";
 export default {
-  components: {
-    ckeditor: ckeditor.component,
-  },
-  data() {
-    return {
-      classicEditor: classicEditor,
-    };
-  },
+  mixins: [wysiwygMixin],
   props: {
     modelValue: {
       required: true,

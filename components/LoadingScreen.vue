@@ -17,7 +17,7 @@
   </transition>
 </template>
 <script>
-import XSpinnerIcon from "../components/SpinnerIcon";
+import XSpinnerIcon from "./SpinnerIcon";
 
 export default {
   components: {

@@ -155,7 +155,7 @@
   </div>
 </template>
 <script>
-import XButtonDropdown from "../components/Button/Dropdown";
+import XButtonDropdown from "./Button/Dropdown";
 import { XIcon, MenuIcon } from "@heroicons/vue/solid";
 import { UserIcon } from "@heroicons/vue/outline";
 
