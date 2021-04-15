@@ -74,13 +74,6 @@
 </template>
 <script>
 import XModalBackdrop from "./Modal/Backdrop";
-import {
-  Dialog,
-  DialogOverlay,
-  DialogTitle,
-  TransitionChild,
-  TransitionRoot,
-} from "@headlessui/vue";
 
 export default {
   components: {
