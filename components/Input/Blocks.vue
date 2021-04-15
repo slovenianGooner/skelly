@@ -40,7 +40,6 @@
 <script>
 import XButtonDropdown from "../Button/Dropdown";
 import XButtonForm from "../Button/Form";
-import XBlockCode from "../Block/Code";
 import XBlockFile from "../Block/File";
 import XBlockImage from "../Block/Image";
 import XBlockImageLeft from "../Block/ImageLeft";
@@ -59,7 +58,6 @@ export default {
   components: {
     XButtonDropdown,
     XButtonForm,
-    XBlockCode,
     XBlockFile,
     XBlockImage,
     XBlockImageLeft,
@@ -85,7 +83,6 @@ export default {
   data() {
     return {
       defaultBlocks: shallowRef({
-        code: { name: "Code", component: XBlockCode },
         file: { name: "File", component: XBlockFile },
         image: { name: "Image", component: XBlockImage },
         image_left: { name: "Image Left", component: XBlockImageLeft },

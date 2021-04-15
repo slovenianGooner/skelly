@@ -1,36 +1,35 @@
 {
     "sideEffects": false,
-  "name": "sg-skelly",
-  "version": "3.0.16",
-  "description": "",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/slovenianGooner/skelly.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/slovenianGooner/skelly/issues"
-  },
-  "homepage": "https://github.com/slovenianGooner/skelly#readme",
-  "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^27.0.0",
-    "@ckeditor/ckeditor5-vue": "^2.0.1",
-    "@heroicons/vue": "^1.0.0",
-    "@popperjs/core": "^2.8.6",
-    "@vueform/multiselect": "^1.4.0",
-    "buffer": "^6.0.3",
-    "js-beautify": "^1.13.5",
-    "lodash": "^4.17.20",
-    "nanoid": "^3.1.20",
-    "vue": "^3.0.10",
-    "vue-flatpickr-component": "^9.0.3",
-    "vue3-autocomplete": "^1.0.1",
-    "vue3-click-away": "^1.1.0",
-    "vue3-code-editor": "^0.0.9",
-    "vue3-treeselect": "^0.1.0",
-    "vuedraggable": "^4.0.1"
-  }
+    "name": "sg-skelly",
+    "version": "3.0.16",
+    "description": "",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/slovenianGooner/skelly.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/slovenianGooner/skelly/issues"
+    },
+    "homepage": "https://github.com/slovenianGooner/skelly#readme",
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^27.0.0",
+        "@ckeditor/ckeditor5-vue": "^2.0.1",
+        "@heroicons/vue": "^1.0.0",
+        "@popperjs/core": "^2.8.6",
+        "@vueform/multiselect": "^1.4.0",
+        "buffer": "^6.0.3",
+        "js-beautify": "^1.13.5",
+        "lodash": "^4.17.20",
+        "nanoid": "^3.1.20",
+        "vue": "^3.0.10",
+        "vue-flatpickr-component": "^9.0.3",
+        "vue3-autocomplete": "^1.0.1",
+        "vue3-click-away": "^1.1.0",
+        "vue3-treeselect": "^0.1.0",
+        "vuedraggable": "^4.0.1"
+    }
 }

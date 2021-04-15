@@ -31,7 +31,6 @@ export { default as XInputAutocomplete } from "./components/Input/Autocomplete.v
 export { default as XInputBlocks } from "./components/Input/Blocks.vue";
 export { default as XInputCheckbox } from "./components/Input/Checkbox.vue";
 export { default as XInputCheckboxToggle } from "./components/Input/CheckboxToggle.vue";
-export { default as XInputCode } from "./components/Input/Code.vue";
 export { default as XInputCustomSelect } from "./components/Input/CustomSelect.vue";
 export { default as XInputDatePicker } from "./components/Input/DatePicker.vue";
 export { default as XInputDateTimePicker } from "./components/Input/DateTimePicker.vue";
@@ -58,7 +57,6 @@ export { default as XInputTextGroup } from "./components/Input/TextGroup.vue";
 export { default as XInputTreeSelect } from "./components/Input/TreeSelect.vue";
 
 // Blocks
-export { default as XBlockCode } from "./components/Block/Code.vue";
 export { default as XBlockFile } from "./components/Block/File.vue";
 export { default as XBlockImage } from "./components/Block/Image.vue";
 export { default as XBlockImageLeft } from "./components/Block/ImageLeft.vue";
