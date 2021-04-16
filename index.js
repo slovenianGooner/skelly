@@ -15,6 +15,7 @@ export { default as XToast } from "./components/Toast.vue";
 export { default as XAlertBanner } from "./components/Alert/Banner.vue";
 export { default as XAlertFormError } from "./components/Alert/FormError.vue";
 export { default as XAlertSuccess } from "./components/Alert/Success.vue";
+export { default as XAlertError } from "./components/Alert/Error.vue";
 
 // Auth
 export { default as XAuthForgotPassword } from "./components/Auth/ForgotPassword.vue";
