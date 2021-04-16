@@ -68,7 +68,7 @@ export default {
         draggable: ".nestable-item-draggable",
         ghostClass: ".nestable-ghost-class",
         onSort: (e) => {
-          this.$emit("sort", e);
+          //   this.$emit("sort", e);
         },
       });
     }
