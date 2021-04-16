@@ -11,12 +11,7 @@
         :class="[indentClass]"
         class="mt-2"
       >
-        <XNestable
-          :items="item.children"
-          @sort="$emit('sort', $event)"
-          :level="level + 1"
-          class="space-y-2"
-        >
+        <XNestable :items="item.children" :level="level + 1" class="space-y-2">
           <template #default="{ item, toggle }">
             <slot :item="item" :toggle="toggle" />
           </template>
@@ -67,9 +62,9 @@ export default {
         handle: ".nestable-handle",
         draggable: ".nestable-item-draggable",
         ghostClass: ".nestable-ghost-class",
-        onSort: (e) => {
-          //   this.$emit("sort", e);
-        },
+        // onSort: (e) => {
+        //   this.$emit("sort", e);
+        // },
       });
     }
   },
