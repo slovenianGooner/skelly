@@ -78,7 +78,7 @@ export default {
       handler() {
         var findAncestors = require("find-ancestors");
         let ancestors = findAncestors(this.options, (item) => {
-          return this.resolveValue(item) === this.modelValue;
+          return this.resolveValue(item) == this.modelValue;
         }).map((ancestor) => ancestor.id);
 
         ancestors.shift();
@@ -128,7 +128,7 @@ export default {
       let component = this;
       var o;
       array.some(function iter(a) {
-        if (component.resolveValue(a) === value) {
+        if (component.resolveValue(a) == value) {
           o = a;
 
           return true;
