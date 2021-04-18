@@ -42,74 +42,92 @@
         ref="dropdown"
         v-if="open"
       >
-        <ul
-          tabindex="-1"
-          role="listbox"
-          aria-labelledby="listbox-label"
-          aria-activedescendant="listbox-item-3"
-          class="max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+        <slot
+          name="options"
+          :options="options"
+          :select="select"
+          :isSelected="isSelected"
         >
-          <li
-            role="option"
-            class="group text-gray-900 cursor-default select-none relative py-2 px-3 cursor-pointer"
-            v-if="search"
+          <ul
+            tabindex="-1"
+            role="listbox"
+            aria-labelledby="listbox-label"
+            aria-activedescendant="listbox-item-3"
+            class="max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
           >
-            <XInputText
-              :placeholder="searchPlaceholder"
-              v-model="searchQuery"
-            />
-          </li>
-          <li
-            role="option"
-            class="group text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:text-white hover:bg-red-600 cursor-pointer"
-            v-if="!searchQuery && !multiple && empty && empty.title"
-            @click="selectEmpty()"
-          >
-            <span
-              class="block truncate"
-              :class="[isSelected(empty) ? 'font-semibold' : 'font-normal']"
-              v-html="empty.title"
+            <li
+              role="option"
+              class="group text-gray-900 cursor-default select-none relative py-2 px-3 cursor-pointer"
+              v-if="search"
             >
-            </span>
+              <XInputText
+                :placeholder="searchPlaceholder"
+                v-model="searchQuery"
+              />
+            </li>
+            <li
+              role="option"
+              class="group text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:text-white hover:bg-red-600 cursor-pointer"
+              v-if="!searchQuery && !multiple && empty && empty.title"
+              @click="selectEmpty()"
+            >
+              <span
+                class="block truncate"
+                :class="[isSelected(empty) ? 'font-semibold' : 'font-normal']"
+                v-html="empty.title"
+              >
+              </span>
 
-            <span
-              v-if="isSelected(empty)"
-              class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
-            >
-              <CheckIcon class="w-5 h-5" />
-            </span>
-          </li>
-          <li
-            role="option"
-            class="group text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:text-white hover:bg-red-600 cursor-pointer"
-            v-for="(option, index) in filteredOptions()"
-            :key="index"
-            @click="select(option)"
-          >
-            <slot
-              name="label"
-              v-if="$slots.label"
-              :resolve-label="resolveLabel"
-              :is-selected="isSelected"
-              :option="option"
-              :index="index"
-            />
-            <span
-              v-else
-              class="block truncate"
-              :class="[isSelected(option) ? 'font-semibold' : 'font-normal']"
-            >
-              {{ resolveLabel(option) }}
-            </span>
+              <span
+                v-if="isSelected(empty)"
+                class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
+              >
+                <CheckIcon class="w-5 h-5" />
+              </span>
+            </li>
+            <template v-for="(option, index) in filteredOptions()" :key="index">
+              <slot
+                name="option"
+                :option="option"
+                :index="index"
+                :select="select"
+                :resolve-label="resolveLabel"
+                :is-selected="isSelected"
+              >
+                <li
+                  role="option"
+                  class="group text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:text-white hover:bg-red-600 cursor-pointer"
+                  @click="select(option)"
+                >
+                  <slot
+                    name="label"
+                    v-if="$slots.label"
+                    :resolve-label="resolveLabel"
+                    :is-selected="isSelected"
+                    :option="option"
+                    :index="index"
+                  />
+                  <span
+                    v-else
+                    class="block truncate"
+                    :class="[
+                      isSelected(option) ? 'font-semibold' : 'font-normal',
+                    ]"
+                  >
+                    {{ resolveLabel(option) }}
+                  </span>
 
-            <span
-              v-if="isSelected(option)"
-              class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
-            >
-              <CheckIcon class="w-5 h-5" />
-            </span>
-          </li>
-        </ul>
+                  <span
+                    v-if="isSelected(option)"
+                    class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
+                  >
+                    <CheckIcon class="w-5 h-5" />
+                  </span>
+                </li>
+              </slot>
+            </template>
+          </ul>
+        </slot>
       </div>
     </transition>
 
@@ -223,6 +241,10 @@ export default {
       type: String,
       default: "Deselect all",
     },
+    selectedResolver: {
+      type: Function,
+      default: null,
+    },
   },
   data() {
     return {
@@ -309,6 +331,13 @@ export default {
       return this.resolveValue(item) === this.modelValue;
     },
     resolveSelected() {
+      if (
+        this.modelValue !== null &&
+        typeof this.selectedResolver === "function"
+      ) {
+        return this.selectedResolver(this.optionsList, this.modelValue);
+      }
+
       if (this.multiple && this.modelValue.length === 0) {
         return this.noOptionsSelected;
       }
