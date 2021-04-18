@@ -2,7 +2,7 @@
   <component
     :is="inertia ? 'inertia-link' : 'a'"
     :href="href"
-    class="inline-flex items-center border border-transparent font-medium rounded-md shadow-sm focus:outline-none"
+    class="inline-flex items-center border font-medium rounded-md shadow-sm focus:outline-none"
     :class="[
       buttonSize,
       buttonColor,
