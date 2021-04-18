@@ -19,7 +19,7 @@
           <template #default="{ item, toggle }">
             <div class="flex items-center">
               <button
-                @click="toggle(item)"
+                @click.prevent="toggle(item)"
                 v-if="item[childrenResolver].length"
                 class="focus:outline-none"
               >
@@ -32,7 +32,7 @@
               <div v-else class="w-5 h-5 mr-1.5"></div>
               <button
                 class="flex-1 text-left"
-                @click="select(item)"
+                @click.prevent="select(item)"
                 :class="[isSelected(item) ? 'font-semibold' : 'font-normal']"
               >
                 {{ item.name }}
