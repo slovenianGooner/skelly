@@ -83,7 +83,8 @@ export default {
           (item) => {
             return this.resolveValue(item) == this.modelValue;
           },
-          "id"
+          "id",
+          true
         );
       },
     },

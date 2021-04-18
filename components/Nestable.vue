@@ -65,7 +65,8 @@ export default {
       this.transformedItems = this.transformAncestors(
         this.items,
         this.activeResolver,
-        "id"
+        "id",
+        false
       );
     } else {
       this.transformedItems = this.items;

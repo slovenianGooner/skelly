@@ -1,11 +1,14 @@
 export default {
   methods: {
-    transformAncestors(options, ancestorResolver, key) {
+    transformAncestors(options, ancestorResolver, key, shiftFirstAncestor) {
       var findAncestors = require("find-ancestors");
       let ancestors = findAncestors(options, ancestorResolver).map(
         (ancestor) => ancestor[key]
       );
-      ancestors.shift();
+
+      if (shiftFirstAncestor) {
+        ancestors.shift();
+      }
 
       let transformedOptions = [...options];
       let component = this;
