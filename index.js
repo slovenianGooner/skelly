@@ -84,3 +84,4 @@ export { default as XModalFullscreen } from "./components/Modal/Fullscreen.vue";
 // Mixins
 export { default as blockMixin } from "./mixins/block";
 export { default as wysiwygMixin } from "./mixins/wysiwyg";
+export { default as treeMixin } from "./mixins/tree";

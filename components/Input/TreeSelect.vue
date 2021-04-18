@@ -58,6 +58,7 @@ import {
   ChevronDownIcon,
   CheckIcon,
 } from "@heroicons/vue/outline";
+import treeMixin from "../../mixins/tree";
 
 export default {
   components: {
@@ -67,6 +68,7 @@ export default {
     ChevronDownIcon,
     CheckIcon,
   },
+  mixins: [treeMixin],
   data() {
     return {
       transformedOptions: [],
@@ -76,31 +78,19 @@ export default {
     modelValue: {
       immediate: true,
       handler() {
-        var findAncestors = require("find-ancestors");
-        let ancestors = findAncestors(this.options, (item) => {
-          return this.resolveValue(item) == this.modelValue;
-        }).map((ancestor) => ancestor.id);
-
-        ancestors.shift();
-
-        let transformedOptions = [...this.options];
-        let component = this;
-        transformedOptions.forEach(function iter(a) {
-          if (ancestors.includes(component.resolveValue(a))) {
-            a.isOpen = true;
-          } else {
-            a.isOpen = false;
-          }
-          Array.isArray(a.children) && a.children.forEach(iter);
-        });
-
-        this.transformedOptions = transformedOptions;
+        this.transformedOptions = this.transformAncestors(
+          this.options,
+          (item) => {
+            return this.resolveValue(item) == this.modelValue;
+          },
+          "id"
+        );
       },
     },
   },
   methods: {
     selectedResolver(options, modelValue) {
-      return this.getObject(options, modelValue);
+      return this.findInTree(options, modelValue);
     },
     resolveLabel(option) {
       if (typeof this.labelResolver === "function") {
@@ -123,27 +113,6 @@ export default {
       }
 
       return option;
-    },
-    getObject(array, value) {
-      let component = this;
-      var o;
-      array.some(function iter(a) {
-        if (component.resolveValue(a) == value) {
-          o = a;
-
-          return true;
-        }
-        return (
-          Array.isArray(a[component.childrenResolver]) &&
-          a[component.childrenResolver].some(iter)
-        );
-      });
-
-      if (o) {
-        return component.resolveLabel(o);
-      }
-
-      return o;
     },
   },
   props: {
