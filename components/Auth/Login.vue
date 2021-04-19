@@ -61,9 +61,26 @@
                 </div>
               </div>
 
-              <div class="flex items-center justify-between">
-                <div class="text-sm" v-if="$slots.forgotPassword">
-                  <slot name="forgotPassword" />
+              <div v-if="$slots.forgotPassword || form.remember !== undefined">
+                <div class="flex items-center justify-between mt-4 mb-4">
+                  <div class="flex items-center">
+                    <input
+                      id="remember"
+                      name="remember"
+                      type="checkbox"
+                      v-model="form.remember"
+                      class="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
+                    />
+                    <label
+                      for="remember"
+                      class="ml-2 block text-sm text-gray-900"
+                    >
+                      {{ rememberMeTitle }}
+                    </label>
+                  </div>
+                  <div class="text-sm" v-if="$slots.forgotPassword">
+                    <slot name="forgotPassword" />
+                  </div>
                 </div>
               </div>
             </slot>
@@ -119,6 +136,10 @@ export default {
       type: String,
       default: "text-red-600",
     },
+    rememberMeTitle: {
+      type: String,
+      default: "Remember me",
+    },
     errors: {
       type: Object,
       default: () => {
@@ -139,6 +160,7 @@ export default {
         return {
           username: null,
           password: null,
+          remember: false,
         };
       },
     },
