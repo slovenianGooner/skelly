@@ -160,7 +160,7 @@ export default {
         return {
           username: null,
           password: null,
-          remember: false,
+          remember: null,
         };
       },
     },
