@@ -18,7 +18,7 @@
       max-height="max-h-64 overflow-y-auto"
     >
       <template #button="{ toggleDropdown }">
-        <XButtonForm @click="toggleDropdown"> Add block </XButtonForm>
+        <XButtonForm @click.prevent="toggleDropdown"> Add block </XButtonForm>
       </template>
       <template #links="{ toggleDropdown }">
         <button
@@ -26,7 +26,7 @@
           role="menuitem"
           v-for="(block, index) in displayBlocks"
           :key="index"
-          @click="
+          @click.prevent="
             add(block);
             toggleDropdown();
           "
