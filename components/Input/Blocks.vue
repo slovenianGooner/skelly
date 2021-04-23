@@ -5,7 +5,6 @@
         <component :is="defaultBlocks[item.type].component" :block="item" />
       </template>
     </XInputList>
-    <pre>{{ html }}</pre>
   </div>
   <div v-else>
     <div class="p-6 border rounded-md flex items-center justify-center">
