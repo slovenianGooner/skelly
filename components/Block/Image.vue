@@ -3,7 +3,8 @@
     <XInputLabel for="photo"> Photo </XInputLabel>
     <div class="mt-1">
       <XInputPhoto
-        v-model="form.image"
+        v-model="form.image.file"
+        :src="form.image.src"
         @update:modelValue="$emit('update:modelValue', $event)"
       />
     </div>
@@ -35,7 +36,8 @@ export default {
     return {
       form: {
         image: {
-          new_url: null,
+          file: null,
+          src: null,
         },
         caption: null,
       },

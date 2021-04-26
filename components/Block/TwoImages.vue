@@ -3,7 +3,8 @@
     <XInputLabel for="photo_1"> Photo 1 </XInputLabel>
     <div class="mt-1">
       <XInputPhoto
-        v-model="form.image_1"
+        v-model="form.image_1.file"
+        :src="form.image_1.src"
         @update:modelValue="$emit('update:modelValue', $event)"
       />
     </div>
@@ -21,7 +22,8 @@
     <XInputLabel for="photo_1"> Photo 2 </XInputLabel>
     <div class="mt-1">
       <XInputPhoto
-        v-model="form.image_2"
+        v-model="form.image_2.file"
+        :src="form.image_2.src"
         @update:modelValue="$emit('update:modelValue', $event)"
       />
     </div>
@@ -53,11 +55,13 @@ export default {
     return {
       form: {
         image_1: {
-          new_url: null,
+          file: null,
+          src: null,
         },
         caption_1: null,
         image_2: {
-          new_url: null,
+          file: null,
+          src: null,
         },
         caption_2: null,
       },
