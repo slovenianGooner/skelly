@@ -3,8 +3,8 @@
     <XInputLabel for="file"> File </XInputLabel>
     <div class="mt-1">
       <XInputFile
-        v-model="form.file.file"
-        :src="form.file.url"
+        v-model="form.attachment.file"
+        :src="form.attachment.url"
         @update:modelValue="$emit('update:modelValue', $event)"
       />
     </div>
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       form: {
-        file: {
+        attachment: {
           file: null,
           url: null,
         },
