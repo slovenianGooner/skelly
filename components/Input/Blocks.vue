@@ -98,7 +98,7 @@ export default {
   },
   watch: {
     html() {
-      this.$emit("update:modelValue", this.modelValue);
+      this.$emit("update:modelValue", this.html);
     },
   },
   created() {
