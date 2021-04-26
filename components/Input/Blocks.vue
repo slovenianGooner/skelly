@@ -129,7 +129,6 @@ export default {
       this.html.push({
         uid: nanoid(),
         type: key,
-        form: {},
         open: true,
       });
     },
