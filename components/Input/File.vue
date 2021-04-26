@@ -5,7 +5,7 @@
   >
     <slot name="selected" :value="modelValue">
       <div class="text-sm mb-4">
-        <div v-if="preview" class="mb-4">
+        <div v-if="preview" class="mb-4 text-center">
           <a :href="preview" target="_blank" class="underline">Current file</a>
         </div>
         {{ modelValue ? modelValue.name : "No file selected." }}
