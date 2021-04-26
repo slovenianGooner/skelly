@@ -4,7 +4,7 @@
     <div class="mt-1">
       <XInputPhoto
         v-model="form.image_1.file"
-        :src="form.image_1.src"
+        :src="form.image_1.url"
         @update:modelValue="$emit('update:modelValue', $event)"
       />
     </div>
@@ -23,7 +23,7 @@
     <div class="mt-1">
       <XInputPhoto
         v-model="form.image_2.file"
-        :src="form.image_2.src"
+        :src="form.image_2.url"
         @update:modelValue="$emit('update:modelValue', $event)"
       />
     </div>
@@ -42,7 +42,7 @@
     <div class="mt-1">
       <XInputPhoto
         v-model="form.image_3.file"
-        :src="form.image_3.src"
+        :src="form.image_3.url"
         @update:modelValue="$emit('update:modelValue', $event)"
       />
     </div>
@@ -75,17 +75,17 @@ export default {
       form: {
         image_1: {
           file: null,
-          src: null,
+          url: null,
         },
         caption_1: null,
         image_2: {
           file: null,
-          src: null,
+          url: null,
         },
         caption_2: null,
         image_3: {
           file: null,
-          src: null,
+          url: null,
         },
         caption_3: null,
       },

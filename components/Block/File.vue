@@ -34,9 +34,7 @@ export default {
   data() {
     return {
       form: {
-        file: {
-          new_url: null,
-        },
+        file: null,
         caption: null,
       },
     };
