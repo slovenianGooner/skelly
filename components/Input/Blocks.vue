@@ -129,6 +129,7 @@ export default {
       this.html.push({
         uid: nanoid(),
         type: key,
+        form: this.defaultBlocks[key].component.data().form,
         open: true,
       });
     },
