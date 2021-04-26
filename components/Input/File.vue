@@ -5,6 +5,9 @@
   >
     <slot name="selected" :value="modelValue">
       <div class="text-sm mb-4">
+        <div v-if="preview" class="mb-4">
+          <a :href="preview" target="_blank" class="underline">Current file</a>
+        </div>
         {{ modelValue ? modelValue.name : "No file selected." }}
       </div>
     </slot>
@@ -48,6 +51,10 @@ export default {
   },
   inheritAttrs: false,
   props: {
+    src: {
+      type: String,
+      default: null,
+    },
     button: {
       type: String,
       default: "Browse",
@@ -67,6 +74,11 @@ export default {
     modelValue: {
       required: true,
     },
+  },
+  data() {
+    return {
+      preview: this.src,
+    };
   },
   methods: {
     handleFileChange(e) {
