@@ -1,10 +1,10 @@
 <template>
   <nav
-    class="flex items-center justify-between"
+    class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between"
     aria-label="Pagination"
     v-if="data.total"
   >
-    <div class="hidden sm:block">
+    <div>
       <p class="text-sm text-gray-700">
         <slot name="text" :data="data">
           Showing
