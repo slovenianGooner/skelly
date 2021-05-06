@@ -25,7 +25,7 @@
       <div
         class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10"
         ref="dropdown"
-        v-if="open"
+        v-if="open && filteredOptions.length"
       >
         <ul
           tabindex="-1"
