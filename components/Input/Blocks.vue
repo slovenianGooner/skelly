@@ -2,7 +2,11 @@
   <div v-if="html.length" class="space-y-4">
     <XInputList v-model="html" :disable-adding="true" :collapsed="false">
       <template #default="{ item }">
-        <component :is="defaultBlocks[item.type].component" :block="item" />
+        <component 
+          v-if="defaultBlocks[item.type]" 
+          :is="defaultBlocks[item.type].component" 
+          :block="item" 
+        />
       </template>
     </XInputList>
   </div>
