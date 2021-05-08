@@ -20,6 +20,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    openOnInit: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
@@ -27,7 +31,9 @@ export default {
     };
   },
   created() {
-    this.open = this.activeFilters().length > 0;
+    if (this.openOnInit) {
+      this.open = this.activeFilters().length > 0;
+    }
   },
   methods: {
     toggle() {
