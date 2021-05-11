@@ -4,7 +4,7 @@
       :editor="classicEditor"
       v-model="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
-      :config="{}"
+      :config="config"
     ></ckeditor>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
     modelValue: {
       required: true,
     },
-    init: {
+    config: {
       type: Object,
       default: () => {
         return {};
