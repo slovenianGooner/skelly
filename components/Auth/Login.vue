@@ -30,7 +30,7 @@
                 <XAlertFormError :errors="errors" />
               </slot>
 
-              <slot name="username">
+              <slot name="username" :form="form">
                 <div>
                   <XInputLabel for="username" :errors="errors.username">
                     Username
