@@ -28,6 +28,7 @@
               <slot name="errors">
                 <XAlertFormError :errors="errors" />
               </slot>
+              <slot name="status" />
 
               <slot name="email" :form="form">
                 <div>
