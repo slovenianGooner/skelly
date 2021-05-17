@@ -25,7 +25,7 @@
             method="POST"
             @submit.prevent="$emit('sent', form)"
           >
-            <slot name="form">
+            <slot name="form" :form="form">
               <slot name="errors">
                 <XAlertFormError :errors="errors" />
               </slot>
