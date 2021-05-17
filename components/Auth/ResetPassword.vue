@@ -29,18 +29,18 @@
                 <XAlertFormError :errors="errors" />
               </slot>
 
-              <slot name="username">
+              <slot name="email" :form="form">
                 <div>
-                  <XInputLabel for="username" :errors="errors.username">
-                    Username
+                  <XInputLabel for="email" :errors="errors.email">
+                    E-mail
                   </XInputLabel>
                   <div class="mt-1">
                     <XInputText
-                      v-model="form.username"
+                      v-model="form.email"
                       type="email"
-                      :errors="errors.username"
+                      :errors="errors.email"
                     />
-                    <XInputErrors :errors="errors.username" />
+                    <XInputErrors :errors="errors.email" />
                   </div>
                 </div>
               </slot>
@@ -148,7 +148,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          username: null,
+          email: null,
           password: null,
           password_confirmation: null,
         };
