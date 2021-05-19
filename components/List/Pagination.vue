@@ -27,7 +27,7 @@
           v-if="prevPageUrl || data.prev_page_url"
           @click="
             $emit('change', {
-              url: prevPageUrl ?: data.prev_page_url,
+              url: prevPageUrl ? prevPageUrl : data.prev_page_url,
               page: data.current_page - 1,
             })
           "
@@ -38,7 +38,7 @@
           v-if="nextPageUrl || data.next_page_url"
           @click="
             $emit('change', {
-              url: nextPageUrl ?: data.next_page_url,
+              url: nextPageUrl ? nextPageUrl : data.next_page_url,
               page: data.current_page + 1,
             })
           "
