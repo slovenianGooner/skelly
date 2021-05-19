@@ -21,13 +21,13 @@
     <slot name="buttons" :data="data">
       <div
         class="flex-1 flex justify-between md:justify-end space-x-2"
-        v-if="data.next_page_url || data.prev_page_url"
+        v-if="nextPageUrl || prevPageUrl"
       >
         <XButtonForm
-          v-if="data.prev_page_url"
+          v-if="prevPageUrl"
           @click="
             $emit('change', {
-              url: data.prev_page_url,
+              url: prevPageUrl,
               page: data.current_page - 1,
             })
           "
@@ -35,10 +35,10 @@
           {{ previous }}
         </XButtonForm>
         <XButtonForm
-          v-if="data.next_page_url"
+          v-if="nextPageUrl"
           @click="
             $emit('change', {
-              url: data.next_page_url,
+              url: nextPageUrl,
               page: data.current_page + 1,
             })
           "
@@ -71,6 +71,14 @@ export default {
       type: String,
       default: "Next",
     },
+    prevPageUrl: {
+      type: String,
+      default: this.data.prev_page_url
+    },
+    nextPageUrl: {
+      type: String,
+      default: this.data.next_page_url
+    }
   },
 };
 </script>
