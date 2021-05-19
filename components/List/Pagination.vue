@@ -20,7 +20,7 @@
 
     <slot name="buttons" :data="data">
       <div
-        class="flex-1 flex justify-between sm:justify-end space-x-2"
+        class="flex-1 flex justify-between md:justify-end space-x-2"
         v-if="data.next_page_url || data.prev_page_url"
       >
         <XButtonForm
