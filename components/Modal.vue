@@ -12,13 +12,13 @@
         leave-to-class="opacity-0"
       >
         <XModalBackdrop
-          @click="dismissable ? (open = false) : null"
+          @click="dismissable ? close() : null"
           v-show="open"
         />
       </transition>
       <div v-else>
         <XModalBackdrop
-          @click="dismissable ? (open = false) : null"
+          @click="dismissable ? close() : null"
           v-show="open"
         />
       </div>
@@ -135,6 +135,7 @@ export default {
       this.open = true;
     },
     close() {
+      this.$emit("close");
       this.open = false;
     },
   },
