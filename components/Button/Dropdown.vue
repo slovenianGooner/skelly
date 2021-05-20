@@ -18,8 +18,8 @@
     >
       <div
         v-show="open"
-        class="z-10 absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
-        :class="[origin, maxHeight]"
+        class="z-10 absolute mt-2 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
+        :class="[origin, maxHeight, width]"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="dropdown"
@@ -62,6 +62,10 @@ export default {
     },
   },
   props: {
+    width: {
+      type: String,
+      default: "w-48"
+    },
     origin: {
       type: String,
       default: "origin-top-right right-0",
