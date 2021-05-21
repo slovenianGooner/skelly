@@ -23,15 +23,15 @@
                 v-if="item[childrenResolver].length"
                 class="focus:outline-none"
               >
-                <ChevronDownIcon class="w-5 h-5 mr-1.5" v-show="item.isOpen" />
+                <ChevronDownIcon class="w-4 h-4 mr-1.5" v-show="item.isOpen" />
                 <ChevronRightIcon
-                  class="w-5 h-5 mr-1.5"
+                  class="w-4 h-4 mr-1.5"
                   v-show="!item.isOpen"
                 />
               </button>
-              <div v-else class="w-5 h-5 mr-1.5"></div>
+              <div v-else class="w-4 h-4 mr-1.5"></div>
               <button
-                class="flex-1 text-left"
+                class="flex-1 text-left text-sm"
                 @click.prevent="select(item)"
                 :class="[isSelected(item) ? 'font-semibold' : 'font-normal']"
               >
@@ -41,7 +41,7 @@
                 v-if="isSelected(item)"
                 class="group-hover:text-white text-red-600 pr-4"
               >
-                <CheckIcon class="w-5 h-5" />
+                <CheckIcon class="w-4 h-4" />
               </span>
             </div>
           </template>
