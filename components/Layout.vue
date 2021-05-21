@@ -103,7 +103,7 @@
           <MenuIcon class="w-6 h-6" />
         </button>
 
-        <div class="flex-1 px-4 flex justify-end ml-4 md:ml-6">
+        <div class="flex-1 px-4 flex justify-end">
           <div
             class="flex items-center w-full justify-end"
             v-if="$slots.headerButtons"
