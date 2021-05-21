@@ -62,7 +62,7 @@
     </div>
 
     <!-- Static sidebar for desktop -->
-    <div :class="[desktopBreakpoint]" class="hidden" v-if="$slots.navigation">
+    <div :class="[desktopBreakpoint]" class="hidden">
       <div class="flex flex-col w-64">
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex flex-col flex-grow overflow-y-auto">
