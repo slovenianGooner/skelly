@@ -6,7 +6,7 @@
       aria-haspopup="listbox"
       aria-expanded="true"
       aria-labelledby="listbox-label"
-      class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none sm:text-sm"
+      class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none text-sm"
       :class="[buttonClass]"
     >
       <slot
