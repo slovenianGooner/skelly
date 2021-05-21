@@ -14,7 +14,7 @@
         <XInputTreeSelectOptions
           :items="options"
           :childrenResolver="childrenResolver"
-          class="max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+          class="max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none text-sm"
         >
           <template #default="{ item, toggle }">
             <div class="flex items-center">
