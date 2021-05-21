@@ -77,7 +77,8 @@ export default {
       return this.level + 1;
     },
     indentClass() {
-      return this.indents[this.nextLevel];
+      //return this.indents[this.nextLevel];
+      return this.indents[1];
     },
   },
   methods: {
