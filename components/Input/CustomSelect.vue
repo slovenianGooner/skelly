@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-1 relative" v-click-away="closeMenu" v-updown>
+  <div class="relative" v-click-away="closeMenu" v-updown>
     <button
       @click="toggle"
       type="button"
