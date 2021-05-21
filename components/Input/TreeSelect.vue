@@ -78,6 +78,11 @@ export default {
     modelValue: {
       immediate: true,
       handler() {
+        if (!this.transformOptions) {
+          this.transformedOptions = this.options;
+          return;
+        }
+        
         this.transformedOptions = this.transformAncestors(
           this.options,
           (item) => {
@@ -117,6 +122,10 @@ export default {
     },
   },
   props: {
+    transformOptions: {
+      type: Boolean,
+      default: true
+    },
     modelValue: {
       required: true,
     },
