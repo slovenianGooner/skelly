@@ -77,7 +77,7 @@
           </div>
 
           <!-- navigation -->
-          <div class="pt-2 flex-1 flex flex-col" :class="[sidebarColor]">
+          <div class="pt-2 flex-1 flex flex-col" :class="[sidebarColor]" v-if="$slots.navigation">
             <nav class="flex-1 px-2 space-y-1">
               <slot name="navigation" />
             </nav>
