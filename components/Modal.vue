@@ -134,9 +134,15 @@ export default {
     show() {
       this.open = true;
     },
-    close() {
-      this.$emit("close");
-      this.open = false;
+    close(timeout) {
+      if (timeout === undefined) {
+        timeout = 0;
+      }
+      
+      setTimeout(() => {
+        this.$emit("close");
+        this.open = false; 
+      }, timeout);
     },
   },
 };
