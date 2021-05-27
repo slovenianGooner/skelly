@@ -4,6 +4,9 @@ export default {
       type: Object,
       require: true,
     },
+    blockIndex: {
+      type: Number,
+      default: 0
   },
   created() {
     if (this.block.form !== undefined) {
