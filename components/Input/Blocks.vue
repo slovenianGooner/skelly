@@ -12,7 +12,7 @@
   </div>
   <div v-else>
     <div class="p-6 border rounded-md flex items-center justify-center">
-      No blocks.
+      {{noBlocks}}
     </div>
   </div>
   <div class="mt-4">
@@ -21,7 +21,7 @@
       max-height="max-h-64 overflow-y-auto"
     >
       <template #button="{ toggleDropdown }">
-        <XButtonForm @click.prevent="toggleDropdown"> Add block </XButtonForm>
+        <XButtonForm @click.prevent="toggleDropdown"> {{addNew}} </XButtonForm>
       </template>
       <template #links="{ toggleDropdown }">
         <button
@@ -82,6 +82,14 @@ export default {
       type: Array,
       default: () => ["default"],
     },
+    addNew: {
+      type: String,
+      default: "Add block"
+    },
+    noBlocks: {
+      type: String,
+      default: "No blocks."
+    }
   },
   data() {
     return {
