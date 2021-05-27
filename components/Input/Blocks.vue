@@ -1,11 +1,12 @@
 <template>
   <div v-if="html.length" class="space-y-4">
     <XInputList v-model="html" :disable-adding="true" :collapsed="false">
-      <template #default="{ item }">
+      <template #default="{ item, index }">
         <component 
           v-if="defaultBlocks[item.type]" 
           :is="defaultBlocks[item.type].component" 
           :block="item" 
+          :index="index"
         />
       </template>
     </XInputList>
