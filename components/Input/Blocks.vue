@@ -6,7 +6,7 @@
           v-if="defaultBlocks[item.type]" 
           :is="defaultBlocks[item.type].component" 
           :block="item" 
-          :index="index"
+          :blockIndex="index"
         />
       </template>
     </XInputList>
