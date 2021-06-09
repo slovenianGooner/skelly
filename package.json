@@ -10,6 +10,7 @@
     },
     "keywords": [],
     "author": "",
+    "private": true,
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/slovenianGooner/skelly/issues"
