@@ -6,7 +6,7 @@
       v-model="modelValue"
       :options="options"
       :labelResolver="labelResolver"
-      :valueResolver="valueResolver
+      :valueResolver="valueResolver"
     />
     <XButtonForm
       @click="$emit('buttonClick', $event)"
