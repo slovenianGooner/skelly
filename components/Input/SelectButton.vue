@@ -7,7 +7,7 @@
       :options="options"
     />
     <XButtonForm
-      @click="$emit('click', $event)"
+      @click="$emit('buttonClick', $event)"
       no-ring
       class="-ml-px rounded-l-none rounded-r-md"
     >
