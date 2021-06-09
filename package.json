@@ -1,6 +1,6 @@
 {
     "sideEffects": false,
-    "name": "sg-skelly",
+    "name": "skellyton",
     "version": "3.0.31",
     "description": "",
     "main": "index.js",
