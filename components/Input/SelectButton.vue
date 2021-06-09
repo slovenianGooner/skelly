@@ -5,7 +5,8 @@
       class="flex items-stretch flex-grow focus-within:z-10"
       v-model="modelValue"
       :options="options"
-      v-bind="$attrs"
+      :labelResolver="labelResolver"
+      :valueResolver="valueResolver
     />
     <XButtonForm
       @click="$emit('buttonClick', $event)"
@@ -43,6 +44,12 @@ export default {
     },
     button: {
       type: String,
+    },
+    labelResolver: {
+      default: null,
+    },
+    valueResolver: {
+      default: null,
     },
   },
 };
