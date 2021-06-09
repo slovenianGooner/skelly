@@ -7,7 +7,7 @@
       v-bind="omit($attrs, 'type')"
     />
     <XButtonForm
-      @click="$emit('click', $event)"
+      @click="$emit('buttonClick', $event)"
       :type="$attrs.type ? $attrs.type : 'button'"
       no-ring
       class="-ml-px rounded-l-none rounded-r-md"
