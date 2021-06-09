@@ -5,6 +5,7 @@
       class="flex items-stretch flex-grow focus-within:z-10"
       v-model="modelValue"
       :options="options"
+      v-bind="$attrs"
     />
     <XButtonForm
       @click="$emit('buttonClick', $event)"
