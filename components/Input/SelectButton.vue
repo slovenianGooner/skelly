@@ -4,6 +4,7 @@
       input-class="rounded-r-none"
       class="flex items-stretch flex-grow focus-within:z-10"
       v-model="modelValue"
+      @update:modelValue="$emit('update:modelValue', $event)"
       :options="options"
       :labelResolver="labelResolver"
       :valueResolver="valueResolver"
