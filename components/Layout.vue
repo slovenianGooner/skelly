@@ -51,7 +51,7 @@
             </div>
 
             <!-- navigation -->
-            <div class="mt-2 flex-1 h-0 overflow-y-auto">
+            <div class="mt-2 flex-1 h-0 overflow-y-auto" v-if="navigation">
               <nav class="px-2 space-y-1">
                 <slot name="navigation" />
               </nav>
@@ -77,7 +77,7 @@
           </div>
 
           <!-- navigation -->
-          <div class="pt-2 flex-1 flex flex-col" :class="[sidebarColor]">
+          <div class="pt-2 flex-1 flex flex-col" :class="[sidebarColor]" v-if="navigation">
             <nav class="flex-1 px-2 space-y-1">
               <slot name="navigation" />
             </nav>
@@ -168,6 +168,10 @@ export default {
   },
   props: {
     userMenu: {
+      type: Boolean,
+      default: true,
+    },
+    navigation: {
       type: Boolean,
       default: true,
     },
