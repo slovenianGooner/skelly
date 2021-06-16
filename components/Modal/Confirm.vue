@@ -10,11 +10,7 @@
         <XButtonForm
           color="red"
           text-color="text-white"
-          @click="
-            close();
-            $emit('submit');
-          "
-        >
+          @click="onSubmit">
           {{ confirm }}
         </XButtonForm>
       </div>
@@ -39,13 +35,27 @@ export default {
       default: "Confirm",
     },
   },
+  data: function () {
+    return {
+      callback: null,
+    }
+  },
   methods: {
-    show() {
+    show(callback) {
+      this.callback = callback;
       this.$refs.modal.show();
     },
     close() {
       this.$refs.modal.close();
     },
+    onSubmit() {
+      this.close();
+      if (this.callback !== undefined) {
+        this.callback();
+      } else {
+        this.$emit('submit');
+      }
+    }
   },
 };
 </script>
