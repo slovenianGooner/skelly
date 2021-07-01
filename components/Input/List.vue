@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="space-y-4">
+    <div class="space-y-4" v-if="items.length>
       <div
         v-for="(item, index) in items"
         :key="item.uid"
