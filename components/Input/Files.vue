@@ -15,7 +15,7 @@
             <template #item="{ element, index }">
               <div class="py-2 px-2 flex items-center justify-between">
                 <SelectorIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
-                <div class="truncate w-96">{{ element.name }}</div>
+                <div class="truncate w-96">{{ element.url }}</div>
                 <button class="underline" @click="removeFile(index)">
                   Remove
                 </button>
@@ -49,7 +49,15 @@
       v-bind="$attrs"
     />
     <div
-      class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+      class="
+        absolute
+        inset-y-0
+        right-0
+        pr-3
+        flex
+        items-center
+        pointer-events-none
+      "
       v-if="errors.length"
     >
       <ExclamationCircleIcon class="w-5 h-5 text-red-500" />
@@ -99,7 +107,7 @@ export default {
   },
   data() {
     return {
-      files: this.value,
+      files: this.modelValue,
     };
   },
   methods: {
