@@ -1,7 +1,7 @@
 <template>
   <div
     class="relative border rounded p-4 flex flex-col items-center"
-    :class="[errors.length > 0 ? 'border-red-500' : 'border-gray-300']"
+    :class="[errors.length > 0 ? 'border-red-300' : 'border-gray-300']"
   >
     <slot name="selected" :value="modelValue">
       <div class="text-sm mb-4">
