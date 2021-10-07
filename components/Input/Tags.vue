@@ -6,6 +6,7 @@
     mode="tags"
     :searchable="true"
     :createTag="true"
+    :limit="limit"
   />
 </template>
 <script>
@@ -20,6 +21,10 @@ export default {
     modelValue: {
       required: true,
     },
+    limit: {
+      type: Number,
+      default: null,
+    }
   },
   components: {
     Multiselect,
