@@ -8,7 +8,8 @@
     leave-to-class="opacity-0"
   >
     <div
-      class="fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end z-10"
+      :class="[positionClass]"
+      class="fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-8 z-10"
       v-show="show"
     >
       <div
@@ -78,6 +79,10 @@ export default {
     },
     toastClass: {
       type: String,
+    },
+    positionClass: {
+      type: String,
+      default: 'sm:items-start sm:justify-end'
     }
   },
   data() {
