@@ -20,14 +20,13 @@
       >
         <SelectorIcon class="text-gray-400 w-5 h-5" />
       </span>
+      <div
+        class="absolute inset-y-0 right-0 pr-8 flex items-center pointer-events-none"
+        v-if="errors.length"
+        >
+        <ExclamationCircleIcon class="w-5 h-5 text-red-500" />
+      </div>
     </button>
-
-    <div
-      class="absolute inset-y-0 right-0 pr-8 flex items-center pointer-events-none"
-      v-if="errors.length"
-    >
-      <ExclamationCircleIcon class="w-5 h-5 text-red-500" />
-    </div>
 
     <transition
       enter-active-class=""
