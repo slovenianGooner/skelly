@@ -1,7 +1,7 @@
 {
     "sideEffects": false,
     "name": "sg-skelly",
-    "version": "3.0.43",
+    "version": "3.0.44",
     "description": "",
     "main": "index.js",
     "repository": {
