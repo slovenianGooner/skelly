@@ -6,6 +6,7 @@
     mode="tags"
     :searchable="true"
     :createTag="true"
+    :showOptions="!!options.length"
     :limit="limit"
   />
 </template>
