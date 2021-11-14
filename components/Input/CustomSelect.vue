@@ -23,7 +23,7 @@
       <div
         class="absolute inset-y-0 right-0 pr-8 flex items-center pointer-events-none"
         v-if="errors.length"
-        >
+      >
         <ExclamationCircleIcon class="w-5 h-5 text-red-500" />
       </div>
     </button>
@@ -130,7 +130,7 @@
       </div>
     </transition>
 
-    <div class="mt-1" v-if="multiple && modelValue.length > 0" ref="deselect">
+    <div class="mt-1" v-if="multiple && modelValue.length > 0 && showDeselectAll" ref="deselect">
       <button
         class="text-xs underline text-gray-700"
         @click="$emit('update:modelValue', [])"
@@ -141,13 +141,13 @@
   </div>
 </template>
 <script>
-import { directive } from "vue3-click-away";
+import { directive } from 'vue3-click-away';
 import {
   SelectorIcon,
   ExclamationCircleIcon,
   CheckIcon,
-} from "@heroicons/vue/solid";
-import XInputText from "./Text";
+} from '@heroicons/vue/solid';
+import XInputText from './Text';
 
 export default {
   components: {
@@ -161,7 +161,7 @@ export default {
     ClickAway: directive,
     updown: {
       mounted(el, binding, vnode, prevVNode) {
-        el.addEventListener("click", () => {
+        el.addEventListener('click', () => {
           let space = window.innerHeight - el.getBoundingClientRect().bottom;
           let button = el.children[0];
           let dropdown = el.children[1];
@@ -180,11 +180,11 @@ export default {
 
           if (dropdown) {
             if (space < height) {
-              dropdown.classList.add("bottom-0", "transform");
-              dropdown.style = "transform: translateY(-" + buttonHeight + "px)";
+              dropdown.classList.add('bottom-0', 'transform');
+              dropdown.style = 'transform: translateY(-' + buttonHeight + 'px)';
             } else {
-              dropdown.classList.remove("bottom-0", "transform");
-              dropdown.style = "translate: transformY(0px)";
+              dropdown.classList.remove('bottom-0', 'transform');
+              dropdown.style = 'translate: transformY(0px)';
             }
           }
         });
@@ -197,7 +197,7 @@ export default {
     },
     searchPlaceholder: {
       type: String,
-      default: "Search...",
+      default: 'Search...',
     },
     multiple: {
       type: Boolean,
@@ -218,13 +218,13 @@ export default {
       default: () => {
         return {
           value: null,
-          title: "&mdash;",
+          title: '&mdash;',
         };
       },
     },
     buttonClass: {
       type: String,
-      default: "focus:ring-1 focus:ring-red-500 focus:border-red-500",
+      default: 'focus:ring-1 focus:ring-red-500 focus:border-red-500',
     },
     labelResolver: {
       default: null,
@@ -234,22 +234,30 @@ export default {
     },
     noOptionsSelected: {
       type: String,
-      default: "No options selected",
+      default: 'No options selected',
     },
     deselectAll: {
       type: String,
-      default: "Deselect all",
+      default: 'Deselect all',
     },
     selectedResolver: {
       type: Function,
       default: null,
     },
+    showDeselectAll: {
+      type: Boolean,
+      default: true
+    },
+    closeAfterMultipleSelect: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
       open: false,
       optionsList: [],
-      searchQuery: "",
+      searchQuery: '',
     };
   },
   created() {
@@ -258,7 +266,7 @@ export default {
   methods: {
     filteredOptions() {
       // If search prop is a boolean, then search by default label resolver
-      if (typeof this.search === "boolean") {
+      if (typeof this.search === 'boolean') {
         return [...this.optionsList].filter((option) => {
           return (
             this.resolveLabel(option)
@@ -268,7 +276,7 @@ export default {
         });
       }
 
-      if (typeof this.search === "function") {
+      if (typeof this.search === 'function') {
         return [...this.optionsList].filter((option) => {
           return this.search(option, this.searchQuery);
         });
@@ -278,14 +286,14 @@ export default {
     },
     toggle() {
       this.open = !this.open;
-      this.searchQuery = "";
+      this.searchQuery = '';
     },
     closeMenu() {
       this.open = false;
-      this.searchQuery = "";
+      this.searchQuery = '';
     },
     selectEmpty(option) {
-      this.$emit("update:modelValue", null);
+      this.$emit('update:modelValue', null);
       this.closeMenu();
     },
     select(option) {
@@ -298,11 +306,17 @@ export default {
           newValue.push(this.resolveValue(option));
         }
 
-        this.$emit("update:modelValue", newValue);
+        this.$emit('update:modelValue', newValue);
+
+        if (this.closeAfterMultipleSelect) {
+          this.closeMenu();
+          return;
+        }
+
         return;
       }
 
-      this.$emit("update:modelValue", this.resolveValue(option));
+      this.$emit('update:modelValue', this.resolveValue(option));
       this.closeMenu();
     },
     valueIndex(item) {
@@ -332,7 +346,7 @@ export default {
     resolveSelected() {
       if (
         this.modelValue !== null &&
-        typeof this.selectedResolver === "function"
+        typeof this.selectedResolver === 'function'
       ) {
         return this.selectedResolver(this.optionsList, this.modelValue);
       }
@@ -346,7 +360,7 @@ export default {
           .map((option) => {
             return this.resolveLabel(option);
           })
-          .join(", ");
+          .join(', ');
       }
 
       if (this.modelValue === this.empty.value) {
@@ -356,7 +370,7 @@ export default {
       return this.resolveLabel(this.selected());
     },
     resolveValue(item, index) {
-      if (typeof this.valueResolver === "function") {
+      if (typeof this.valueResolver === 'function') {
         return this.valueResolver(item);
       }
 
@@ -367,7 +381,7 @@ export default {
       return item;
     },
     resolveLabel(item) {
-      if (typeof this.labelResolver === "function") {
+      if (typeof this.labelResolver === 'function') {
         return this.labelResolver(item);
       }
 
