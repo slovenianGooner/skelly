@@ -130,7 +130,7 @@
       </div>
     </transition>
 
-    <div class="-mt-1" v-if="multiple && modelValue.length > 0" ref="deselect">
+    <div class="mt-1" v-if="multiple && modelValue.length > 0" ref="deselect">
       <button
         class="text-xs underline text-gray-700"
         @click="$emit('update:modelValue', [])"
