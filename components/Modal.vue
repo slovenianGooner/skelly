@@ -50,7 +50,7 @@
           <div class="px-4 py-5 sm:px-6" v-if="$slots.header">
             <slot name="header" :close="close" />
           </div>
-          <div class="px-4 py-5 sm:p-6 flex-1 overflow-y-auto">
+          <div :class="[bodyClass]">
             <slot :close="close" />
           </div>
           <div class="px-4 py-4 sm:px-6" v-if="$slots.footer">
@@ -62,7 +62,7 @@
         <div class="px-4 py-5 sm:px-6" v-if="$slots.header">
           <slot name="header" :close="close" />
         </div>
-        <div class="px-4 py-5 sm:p-6 flex-1 overflow-y-auto">
+        <div :class="[bodyClass]">
           <slot :close="close" />
         </div>
         <div class="px-4 py-4 sm:px-6" v-if="$slots.footer">
@@ -100,6 +100,10 @@ export default {
       default:
         "inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full divide-y divide-y-gray-200",
     },
+    bodyClass: {
+      type: String,
+      default: "px-4 py-5 sm:p-6 flex-1 overflow-y-auto"
+    }
   },
   data() {
     return {
