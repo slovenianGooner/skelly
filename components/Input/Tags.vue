@@ -6,6 +6,7 @@
     mode="tags"
     :searchable="true"
     :createTag="true"
+    :placeholder="placeholder"
     :showOptions="!!options.length"
     :limit="limit"
   />
@@ -25,6 +26,10 @@ export default {
     limit: {
       type: Number,
       default: null,
+    },
+    placeholder: {
+      type: String,
+      default: null
     }
   },
   components: {
