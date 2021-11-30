@@ -101,8 +101,7 @@ export default {
       default: false,
     },
     modelValue: {
-      type: Array,
-      required: true,
+      required: true
     },
     default: {
       type: Object,
@@ -131,12 +130,12 @@ export default {
   },
   data() {
     return {
-      items: this.modelValue,
+      items: [],
     };
   },
   created() {
     // If the items don't have a UID then assign it
-    this.items = this.items.map((item) => {
+    this.items = this.modelValue !== null ? this.modelValue.map((item) => {
       if (this.assignMissingProps) {
         Object.keys(this.default).forEach((key, value) => {
           if (item[key] === undefined) {
@@ -151,7 +150,7 @@ export default {
 
       item.open = !this.collapsed;
       return item;
-    });
+    }) : [];
   },
   methods: {
     toggle(index) {
