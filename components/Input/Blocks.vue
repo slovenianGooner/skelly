@@ -130,7 +130,7 @@ export default {
           blocks.push(block);
         } else if (typeof block === "object") {
           this.defaultBlocks[block.key] = block;
-          blocks.push(block.key);
+          //blocks.push(block.key);
         }
       });
 
