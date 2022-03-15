@@ -35,7 +35,7 @@ export default {
     },
     textColor: {
       type: String,
-      default: "text-gray-700",
+      default: "text-gray-700 dark:text-gray-300",
     },
     noRing: {
       type: Boolean,
@@ -67,7 +67,7 @@ export default {
     },
     buttonColor() {
       if (this.color === "") {
-        return "bg-white hover:bg-gray-50 focus:ring-gray-500 border-gray-300";
+        return "bg-white hover:bg-gray-50 focus:ring-gray-500 border-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:border-gray-500";
       }
 
       return (

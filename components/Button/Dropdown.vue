@@ -18,7 +18,7 @@
     >
       <div
         v-show="open"
-        class="z-10 absolute mt-2 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
+        class="z-10 absolute mt-2 rounded-md shadow-lg py-1 bg-white dark:bg-gray-700 dark:border dark:border-gray-600 ring-1 ring-black ring-opacity-5"
         :class="[origin, maxHeight, width]"
         role="menu"
         aria-orientation="vertical"

@@ -98,7 +98,7 @@ export default {
     modalClass: {
       type: String,
       default:
-        "inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full divide-y divide-y-gray-200",
+        "inline-block align-bottom bg-white dark:bg-gray-700 dark:border dark:border-gray-500 rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full divide-y divide-y-gray-200 dark:divide-gray-500",
     },
     bodyClass: {
       type: String,

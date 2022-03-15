@@ -5,7 +5,7 @@
     v-if="data.total"
   >
     <div>
-      <p class="text-sm text-gray-700">
+      <p class="text-sm text-gray-700 dark:text-gray-300">
         <slot name="text" :data="data">
           Showing
           <span class="font-medium">{{ data.from }}</span>

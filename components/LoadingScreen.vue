@@ -10,7 +10,7 @@
     <div
       v-show="modelValue"
       v-bind="$attrs"
-      class="w-full h-screen fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-90 z-20 text-red-500"
+      class="w-full h-screen fixed inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-700 bg-opacity-90 dark:bg-opacity-90 z-20 text-red-500"
     >
       <XSpinnerIcon />
     </div>

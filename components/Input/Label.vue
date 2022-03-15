@@ -2,7 +2,7 @@
   <label
     class="block text-sm font-medium"
     :class="{
-      'text-gray-700': errors.length === 0,
+      'text-gray-700 dark:text-gray-300': errors.length === 0,
       'text-red-600': errors.length > 0,
     }"
   >

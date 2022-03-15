@@ -45,7 +45,7 @@
     >
       <div class="flex-1 min-w-0">
         <h2
-          class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"
+          class="text-2xl font-bold leading-7 text-gray-900 dark:text-gray-300 sm:text-3xl sm:truncate"
         >
           {{ title }}
         </h2>
