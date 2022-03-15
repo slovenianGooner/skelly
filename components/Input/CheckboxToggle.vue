@@ -23,7 +23,7 @@
       ></span>
     </button>
     <span class="ml-3" v-if="label">
-      <label :for="id" class="text-sm font-medium text-gray-700">
+      <label :for="id" class="text-sm font-medium text-gray-700 dark:text-gray-300">
         {{ label }}
       </label>
     </span>
