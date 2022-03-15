@@ -13,7 +13,7 @@
         />
       </div>
       <div class="ml-3 text-sm">
-        <label :for="id" class="font-medium text-gray-700">{{ label }}</label>
+        <label :for="id" class="font-medium text-gray-700 dark:text-gray-300">{{ label }}</label>
       </div>
     </div>
   </div>
