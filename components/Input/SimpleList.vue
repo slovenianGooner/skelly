@@ -9,6 +9,9 @@
     <template #default="{ item, index, extraData }">
       <slot :item="item" :index="index" :extraData="extraData" />
     </template>
+    <template #buttons v-if="$slots.buttons">
+      <slot name="buttons" />
+    </template>
   </XInputList>
 </template>
 <script>
