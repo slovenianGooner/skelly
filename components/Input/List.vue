@@ -10,12 +10,12 @@
       >
         <div v-if="header && !simple" class="flex items-center">
           <div class="border-r border-gray-300 p-2">
-            <a href="#" @click.prevent="toggle(index)" class="text-gray-700">
+            <a href="#" @click.prevent="toggle(index)" class="text-gray-700 dark:text-gray-300">
               <MinusIcon v-if="item.open" class="w-5 h-5" />
               <PlusIcon v-else class="w-5 h-5" />
             </a>
           </div>
-          <div class="px-4 text-gray-700 font-semibold">#{{ index + 1 }}</div>
+          <div class="px-4 text-gray-700 dark:text-gray-300 font-semibold">#{{ index + 1 }}</div>
         </div>
         <div
           v-if="item.open"
@@ -24,7 +24,7 @@
         >
           <div
             :class="{
-              'border-r border-gray-300 py-4 px-2 space-y-4 text-gray-700 flex flex-col': !simple,
+              'border-r border-gray-300 py-4 px-2 space-y-4 text-gray-700 dark:text-gray-300 flex flex-col': !simple,
             }"
           >
             <a
