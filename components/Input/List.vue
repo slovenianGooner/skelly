@@ -32,17 +32,17 @@
               v-if="index > 0 && !simple"
               @click.prevent="moveUp(index)"
             >
-              <ArrowUpIcon class="w-5 h-5" />
+              <ArrowUpIcon class="w-5 h-5 dark:text-gray-300" />
             </a>
             <a
               href="#"
               v-if="index < items.length - 1 && !simple"
               @click.prevent="moveDown(index)"
             >
-              <ArrowDownIcon class="w-5 h-5" />
+              <ArrowDownIcon class="w-5 h-5 dark:text-gray-300" />
             </a>
             <a href="#" @click.prevent="removeItem(index)">
-              <TrashIcon class="w-5 h-5" />
+              <TrashIcon class="w-5 h-5 dark:text-gray-300" />
             </a>
           </div>
           <div
