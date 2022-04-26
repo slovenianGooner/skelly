@@ -10,6 +10,7 @@ export { default as XPageHeader } from "./components/PageHeader.vue";
 export { default as XSection } from "./components/Section.vue";
 export { default as XSpinnerIcon } from "./components/SpinnerIcon.vue";
 export { default as XToast } from "./components/Toast.vue";
+export { default as XToastColored } from "./components/ToastColored.vue";
 
 // Alerts
 export { default as XAlertBanner } from "./components/Alert/Banner.vue";
