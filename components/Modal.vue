@@ -47,13 +47,13 @@
           aria-labelledby="modal-headline"
           v-show="open"
         >
-          <div class="px-4 py-5 sm:px-6" v-if="$slots.header">
+          <div class="px-4 py-5 sm:px-6 dark:bg-gray-600" v-if="$slots.header">
             <slot name="header" :close="close" />
           </div>
           <div :class="[bodyClass]">
             <slot :close="close" />
           </div>
-          <div class="px-4 py-4 sm:px-6" v-if="$slots.footer">
+          <div class="px-4 py-4 sm:px-6 dark:bg-gray-600" v-if="$slots.footer">
             <slot name="footer" :close="close" />
           </div>
         </div>

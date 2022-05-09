@@ -6,7 +6,7 @@
     v-bind="$attrs"
     class="overflow-y-none"
     container-class="w-screen h-screen"
-    modal-class="flex flex-col left-0 top-0 bg-white text-left transform transition-all w-screen h-screen overflow-hidden divide-y divide-y-gray-200"
+    modal-class="flex flex-col left-0 top-0 bg-white dark:bg-gray-700 dark:text-white text-left transform transition-all w-screen h-screen overflow-hidden divide-y divide-y-gray-200 dark:divide-transparent"
   >
     <template #header>
       <slot name="header" />
