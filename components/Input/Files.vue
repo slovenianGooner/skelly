@@ -15,7 +15,7 @@
             <template #item="{ element, index }">
               <div class="py-2 px-2 flex items-center justify-between">
                 <SelectorIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
-                <div class="truncate w-96">{{ element.url }}</div>
+                <div class="truncate w-96">{{ element[displayProp] }}</div>
                 <button class="underline" @click="removeFile(index)">
                   Remove
                 </button>
@@ -99,6 +99,11 @@ export default {
     errors: {
       type: [Array, String],
       default: () => [],
+    },
+    displayProp: {
+        type: String,
+        default: 'url',
+        required: false,
     },
     modelValue: {
       required: true,
