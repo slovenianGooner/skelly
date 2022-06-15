@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="relative flex items-start">
+    <label class="relative flex items-start">
       <div class="flex items-center h-5">
         <input
           :id="id"
@@ -13,7 +13,7 @@
         />
       </div>
       <div class="ml-3 text-sm">
-        <label :for="id" class="font-medium text-gray-700 dark:text-gray-300">{{ label }}</label>
+        <div class="font-medium text-gray-700 dark:text-gray-300">{{ label }}</div>
       </div>
     </div>
   </div>
