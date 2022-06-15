@@ -15,7 +15,7 @@
       <div class="ml-3 text-sm">
         <div class="font-medium text-gray-700 dark:text-gray-300">{{ label }}</div>
       </div>
-    </div>
+    </label>
   </div>
 </template>
 <script>
