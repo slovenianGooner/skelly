@@ -30,7 +30,7 @@
 </template>
 <script>
 import Sortable from "sortablejs";
-import treeMixin from "../mixins/tree";
+import { treeMixin } from "sg-skelly";
 
 export default {
   name: "XNestable",

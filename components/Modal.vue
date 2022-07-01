@@ -73,7 +73,7 @@
   </div>
 </template>
 <script>
-import XModalBackdrop from "./Modal/Backdrop";
+import { XModalBackdrop } from "sg-skelly";
 
 export default {
   components: {

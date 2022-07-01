@@ -37,7 +37,7 @@
   </div>
 </template>
 <script>
-import XButtonForm from "../Button/Form";
+import { XButtonForm } from "sg-skelly";
 import {
   ExclamationCircleIcon,
   FolderIcon,

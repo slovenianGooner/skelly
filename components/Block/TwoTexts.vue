@@ -19,9 +19,7 @@
   </div>
 </template>
 <script>
-import XInputLabel from "../Input/Label";
-import XInputEditor from "../Input/Editor";
-import blockMixin from "../../mixins/block";
+import { XInputLabel, XInputEditor, blockMixin } from "sg-skelly";
 
 export default {
   components: {

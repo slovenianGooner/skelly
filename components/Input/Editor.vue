@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import wysiwygMixin from "../../mixins/wysiwyg";
+import { wysiwygMixin } from "sg-skelly";
 export default {
   mixins: [wysiwygMixin],
   props: {

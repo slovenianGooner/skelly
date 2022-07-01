@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import XInputTextButton from "../Input/TextButton";
+import { XInputTextButton } from "sg-skelly";
 export default {
   components: {
     XInputTextButton,

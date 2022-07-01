@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import XButtonForm from "./Button/Form";
+import { XButtonForm } from "sg-skelly";
 import { MinusIcon, PlusIcon } from "@heroicons/vue/solid";
 
 export default {

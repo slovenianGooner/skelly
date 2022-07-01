@@ -22,8 +22,7 @@
   </div>
 </template>
 <script>
-import XInputSelect from "./Select";
-import XButtonForm from "../Button/Form";
+import { XInputSelect, XButtonForm } from "sg-skelly";
 
 export default {
   components: {

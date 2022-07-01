@@ -147,7 +147,7 @@ import {
   ExclamationCircleIcon,
   CheckIcon,
 } from '@heroicons/vue/solid';
-import XInputText from './Text';
+import { XInputText } from 'sg-skelly';
 
 export default {
   components: {

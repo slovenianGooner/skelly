@@ -1,4 +1,4 @@
-export { default as XCard } from "./components/Card.vue";
+export { default as XCard } from "/components/Card.vue";
 export { default as XLayout } from "./components/Layout.vue";
 export { default as XLoadingScreen } from "./components/LoadingScreen.vue";
 export { default as XModal } from "./components/Modal.vue";

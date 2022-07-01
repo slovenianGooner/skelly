@@ -18,8 +18,7 @@
   </XModal>
 </template>
 <script>
-import XModal from "../Modal";
-import XButtonForm from "../Button/Form";
+import { XModal, XButtonForm } from "sg-skelly";
 export default {
   components: {
     XModal,

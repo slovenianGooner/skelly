@@ -102,10 +102,7 @@
   </div>
 </template>
 <script>
-import XAlertFormError from "../Alert/FormError";
-import XInputLabel from "../Input/Label";
-import XInputText from "../Input/Text";
-import XInputErrors from "../Input/Errors";
+import { XAlertFormError, XInputLabel, XInputText, XInputErrors } from "sg-skelly";
 
 export default {
   components: {

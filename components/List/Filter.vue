@@ -10,7 +10,7 @@
 </template>
 <script>
 import omit from "lodash/omit";
-import XButtonForm from "../Button/Form";
+import { XButtonForm } from "sg-skelly";
 export default {
   components: {
     XButtonForm,

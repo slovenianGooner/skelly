@@ -51,8 +51,7 @@
   </div>
 </template>
 <script>
-import XInputCustomSelect from "../Input/CustomSelect";
-import XInputTreeSelectOptions from "../Input/TreeSelectOptions";
+import { XInputCustomSelect, XInputTreeSelectOptions } from "sg-skelly";
 import {
   ChevronRightIcon,
   ChevronDownIcon,

@@ -20,10 +20,7 @@
   </div>
 </template>
 <script>
-import XInputLabel from "../Input/Label";
-import XInputFile from "../Input/File";
-import XInputText from "../Input/Text";
-import blockMixin from "../../mixins/block";
+import { XInputLabel, XInputFile, XInputText, blockMixin } from "sg-skelly";
 
 export default {
   components: {

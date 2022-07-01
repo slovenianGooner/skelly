@@ -66,7 +66,7 @@
 </template>
 <script>
 import draggable from "vuedraggable";
-import XButtonForm from "../Button/Form";
+import { XButtonForm } from "sg-skelly";
 import {
   ExclamationCircleIcon,
   FolderIcon,

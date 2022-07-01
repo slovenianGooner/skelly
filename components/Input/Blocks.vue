@@ -42,19 +42,21 @@
   </div>
 </template>
 <script>
-import XButtonDropdown from "../Button/Dropdown";
-import XButtonForm from "../Button/Form";
-import XBlockFile from "../Block/File";
-import XBlockImage from "../Block/Image";
-import XBlockImageLeft from "../Block/ImageLeft";
-import XBlockImageRight from "../Block/ImageRight";
-import XBlockText from "../Block/Text";
-import XBlockThreeImages from "../Block/ThreeImages";
-import XBlockThreeTexts from "../Block/ThreeTexts";
-import XBlockTwoImages from "../Block/TwoImages";
-import XBlockTwoTexts from "../Block/TwoTexts";
-import XBlockVideo from "../Block/Video";
-import XInputList from "../Input/List";
+import { 
+  XButtonDropdown, 
+  XButtonForm, 
+  XBlockFile, 
+  XBlockImage, 
+  XBlockImageLeft, 
+  XBlockImageRight, 
+  XBlockText, 
+  XBlockThreeImages, 
+  XBlockThreeTexts, 
+  XBlockTwoImages,
+  XBlockTwoTexts,
+  XBlockVideo,
+  XInputList
+} from "sg-skelly";
 import { nanoid } from "nanoid";
 import { shallowRef } from "@vue/reactivity";
 

@@ -10,9 +10,7 @@
   </div>
 </template>
 <script>
-import XInputLabel from "../Input/Label";
-import XInputTextarea from "../Input/Textarea";
-import blockMixin from "../../mixins/block";
+import { XInputLabel, XInputTextarea, blockMixin } from "sg-skelly";
 
 export default {
   components: {

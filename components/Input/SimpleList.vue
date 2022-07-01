@@ -15,7 +15,7 @@
   </XInputList>
 </template>
 <script>
-import XInputList from "./List";
+import { XInputList } from "sg-skelly";
 export default {
   components: {
     XInputList,
