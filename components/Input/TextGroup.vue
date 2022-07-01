@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import omit from "lodash/omit";
+import { omit } from "lodash-es";
 import { XButtonForm, XInputText } from "sg-skelly";
 export default {
   components: {

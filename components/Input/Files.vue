@@ -65,7 +65,7 @@
   </div>
 </template>
 <script>
-import draggable from "vuedraggable";
+import draggable from "vuedraggable/src/vuedraggable";
 import { XButtonForm } from "sg-skelly";
 import {
   ExclamationCircleIcon,
