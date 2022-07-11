@@ -17,9 +17,8 @@
       leave-to-class="transform opacity-0 scale-95"
     >
       <div
-        v-show="open"
         class="z-10 absolute mt-2 rounded-md shadow-lg py-1 bg-white dark:bg-gray-700 dark:border dark:border-gray-600 ring-1 ring-black ring-opacity-5"
-        :class="[origin, maxHeight, width]"
+        :class="[origin, maxHeight, width, open ? '' : 'hidden']"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="dropdown"
