@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white rounded-md shadow-sm divide-y">
     <div v-if="$slots.header">
-      <slot name="header" :toggle="toggle" />
+      <slot name="header" :toggle="toggle" :open="open" />
     </div>
     <div v-else class="flex justify-between items-center px-4 py-3 sm:px-6">
       <div class="text-xl font-bold">
@@ -15,7 +15,7 @@
         <PlusIcon class="w-6 h-6" v-else />
       </XButtonForm>
     </div>
-    <div v-if="open" class="px-4 py-6 sm:px-6">
+    <div v-if="open" :class="[bodyClass]">
       <slot />
     </div>
   </div>
@@ -37,6 +37,10 @@ export default {
     title: {
       type: String,
     },
+    bodyClass: {
+      type: String,
+        default: 'px-4 py-6 sm:px-6'
+    }
   },
   data() {
     return {
