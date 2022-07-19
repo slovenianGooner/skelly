@@ -1,6 +1,9 @@
 <template>
   <div class="bg-white rounded-md shadow-sm divide-y">
-    <div class="flex justify-between items-center px-4 py-3 sm:px-6">
+    <div v-if="$slots.header">
+      <slot name="header" :toggle="toggle" />
+    </div>
+    <div v-else class="flex justify-between items-center px-4 py-3 sm:px-6">
       <div class="text-xl font-bold">
         <span v-if="$slots.title">
           <slot name="title" />
