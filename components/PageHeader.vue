@@ -11,6 +11,7 @@
             class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-400"
           >
             <ChevronLeftIcon
+              v-if="breadcrumbs.length > 1"
               class="w-5 h-5 flex-shrink-0 -ml-1 mr-1 text-gray-400 dark:text-gray-300 dark:hover:text-gray-400"
             />
             {{ breadcrumbs.length > 1 ? back : breadcrumbs[0].title }}
@@ -28,7 +29,7 @@
                   <a
                     href="#"
                     @click.prevent="$emit('navigate', breadcrumb.href)"
-                    class="text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-400"
+                    class="text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-400 truncate"
                     :class="{ 'ml-2': index > 0 }"
                     >{{ breadcrumb.title }}</a
                   >
