@@ -23,7 +23,7 @@
             </template>
           </draggable>
         </div>
-        <div v-else class="p-4 flex justify-center">No files selected.</div>
+        <div v-else class="p-4 flex justify-center">{{ noFiles }}</div>
       </div>
     </slot>
     <div class="space-x-2 p-4">
@@ -91,6 +91,10 @@ export default {
     clear: {
       type: String,
       default: "Clear",
+    },
+    noFiles: {
+      type: String,
+      default: "No files selected.",
     },
     inputClass: {
       type: String,
