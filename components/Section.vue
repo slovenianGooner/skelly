@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-md shadow-sm divide-y">
+  <div class="bg-white dark:bg-gray-700 rounded-md shadow-sm divide-y">
     <div v-if="$slots.header">
       <slot name="header" :toggle="toggle" :open="open" />
     </div>
@@ -8,7 +8,7 @@
         <span v-if="$slots.title">
           <slot name="title" />
         </span>
-        <span v-else>{{ title }}</span>
+        <span v-else class="dark:text-gray-300">{{ title }}</span>
       </div>
       <XButtonForm size="xs" @click="toggle">
         <MinusIcon class="w-6 h-6" v-if="open" />
