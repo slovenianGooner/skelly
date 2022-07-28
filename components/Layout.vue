@@ -103,41 +103,46 @@
           <MenuIcon class="w-6 h-6" />
         </button>
 
-        <div class="flex-1 px-4 flex justify-end">
-          <div
-            class="flex items-center w-full justify-end"
-            v-if="$slots.headerButtons"
-          >
-            <slot name="headerButtons" />
+        <div class="flex-1 px-4 flex justify-between">
+          <div class="text-2xl font-semibold" :class="[headerTextColor]" v-if="!$slots.navigation">
+            <slot name="logo"/>
           </div>
-          <!-- User actions dropdown -->
-          <div class="ml-3 flex items-center" v-if="userMenu">
-            <XButtonDropdown>
-              <template #button="{ toggleDropdown }">
-                <slot name="userMenuButton" :toggleUserMenu="toggleDropdown">
-                  <button
-                    class="max-w-xs flex items-center focus:outline-none"
-                    :class="[headerTextColor]"
-                    id="user-menu"
-                    @click="toggleDropdown"
-                    aria-haspopup="true"
-                  >
-                    <UserIcon class="w-6 h-6 mr-1.5" />
-                    {{ username }}
-                  </button>
-                </slot>
-              </template>
-              <template #links="{ toggleDropdown }">
-                <slot name="userMenuLinks" :toggleUserMenu="toggleDropdown">
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    role="menuitem"
-                    >Sign out</a
-                  >
-                </slot>
-              </template>
-            </XButtonDropdown>
+          <div class="flex-1 flex justify-end">
+            <div
+              class="flex items-center w-full justify-end"
+              v-if="$slots.headerButtons"
+            >
+              <slot name="headerButtons" />
+            </div>
+            <!-- User actions dropdown -->
+            <div class="ml-3 flex items-center" v-if="userMenu">
+              <XButtonDropdown>
+                <template #button="{ toggleDropdown }">
+                  <slot name="userMenuButton" :toggleUserMenu="toggleDropdown">
+                    <button
+                      class="max-w-xs flex items-center focus:outline-none"
+                      :class="[headerTextColor]"
+                      id="user-menu"
+                      @click="toggleDropdown"
+                      aria-haspopup="true"
+                    >
+                      <UserIcon class="w-6 h-6 mr-1.5" />
+                      {{ username }}
+                    </button>
+                  </slot>
+                </template>
+                <template #links="{ toggleDropdown }">
+                  <slot name="userMenuLinks" :toggleUserMenu="toggleDropdown">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      role="menuitem"
+                      >Sign out</a
+                    >
+                  </slot>
+                </template>
+              </XButtonDropdown>
+            </div>
           </div>
         </div>
       </div>
