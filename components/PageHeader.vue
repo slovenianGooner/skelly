@@ -2,7 +2,7 @@
   <div>
     <div v-if="breadcrumbs.length">
       <slot name="breadcrumbs">
-        <nav class="sm:hidden" aria-label="Back">
+        <nav :class="[mobileBreakpoint]" aria-label="Back">
           <a
             href="#"
             @click.prevent="
@@ -17,7 +17,7 @@
             {{ breadcrumbs.length > 1 ? back : breadcrumbs[0].title }}
           </a>
         </nav>
-        <nav class="hidden sm:flex" aria-label="Breadcrumb">
+        <nav :class="[desktopBreakpoint]" aria-label="Breadcrumb">
           <ol class="flex items-center space-x-2">
             <template v-for="(breadcrumb, index) in breadcrumbs" :key="index">
               <li>
@@ -80,6 +80,14 @@ export default {
       type: Array,
       default: () => [],
     },
+      mobileBreakpoint: {
+      type: String,
+      default: "md:hidden"
+    },
+    desktopBreakpoint: {
+      type: String,
+      default: "hidden md:flex"
+    }
   },
 };
 </script>
