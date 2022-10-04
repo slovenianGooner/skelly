@@ -7,7 +7,7 @@
     </div>
     <slot name="body" :data="data">
       <div v-if="data.length">
-        <ul class="divide-y divide-gray-200 dark:text-gray-300">
+        <ul class="divide-y divide-gray-200 dark:divide-gray-500 dark:text-gray-300">
           <li v-for="(item, index) in data" :key="index">
             <slot :item="item" :index="index" />
           </li>
