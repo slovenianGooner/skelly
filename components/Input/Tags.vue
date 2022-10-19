@@ -9,6 +9,7 @@
     :placeholder="placeholder"
     :showOptions="!!options.length"
     :limit="limit"
+    :max-height="maxHeight"
   />
 </template>
 <script>
@@ -35,6 +36,11 @@ export default {
       type: Boolean,
       default: true,
     },
+    maxHeight: {
+        type: Number,
+        required: false,
+        default: 160,
+      },
   },
   components: {
     Multiselect,
