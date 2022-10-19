@@ -5,7 +5,7 @@
     :options="options"
     mode="tags"
     :searchable="true"
-    :createTag="true"
+    :createTag="createTag"
     :placeholder="placeholder"
     :showOptions="!!options.length"
     :limit="limit"
@@ -30,7 +30,11 @@ export default {
     placeholder: {
       type: String,
       default: null
-    }
+    },
+    createTag: {
+      type: Boolean,
+      default: true,
+    },
   },
   components: {
     Multiselect,
