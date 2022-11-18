@@ -6,7 +6,6 @@ export default {
   },
   props: {
     id: {
-      type: String,
       required: true,
     },
     value: {},
@@ -16,6 +15,10 @@ export default {
     label: {
       type: String,
       required: true,
+    },
+    inputClass: {
+      type: String,
+      required: false,
     },
   },
   computed: {
@@ -39,7 +42,9 @@ export default {
              :checked="isChecked"
              :value="value"
              @change="updateInput"
-             class="radio"/>
+             class="radio"
+             :class="inputClass"
+      />
       <span class="label-text">{{ label }}</span>
     </label>
   </div>

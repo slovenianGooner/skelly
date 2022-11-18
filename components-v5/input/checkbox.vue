@@ -22,6 +22,10 @@ export default {
     falseValue: {
       default: false,
     },
+    inputClass: {
+      type: String,
+      required: false,
+    },
   },
   computed: {
     isChecked() {
@@ -68,6 +72,7 @@ export default {
         :value="value"
         @change="updateInput"
         class="checkbox"
+        :class="inputClass"
       />
       <span class="label-text">{{ label }}</span>
     </label>
