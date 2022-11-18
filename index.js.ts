@@ -1,12 +1,12 @@
-export { default as XCard } from "./components-v5/card.vue";
-export { default as XButtonForm } from "./components-v5/button/form.vue";
-export { default as XButtonLink } from "./components-v5/button/link.vue";
+export {default as XCard} from "./components-v5/card.vue";
+export {default as XButtonForm} from "./components-v5/button/form.vue";
+export {default as XButtonLink} from "./components-v5/button/link.vue";
 
-export { default as XCheckbox } from "./components-v5/input/checkbox.vue";
-export { default as XToggle } from "./components-v5/input/toggle.vue";
-export { default as XRadio } from "./components-v5/input/radio.vue";
-export { default as XSelect } from "./components-v5/input/select.vue";
-export { default as XTextInput } from "./components-v5/input/text.vue";
+export {default as XCheckbox} from "./components-v5/input/checkbox.vue";
+export {default as XToggle} from "./components-v5/input/toggle.vue";
+export {default as XRadio} from "./components-v5/input/radio.vue";
+export {default as XSelect} from "./components-v5/input/select.vue";
+export {default as XTextInput} from "./components-v5/input/text.vue";
 
 // Alerts
 // export { default as XAlertBanner } from "./components/Alert/Banner.vue";
