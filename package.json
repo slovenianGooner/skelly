@@ -1,9 +1,9 @@
 {
     "sideEffects": false,
     "name": "sg-skelly",
-    "version": "3.0.77",
+    "version": "4.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "index.js.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/slovenianGooner/skelly.git"
@@ -17,19 +17,13 @@
     },
     "homepage": "https://github.com/slovenianGooner/skelly#readme",
     "dependencies": {
-        "@ckeditor/ckeditor5-build-classic": "^27.0.0",
-        "@ckeditor/ckeditor5-vue": "^2.0.1",
-        "@heroicons/vue": "^1.0.0",
-        "@popperjs/core": "^2.8.6",
+        "@heroicons/vue": "^2.0.13",
         "@vueform/multiselect": "^1.4.0",
-        "buffer": "^6.0.3",
         "find-ancestors": "^2.0.1",
-        "js-beautify": "^1.13.5",
-        "lodash": "^4.17.20",
+        "lodash": "^4.17.21",
         "nanoid": "^3.1.20",
         "vue": "^3.0.10",
         "vue-flatpickr-component": "^9.0.3",
-        "vue3-autocomplete": "^1.0.1",
         "vue3-click-away": "^1.1.0",
         "vuedraggable": "^4.0.1"
     }
