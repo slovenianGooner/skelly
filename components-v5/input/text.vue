@@ -1,5 +1,5 @@
 <template>
-  <div class="form-control w-full max-w-xs">
+  <div class="form-control">
     <label class="label" v-if="!labelAsPlaceholder">
       <span class="label-text" :class="{'text-error' : isError}">{{ label }}</span>
     </label>
