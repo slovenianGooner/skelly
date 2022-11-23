@@ -1,30 +1,27 @@
 <template>
   <div class="relative" v-click-away="closeMenu" v-updown>
+    <label class="label">
+      <span class="label-text" :class="{'text-error' : isError}">{{ label }}</span>
+    </label>
     <button
       @click="toggle"
       type="button"
       aria-haspopup="listbox"
       aria-expanded="true"
       aria-labelledby="listbox-label"
-      class="bg-white relative w-full border rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none text-sm"
-      :class="[buttonClass] + (errors.length > 0 ? ' border-red-300' : ' border-gray-300')"
+      class="input input-bordered focus:outline-none"
+      :class="[inputClass, { 'input-error' : isError }]"
     >
-      <slot
-        name="selectedLabel"
-        :selected="selected"
-        v-if="$slots.selectedLabel"
-      />
-      <span class="block truncate" v-html="resolveSelected()" v-else> </span>
-      <span
-        class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
-      >
+      <span class="flex items-center gap-4">
+        <span v-html="resolveSelected()"></span>
+        <ChevronDownIcon class="w-4 h-4"></ChevronDownIcon>
       </span>
-      <div
-        class="absolute inset-y-0 right-0 pr-8 flex items-center pointer-events-none"
-        v-if="errors.length"
-      >
-      </div>
     </button>
+    <label class="label">
+      <span class="label-text text-error">
+        {{ parseErrors()[0] }}
+      </span>
+    </label>
 
     <transition
       enter-active-class=""
@@ -57,8 +54,8 @@
               class="group text-gray-900 cursor-default select-none relative py-2 px-3 cursor-pointer"
               v-if="search"
             >
-              <XInputText
-                :placeholder="searchPlaceholder"
+              <XTextInput
+                :label="searchPlaceholder" label-as-placeholder
                 v-model="searchQuery"
               />
             </li>
@@ -79,6 +76,7 @@
                 v-if="isSelected(empty)"
                 class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
               >
+                <CheckIcon class="w-4 h-4" />
               </span>
             </li>
             <template v-for="(option, index) in filteredOptions()" :key="index">
@@ -117,6 +115,7 @@
                     v-if="isSelected(option)"
                     class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
                   >
+                    <CheckIcon class="w-4 h-4" />
                   </span>
                 </li>
               </slot>
@@ -138,11 +137,16 @@
 </template>
 <script>
 import { directive } from 'vue3-click-away';
-import { XTextInput } from 'sg-skelly';
+import { default as XTextInput } from '../input/text.vue';
+import {ChevronDownIcon} from "@heroicons/vue/24/outline";
+import {CheckIcon} from '@heroicons/vue/20/solid';
+
 
 export default {
   components: {
+    CheckIcon,
     XTextInput,
+    ChevronDownIcon,
   },
   directives: {
     ClickAway: directive,
@@ -209,10 +213,6 @@ export default {
         };
       },
     },
-    buttonClass: {
-      type: String,
-      default: 'focus:ring-1 focus:ring-red-500 focus:border-red-500',
-    },
     labelResolver: {
       default: null,
     },
@@ -238,7 +238,15 @@ export default {
     closeAfterMultipleSelect: {
       type: Boolean,
       default: false
-    }
+    },
+    inputClass: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    label: {
+      type: String
+    },
   },
   data() {
     return {
@@ -378,6 +386,22 @@ export default {
 
       return item;
     },
+    parseErrors() {
+      if (this.errors instanceof Array) {
+        return this.errors;
+      }
+      return [this.errors];
+    },
   },
+  computed: {
+    isError: function () {
+      return this.errors && this.errors.length > 0;
+    }
+  }
 };
 </script>
+<style scoped>
+.btn {
+  text-transform: none;
+}
+</style>

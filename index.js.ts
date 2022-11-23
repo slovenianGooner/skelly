@@ -9,7 +9,7 @@ export {default as XSelect} from "./components-v5/input/select.vue";
 export {default as XTextInput} from "./components-v5/input/text.vue";
 export {default as XTextareaInput} from "./components-v5/input/textarea.vue";
 
-// export {default as XCustomSelect} from "./components-v5/custom-input/select.vue";
+export {default as XCustomSelect} from "./components-v5/custom-input/select.vue";
 
 // Alerts
 // export { default as XAlertBanner } from "./components/Alert/Banner.vue";
