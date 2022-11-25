@@ -1,9 +1,9 @@
 {
     "sideEffects": false,
     "name": "sg-skelly-dui",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "",
-    "main": "index.js",
+    "main": "index.js.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/slovenianGooner/skelly.git"
