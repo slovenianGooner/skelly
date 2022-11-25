@@ -1,7 +1,7 @@
 {
     "sideEffects": false,
-    "name": "sg-skelly",
-    "version": "3.0.77",
+    "name": "sg-skelly-dui",
+    "version": "5.0.0",
     "description": "",
     "main": "index.js",
     "repository": {
@@ -19,7 +19,7 @@
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^27.0.0",
         "@ckeditor/ckeditor5-vue": "^2.0.1",
-        "@heroicons/vue": "^1.0.0",
+        "@heroicons/vue": "^2.0.13",
         "@popperjs/core": "^2.8.6",
         "@vueform/multiselect": "^1.4.0",
         "buffer": "^6.0.3",
@@ -30,7 +30,7 @@
         "vue": "^3.0.10",
         "vue-flatpickr-component": "^9.0.3",
         "vue3-autocomplete": "^1.0.1",
-        "vue3-click-away": "^1.1.0",
+        "vue3-click-away": "^1.2.4",
         "vuedraggable": "^4.0.1"
     }
 }

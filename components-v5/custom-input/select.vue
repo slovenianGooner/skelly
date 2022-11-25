@@ -1,0 +1,407 @@
+<template>
+  <div class="relative" v-click-away="closeMenu" v-updown>
+    <label class="label">
+      <span class="label-text" :class="{'text-error' : isError}">{{ label }}</span>
+    </label>
+    <button
+      @click="toggle"
+      type="button"
+      aria-haspopup="listbox"
+      aria-expanded="true"
+      aria-labelledby="listbox-label"
+      class="input input-bordered focus:outline-none"
+      :class="[inputClass, { 'input-error' : isError }]"
+    >
+      <span class="flex items-center gap-4 justify-between">
+        <span v-html="resolveSelected()"></span>
+        <ChevronDownIcon class="w-4 h-4"></ChevronDownIcon>
+      </span>
+    </button>
+    <label class="label">
+      <span class="label-text text-error">
+        {{ parseErrors()[0] }}
+      </span>
+    </label>
+
+    <transition
+      enter-active-class=""
+      enter-class=""
+      enter-to-class=""
+      leave-active-class="transition ease-in duration-100"
+      leave-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <div
+        class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10"
+        ref="dropdown"
+        v-if="open"
+      >
+        <slot
+          name="options"
+          :options="options"
+          :select="select"
+          :isSelected="isSelected"
+        >
+          <ul
+            tabindex="-1"
+            role="listbox"
+            aria-labelledby="listbox-label"
+            aria-activedescendant="listbox-item-3"
+            class="max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+          >
+            <li
+              role="option"
+              class="group text-gray-900 cursor-default select-none relative py-2 px-3 cursor-pointer"
+              v-if="search"
+            >
+              <XTextInput
+                :label="searchPlaceholder" label-as-placeholder
+                v-model="searchQuery"
+              />
+            </li>
+            <li
+              role="option"
+              class="group text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:text-white hover:bg-red-600 cursor-pointer"
+              v-if="!searchQuery && !multiple && empty && empty.title"
+              @click="selectEmpty()"
+            >
+              <span
+                class="block truncate"
+                :class="[isSelected(empty) ? 'font-semibold' : 'font-normal']"
+                v-html="empty.title"
+              >
+              </span>
+
+              <span
+                v-if="isSelected(empty)"
+                class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
+              >
+                <CheckIcon class="w-4 h-4" />
+              </span>
+            </li>
+            <template v-for="(option, index) in filteredOptions()" :key="index">
+              <slot
+                name="option"
+                :option="option"
+                :index="index"
+                :select="select"
+                :resolve-label="resolveLabel"
+                :is-selected="isSelected"
+              >
+                <li
+                  role="option"
+                  class="group text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:text-white hover:bg-red-600 cursor-pointer"
+                  @click="select(option)"
+                >
+                  <slot
+                    name="label"
+                    v-if="$slots.label"
+                    :resolve-label="resolveLabel"
+                    :is-selected="isSelected"
+                    :option="option"
+                    :index="index"
+                  />
+                  <span
+                    v-else
+                    class="block truncate"
+                    :class="[
+                      isSelected(option) ? 'font-semibold' : 'font-normal',
+                    ]"
+                  >
+                    {{ resolveLabel(option) }}
+                  </span>
+
+                  <span
+                    v-if="isSelected(option)"
+                    class="group-hover:text-white text-red-600 absolute inset-y-0 right-0 flex items-center pr-4"
+                  >
+                    <CheckIcon class="w-4 h-4" />
+                  </span>
+                </li>
+              </slot>
+            </template>
+          </ul>
+        </slot>
+      </div>
+    </transition>
+
+    <div class="mt-1" v-if="multiple && modelValue.length > 0 && showDeselectAll" ref="deselect">
+      <button
+        class="text-xs underline text-gray-700"
+        @click="$emit('update:modelValue', [])"
+      >
+        {{ deselectAll }}
+      </button>
+    </div>
+  </div>
+</template>
+<script>
+import { directive } from 'vue3-click-away';
+import { default as XTextInput } from '../input/text.vue';
+import {ChevronDownIcon} from "@heroicons/vue/24/outline";
+import {CheckIcon} from '@heroicons/vue/20/solid';
+
+
+export default {
+  components: {
+    CheckIcon,
+    XTextInput,
+    ChevronDownIcon,
+  },
+  directives: {
+    ClickAway: directive,
+    updown: {
+      mounted(el, binding, vnode, prevVNode) {
+        el.addEventListener('click', () => {
+          let space = window.innerHeight - el.getBoundingClientRect().bottom;
+          let button = el.children[0];
+          let dropdown = el.children[1];
+          let deselect = el.children[2];
+          let height = Math.max(button.offsetHeight);
+
+          if (dropdown) {
+            height += dropdown.offsetHeight;
+          }
+
+          // Button height
+          let buttonHeight = button.offsetHeight + 4;
+          if (deselect !== undefined) {
+            buttonHeight += deselect.offsetHeight - 4;
+          }
+
+          if (dropdown) {
+            if (space < height) {
+              dropdown.classList.add('bottom-0', 'transform');
+              dropdown.style = 'transform: translateY(-' + buttonHeight + 'px)';
+            } else {
+              dropdown.classList.remove('bottom-0', 'transform');
+              dropdown.style = 'translate: transformY(0px)';
+            }
+          }
+        });
+      },
+    },
+  },
+  props: {
+    search: {
+      type: [Boolean, Function],
+    },
+    searchPlaceholder: {
+      type: String,
+      default: 'Search...',
+    },
+    multiple: {
+      type: Boolean,
+    },
+    modelValue: {
+      required: true,
+    },
+    options: {
+      type: Array,
+      default: () => [],
+    },
+    errors: {
+      type: [Array, String],
+      default: () => [],
+    },
+    empty: {
+      type: Object,
+      default: () => {
+        return {
+          value: null,
+          title: '&mdash;',
+        };
+      },
+    },
+    labelResolver: {
+      default: null,
+    },
+    valueResolver: {
+      default: null,
+    },
+    noOptionsSelected: {
+      type: String,
+      default: 'No options selected',
+    },
+    deselectAll: {
+      type: String,
+      default: 'Deselect all',
+    },
+    selectedResolver: {
+      type: Function,
+      default: null,
+    },
+    showDeselectAll: {
+      type: Boolean,
+      default: true
+    },
+    closeAfterMultipleSelect: {
+      type: Boolean,
+      default: false
+    },
+    inputClass: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    label: {
+      type: String
+    },
+  },
+  data() {
+    return {
+      open: false,
+      optionsList: [],
+      searchQuery: '',
+    };
+  },
+  created() {
+    this.optionsList = this.options;
+  },
+  methods: {
+    filteredOptions() {
+      // If search prop is a boolean, then search by default label resolver
+      if (typeof this.search === 'boolean') {
+        return [...this.optionsList].filter((option) => {
+          return (
+            this.resolveLabel(option)
+              .toLowerCase()
+              .search(this.searchQuery.toLowerCase()) > -1
+          );
+        });
+      }
+
+      if (typeof this.search === 'function') {
+        return [...this.optionsList].filter((option) => {
+          return this.search(option, this.searchQuery);
+        });
+      }
+
+      return this.optionsList;
+    },
+    toggle() {
+      this.open = !this.open;
+      this.searchQuery = '';
+    },
+    closeMenu() {
+      this.open = false;
+      this.searchQuery = '';
+    },
+    selectEmpty(option) {
+      this.$emit('update:modelValue', null);
+      this.closeMenu();
+    },
+    select(option) {
+      if (this.multiple) {
+        let newValue = [...this.modelValue];
+
+        if (this.isSelected(option)) {
+          newValue.splice(this.valueIndex(option), 1);
+        } else {
+          newValue.push(this.resolveValue(option));
+        }
+
+        this.$emit('update:modelValue', newValue);
+
+        if (this.closeAfterMultipleSelect) {
+          this.closeMenu();
+          return;
+        }
+
+        return;
+      }
+
+      this.$emit('update:modelValue', this.resolveValue(option));
+      this.closeMenu();
+    },
+    valueIndex(item) {
+      if (!this.modelValue instanceof Array) {
+        return -1;
+      }
+
+      return this.modelValue.indexOf(this.resolveValue(item));
+    },
+    selected() {
+      let selected = this.optionsList.filter((option) => {
+        return this.isSelected(option);
+      });
+
+      if (this.multiple) {
+        return selected;
+      }
+
+      return selected.length > 0 ? selected[0] : this.empty;
+    },
+    isSelected(item) {
+      if (this.multiple) {
+        return this.modelValue.indexOf(this.resolveValue(item)) !== -1;
+      }
+      return this.resolveValue(item) === this.modelValue;
+    },
+    resolveSelected() {
+      if (
+        this.modelValue !== null &&
+        typeof this.selectedResolver === 'function'
+      ) {
+        return this.selectedResolver(this.optionsList, this.modelValue);
+      }
+
+      if (this.multiple && this.modelValue.length === 0) {
+        return this.noOptionsSelected;
+      }
+
+      if (this.multiple) {
+        return this.selected()
+          .map((option) => {
+            return this.resolveLabel(option);
+          })
+          .join(', ');
+      }
+
+      if (this.modelValue === this.empty.value) {
+        return this.empty.title;
+      }
+
+      return this.resolveLabel(this.selected());
+    },
+    resolveValue(item, index) {
+      if (typeof this.valueResolver === 'function') {
+        return this.valueResolver(item);
+      }
+
+      if (this.valueResolver) {
+        return item[this.valueResolver];
+      }
+
+      return item;
+    },
+    resolveLabel(item) {
+      if (typeof this.labelResolver === 'function') {
+        return this.labelResolver(item);
+      }
+
+      if (this.labelResolver) {
+        return item[this.labelResolver];
+      }
+
+      return item;
+    },
+    parseErrors() {
+      if (this.errors instanceof Array) {
+        return this.errors;
+      }
+      return [this.errors];
+    },
+  },
+  computed: {
+    isError: function () {
+      return this.errors && this.errors.length > 0;
+    }
+  }
+};
+</script>
+<style scoped>
+.btn {
+  text-transform: none;
+}
+</style>
