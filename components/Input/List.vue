@@ -72,8 +72,8 @@ import {
   MinusIcon,
   ArrowUpIcon,
   ArrowDownIcon,
-} from "@heroicons/vue/solid";
-import { TrashIcon } from "@heroicons/vue/outline";
+} from "@heroicons/vue/24/solid";
+import { TrashIcon } from "@heroicons/vue/24/outline";
 export default {
   components: {
     XButtonForm,

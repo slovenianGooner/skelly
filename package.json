@@ -1,7 +1,7 @@
 {
     "sideEffects": false,
-    "name": "sg-skelly-dui",
-    "version": "5.0.1",
+    "name": "sg-skelly",
+    "version": "5.0.2",
     "description": "",
     "main": "index.js.ts",
     "repository": {

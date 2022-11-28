@@ -17,7 +17,7 @@
                 class="py-2 px-2 grid gap-4 grid-cols-2 sm:grid-cols-6 md:grid-cols-2 lg:grid-cols-6"
               >
                 <div class="flex col-span-2 xl:col-span-1">
-                  <SelectorIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
+                  <ChevronUpDownIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
 
                   <div
                     class="w-full border border-gray-300 rounded overflow-hidden"
@@ -80,8 +80,8 @@ import {
   ExclamationCircleIcon,
   FolderIcon,
   TrashIcon,
-  SelectorIcon,
-} from "@heroicons/vue/solid";
+  ChevronUpDownIcon,
+} from "@heroicons/vue/24/solid";
 
 export default {
   components: {
@@ -89,7 +89,7 @@ export default {
     ExclamationCircleIcon,
     FolderIcon,
     TrashIcon,
-    SelectorIcon,
+    ChevronUpDownIcon,
     draggable,
   },
   inheritAttrs: false,

@@ -46,7 +46,7 @@
                 :class="[bgColor, textColor]"
               >
                 <span class="sr-only">Close</span>
-                <XIcon class="w-5 h-5" />
+                <XMarkIcon class="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -60,14 +60,14 @@ import {
   CheckCircleIcon,
   ExclamationCircleIcon,
   InformationCircleIcon,
-  XIcon,
-} from "@heroicons/vue/solid";
+  XMarkIcon,
+} from "@heroicons/vue/24/solid";
 export default {
   components: {
     CheckCircleIcon,
     ExclamationCircleIcon,
     InformationCircleIcon,
-    XIcon,
+    XMarkIcon,
   },
   props: {
     type: {

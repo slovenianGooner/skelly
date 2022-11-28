@@ -23,7 +23,7 @@
 <script>
 import flatPickr from "vue-flatpickr-component/src/component.js";
 import "flatpickr/dist/flatpickr.css";
-import { ExclamationCircleIcon } from "@heroicons/vue/solid";
+import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 export default {
   components: {
     ExclamationCircleIcon,

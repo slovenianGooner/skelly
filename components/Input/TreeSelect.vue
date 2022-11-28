@@ -56,7 +56,7 @@ import {
   ChevronRightIcon,
   ChevronDownIcon,
   CheckIcon,
-} from "@heroicons/vue/outline";
+} from "@heroicons/vue/24/outline";
 import treeMixin from "../../mixins/tree";
 
 export default {

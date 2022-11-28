@@ -93,7 +93,7 @@
                   class="w-full flex items-center justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2"
                   :class="[buttonColors]"
                 >
-                  <LoginIcon class="w-6 h-6 mr-1.5" />
+                  <ArrowLeftOnRectangleIcon class="w-6 h-6 mr-1.5" />
                   {{ button }}
                 </button>
               </div>
@@ -108,7 +108,7 @@
 </template>
 <script>
 import { XAlertFormError, XInputLabel, XInputText, XInputErrors } from "sg-skelly";
-import { LoginIcon } from "@heroicons/vue/outline";
+import { ArrowLeftOnRectangleIcon } from "@heroicons/vue/24/outline";
 
 export default {
   components: {
@@ -116,7 +116,7 @@ export default {
     XInputLabel,
     XInputText,
     XInputErrors,
-    LoginIcon,
+    ArrowLeftOnRectangleIcon,
   },
   props: {
     title: {

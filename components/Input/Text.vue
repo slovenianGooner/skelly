@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import { ExclamationCircleIcon } from "@heroicons/vue/solid";
+import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 export default {
   components: {
     ExclamationCircleIcon,

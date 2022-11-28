@@ -14,7 +14,7 @@
           >
             <template #item="{ element, index }">
               <div class="py-2 px-2 flex items-center justify-between">
-                <SelectorIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
+                <ChevronUpDownIcon class="w-5 h-5 mr-1.5 cursor-pointer" />
                 <div class="truncate w-96">{{ element[displayProp] }}</div>
                 <button class="underline" @click="removeFile(index)">
                   Remove
@@ -71,15 +71,15 @@ import {
   ExclamationCircleIcon,
   FolderIcon,
   TrashIcon,
-  SelectorIcon,
-} from "@heroicons/vue/solid";
+  ChevronUpDownIcon,
+} from "@heroicons/vue/24/solid";
 export default {
   components: {
     XButtonForm,
     ExclamationCircleIcon,
     FolderIcon,
     TrashIcon,
-    SelectorIcon,
+    ChevronUpDownIcon,
     draggable,
   },
   inheritAttrs: false,
