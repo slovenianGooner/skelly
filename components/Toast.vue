@@ -45,7 +45,7 @@
                 class="bg-white dark:bg-gray-600 dark:text-gray-300 rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-0"
               >
                 <span class="sr-only">Close</span>
-                <XIcon class="w-5 h-5" />
+                <XMarkIcon class="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -59,14 +59,14 @@ import {
   CheckCircleIcon,
   ExclamationCircleIcon,
   InformationCircleIcon,
-  XIcon,
+  XMarkIcon,
 } from "@heroicons/vue/24/solid";
 export default {
   components: {
     CheckCircleIcon,
     ExclamationCircleIcon,
     InformationCircleIcon,
-    XIcon,
+    XMarkIcon,
   },
   props: {
     type: {
