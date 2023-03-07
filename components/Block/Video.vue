@@ -10,9 +10,9 @@
   </div>
 </template>
 <script>
-import XInputLabel from "../Input/Label";
-import XInputTextarea from "../Input/Textarea";
-import blockMixin from "../../mixins/block";
+import XInputLabel from "../Input/Label.vue";
+import XInputTextarea from "../Input/Textarea.vue";
+import blockMixin from "../../mixins/block.js";
 
 export default {
   components: {

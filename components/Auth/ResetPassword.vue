@@ -102,10 +102,10 @@
   </div>
 </template>
 <script>
-import XAlertFormError from "../Alert/FormError";
-import XInputLabel from "../Input/Label";
-import XInputText from "../Input/Text";
-import XInputErrors from "../Input/Errors";
+import XAlertFormError from "../Alert/FormError.vue";
+import XInputLabel from "../Input/Label.vue";
+import XInputText from "../Input/Text.vue";
+import XInputErrors from "../Input/Errors.vue";
 
 export default {
   components: {

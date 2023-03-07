@@ -42,19 +42,19 @@
   </div>
 </template>
 <script>
-import XButtonDropdown from "../Button/Dropdown";
-import XButtonForm from "../Button/Form";
-import XBlockFile from "../Block/File";
-import XBlockImage from "../Block/Image";
-import XBlockImageLeft from "../Block/ImageLeft";
-import XBlockImageRight from "../Block/ImageRight";
-import XBlockText from "../Block/Text";
-import XBlockThreeImages from "../Block/ThreeImages";
-import XBlockThreeTexts from "../Block/ThreeTexts";
-import XBlockTwoImages from "../Block/TwoImages";
-import XBlockTwoTexts from "../Block/TwoTexts";
-import XBlockVideo from "../Block/Video";
-import XInputList from "../Input/List";
+import XButtonDropdown from "../Button/Dropdown.vue";
+import XButtonForm from "../Button/Form.vue";
+import XBlockFile from "../Block/File.vue";
+import XBlockImage from "../Block/Image.vue";
+import XBlockImageLeft from "../Block/ImageLeft.vue";
+import XBlockImageRight from "../Block/ImageRight.vue";
+import XBlockText from "../Block/Text.vue";
+import XBlockThreeImages from "../Block/ThreeImages.vue";
+import XBlockThreeTexts from "../Block/ThreeTexts.vue";
+import XBlockTwoImages from "../Block/TwoImages.vue";
+import XBlockTwoTexts from "../Block/TwoTexts.vue";
+import XBlockVideo from "../Block/Video.vue";
+import XInputList from "../Input/List.vue";
 import { nanoid } from "nanoid";
 import { shallowRef } from "@vue/reactivity";
 

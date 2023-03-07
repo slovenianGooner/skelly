@@ -17,7 +17,7 @@
   </transition>
 </template>
 <script>
-import XSpinnerIcon from "./SpinnerIcon";
+import XSpinnerIcon from "./SpinnerIcon.vue";
 
 export default {
   components: {

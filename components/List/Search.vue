@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import XInputTextButton from "../Input/TextButton";
+import XInputTextButton from "../Input/TextButton.vue";
 export default {
   components: {
     XInputTextButton,

@@ -66,7 +66,7 @@
 </template>
 <script>
 import { nanoid } from "nanoid";
-import XButtonForm from "../Button/Form";
+import XButtonForm from "../Button/Form.vue";
 import {
   PlusIcon,
   MinusIcon,

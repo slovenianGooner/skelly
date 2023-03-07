@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import wysiwygMixin from "../../mixins/wysiwyg";
+import wysiwygMixin from "../../mixins/wysiwyg.js";
 export default {
   mixins: [wysiwygMixin],
   props: {

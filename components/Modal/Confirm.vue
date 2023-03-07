@@ -18,8 +18,8 @@
   </XModal>
 </template>
 <script>
-import XModal from "../Modal";
-import XButtonForm from "../Button/Form";
+import XModal from "../Modal.vue";
+import XButtonForm from "../Button/Form.vue";
 export default {
   components: {
     XModal,

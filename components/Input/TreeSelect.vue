@@ -51,14 +51,14 @@
   </div>
 </template>
 <script>
-import XInputCustomSelect from "../Input/CustomSelect";
-import XInputTreeSelectOptions from "../Input/TreeSelectOptions";
+import XInputCustomSelect from "../Input/CustomSelect.vue";
+import XInputTreeSelectOptions from "../Input/TreeSelectOptions.vue";
 import {
   ChevronRightIcon,
   ChevronDownIcon,
   CheckIcon,
 } from "@heroicons/vue/outline";
-import treeMixin from "../../mixins/tree";
+import treeMixin from "../../mixins/tree.js";
 
 export default {
   components: {

@@ -22,8 +22,8 @@
   </div>
 </template>
 <script>
-import XInputSelect from "./Select";
-import XButtonForm from "../Button/Form";
+import XInputSelect from "./Select.vue";
+import XButtonForm from "../Button/Form.vue";
 
 export default {
   components: {

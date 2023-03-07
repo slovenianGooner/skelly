@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-import XButtonForm from "./Button/Form";
+import XButtonForm from "./Button/Form.vue";
 import { MinusIcon, PlusIcon } from "@heroicons/vue/solid";
 
 export default {

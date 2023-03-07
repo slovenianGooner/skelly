@@ -50,7 +50,7 @@
   </nav>
 </template>
 <script>
-import XButtonForm from "../Button/Form";
+import XButtonForm from "../Button/Form.vue";
 
 export default {
   components: {

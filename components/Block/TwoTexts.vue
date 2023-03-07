@@ -19,9 +19,9 @@
   </div>
 </template>
 <script>
-import XInputLabel from "../Input/Label";
-import XInputEditor from "../Input/Editor";
-import blockMixin from "../../mixins/block";
+import XInputLabel from "../Input/Label.vue";
+import XInputEditor from "../Input/Editor.vue";
+import blockMixin from "../../mixins/block.js";
 
 export default {
   components: {

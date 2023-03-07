@@ -15,7 +15,7 @@
   </XInputList>
 </template>
 <script>
-import XInputList from "./List";
+import XInputList from "./List.vue";
 export default {
   components: {
     XInputList,
