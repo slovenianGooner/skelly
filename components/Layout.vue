@@ -37,7 +37,7 @@
                 class="ml-1 flex items-center justify-center h-12 w-10 rounded-full focus:outline-none"
               >
                 <span class="sr-only">Close sidebar</span>
-                <XIcon class="w-6 h-6 text-white" />
+                <XMarkIcon class="w-6 h-6 text-white" />
               </button>
             </div>
             <!-- Logo or brand text display -->
@@ -100,7 +100,7 @@
           :class="[headerTextColor, mobileBreakpoint]"
         >
           <span class="sr-only">Open sidebar</span>
-          <MenuIcon class="w-6 h-6" />
+          <Bars3Icon class="w-6 h-6" />
         </button>
 
         <div class="flex-1 px-4 flex justify-between">
@@ -161,14 +161,14 @@
 </template>
 <script>
 import { XButtonDropdown } from "sg-skelly";
-import { XIcon, MenuIcon } from "@heroicons/vue/24/solid";
+import { XMarkIcon, Bars3Icon } from "@heroicons/vue/24/solid";
 import { UserIcon } from "@heroicons/vue/24/outline";
 
 export default {
   components: {
     XButtonDropdown,
-    XIcon,
-    MenuIcon,
+    XMarkIcon,
+    Bars3Icon,
     UserIcon,
   },
   props: {
