@@ -30,7 +30,7 @@
 </template>
 <script>
 import Sortable from "sortablejs";
-import treeMixin from "../mixins/tree.js";
+import treeMixin from "../mixins/tree";
 
 export default {
   name: "XNestable",

@@ -61,7 +61,7 @@
   </div>
 </template>
 <script>
-import XInputText from "./Text.vue";
+import XInputText from "./Text";
 import { directive } from "vue3-click-away";
 
 export default {

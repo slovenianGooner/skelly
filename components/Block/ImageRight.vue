@@ -29,11 +29,11 @@
   </div>
 </template>
 <script>
-import XInputLabel from "../Input/Label.vue";
-import XInputEditor from "../Input/Editor.vue";
-import XInputPhoto from "../Input/Photo.vue";
-import XInputText from "../Input/Text.vue";
-import blockMixin from "../../mixins/block.js";
+import XInputLabel from "../Input/Label";
+import XInputEditor from "../Input/Editor";
+import XInputPhoto from "../Input/Photo";
+import XInputText from "../Input/Text";
+import blockMixin from "../../mixins/block";
 
 export default {
   components: {

@@ -18,7 +18,7 @@
   </XModal>
 </template>
 <script>
-import XModal from "../Modal.vue";
+import XModal from "../Modal";
 export default {
   components: {
     XModal,

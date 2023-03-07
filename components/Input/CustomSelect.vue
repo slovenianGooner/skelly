@@ -147,7 +147,7 @@ import {
   ExclamationCircleIcon,
   CheckIcon,
 } from '@heroicons/vue/solid';
-import XInputText from './Text.vue';
+import XInputText from './Text';
 
 export default {
   components: {

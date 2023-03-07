@@ -73,7 +73,7 @@
   </div>
 </template>
 <script>
-import XModalBackdrop from "./Modal/Backdrop.vue";
+import XModalBackdrop from "./Modal/Backdrop";
 
 export default {
   components: {

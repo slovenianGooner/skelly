@@ -75,7 +75,7 @@
 </template>
 <script>
 import draggable from "vuedraggable";
-import XButtonForm from "../Button/Form.vue";
+import XButtonForm from "../Button/Form";
 import {
   ExclamationCircleIcon,
   FolderIcon,

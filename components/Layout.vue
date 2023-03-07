@@ -160,7 +160,7 @@
   </div>
 </template>
 <script>
-import XButtonDropdown from "./Button/Dropdown.vue";
+import XButtonDropdown from "./Button/Dropdown";
 import { XIcon, MenuIcon } from "@heroicons/vue/solid";
 import { UserIcon } from "@heroicons/vue/outline";
 
