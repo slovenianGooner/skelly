@@ -8,7 +8,7 @@
           : '',
         inputClass,
       ]"
-      v-model="modelValue"
+      v-model="value"
       v-bind="$attrs"
     >
       <option
@@ -33,7 +33,7 @@
   </div>
 </template>
 <script>
-import { ExclamationCircleIcon } from "@heroicons/vue/solid";
+import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 export default {
   components: {
     ExclamationCircleIcon,
@@ -70,6 +70,16 @@ export default {
     valueResolver: {
       default: null,
     },
+  },
+  data() {
+    return {
+      value: this.modelValue
+    }
+  },
+  watch: {
+    value: () => {
+      this.$emit('update:modelValue', this.value)
+    }
   },
   methods: {
     resolveValue(item, index) {

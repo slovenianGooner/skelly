@@ -2,7 +2,7 @@
   <div class="prose">
     <ckeditor
       :editor="classicEditor"
-      v-model="modelValue"
+      v-model="value"
       @update:modelValue="$emit('update:modelValue', $event)"
       :config="config"
     ></ckeditor>
@@ -22,6 +22,16 @@ export default {
         return {};
       },
     },
+  },
+  data() {
+    return {
+      value: this.modelValue
+    }
+  },
+  watch: {
+    value: () => {
+      this.$emit('update:modelValue', this.value)
+    }
   },
 };
 </script>

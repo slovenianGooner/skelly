@@ -22,7 +22,7 @@
 </template>
 <script>
 import { XButtonForm } from "sg-skelly";
-import { MinusIcon, PlusIcon } from "@heroicons/vue/solid";
+import { MinusIcon, PlusIcon } from "@heroicons/vue/24/solid";
 
 export default {
   components: {

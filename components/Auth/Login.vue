@@ -108,7 +108,7 @@
 </template>
 <script>
 import { XAlertFormError, XInputLabel, XInputText, XInputErrors } from "sg-skelly";
-import { LoginIcon } from "@heroicons/vue/outline";
+import { LoginIcon } from "@heroicons/vue/24/outline";
 
 export default {
   components: {

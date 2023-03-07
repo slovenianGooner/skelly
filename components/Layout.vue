@@ -161,8 +161,8 @@
 </template>
 <script>
 import { XButtonDropdown } from "sg-skelly";
-import { XIcon, MenuIcon } from "@heroicons/vue/solid";
-import { UserIcon } from "@heroicons/vue/outline";
+import { XIcon, MenuIcon } from "@heroicons/vue/24/solid";
+import { UserIcon } from "@heroicons/vue/24/outline";
 
 export default {
   components: {

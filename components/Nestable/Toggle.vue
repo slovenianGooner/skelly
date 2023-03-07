@@ -8,7 +8,7 @@
   </button>
 </template>
 <script>
-import { PlusIcon, MinusIcon } from "@heroicons/vue/outline";
+import { PlusIcon, MinusIcon } from "@heroicons/vue/24/outline";
 
 export default {
   components: {

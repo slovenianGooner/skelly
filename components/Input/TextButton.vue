@@ -3,7 +3,7 @@
     <XInputText
       input-class="rounded-r-none"
       class="flex items-stretch flex-grow focus-within:z-10 text-sm"
-      v-model="modelValue"
+      v-model="value"
       v-bind="omit($attrs, 'type')"
     />
 
@@ -44,7 +44,13 @@ export default {
   data() {
     return {
       omit: omit,
+      value: this.modelValue
     };
+  },
+  watch: {
+    value: () => {
+      this.$emit('update:modelValue', this.value)
+    }
   },
   methods: {
     handleInput(e) {

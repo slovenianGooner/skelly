@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex-1">
     <flat-pickr
-      v-model="modelValue"
+      v-model="value"
       :config="config"
       @update:modelValue="$emit('update:modelValue', $event)"
       class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
@@ -23,11 +23,16 @@
 <script>
 import flatPickr from "vue-flatpickr-component/src/component.js";
 import "flatpickr/dist/flatpickr.css";
-import { ExclamationCircleIcon } from "@heroicons/vue/solid";
+import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 export default {
   components: {
     ExclamationCircleIcon,
     flatPickr,
+  },
+  data() {
+    return {
+      value: this.modelValue
+    }
   },
   props: {
     inputClass: {

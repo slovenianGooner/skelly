@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import { ArrowsExpandIcon } from "@heroicons/vue/solid";
+import { ArrowsExpandIcon } from "@heroicons/vue/24/solid";
 
 export default {
   components: {

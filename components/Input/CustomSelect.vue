@@ -18,7 +18,7 @@
       <span
         class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
       >
-        <SelectorIcon class="text-gray-400 w-5 h-5" />
+        <ChevronUpDownIcon class="text-gray-400 w-5 h-5" />
       </span>
       <div
         class="absolute inset-y-0 right-0 pr-8 flex items-center pointer-events-none"
@@ -143,15 +143,15 @@
 <script>
 import { directive } from 'vue3-click-away';
 import {
-  SelectorIcon,
+  ChevronUpDownIcon,
   ExclamationCircleIcon,
   CheckIcon,
-} from '@heroicons/vue/solid';
+} from '@heroicons/vue/24/solid';
 import { XInputText } from 'sg-skelly';
 
 export default {
   components: {
-    SelectorIcon,
+    ChevronUpDownIcon,
     ExclamationCircleIcon,
     CheckIcon,
     XInputText,

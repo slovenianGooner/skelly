@@ -6,7 +6,7 @@
     <XInputText
       :input-class="textInputClass"
       class="flex items-stretch flex-grow focus-within:z-10 text-sm"
-      v-model="modelValue"
+      v-model="value"
       v-bind="omit($attrs, 'type')"
     />
     <div v-if="$slots.trailing">
@@ -35,9 +35,15 @@ export default {
       type: String,
     },
   },
+  watch: {
+    value: () => {
+      this.$emit('update:modelValue', this.value)
+    }
+  },
   data() {
     return {
       omit: omit,
+      value: this.modelValue
     };
   },
   computed: {

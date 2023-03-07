@@ -1,6 +1,6 @@
 <template>
   <Multiselect
-    v-model="modelValue"
+    v-model="value"
     @update:modelValue="$emit('update:modelValue', $event)"
     :options="options"
     mode="tags"
@@ -30,6 +30,11 @@ export default {
     placeholder: {
       type: String,
       default: null
+    }
+  },
+  data() {
+    return {
+      value: this.modelValue
     }
   },
   components: {
