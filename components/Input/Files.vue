@@ -47,6 +47,7 @@
       ref="fileInput"
       @change="handleFileChange"
       v-bind="$attrs"
+      :accept="accept"
     />
     <div
       class="
@@ -112,6 +113,10 @@ export default {
     modelValue: {
       required: true,
       type: Array,
+    },
+    accept: {
+      type: String,
+      default: '*/*'
     },
   },
   data() {
