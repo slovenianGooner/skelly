@@ -26,6 +26,7 @@
       class="hidden"
       ref="fileInput"
       @change="handleFileChange"
+      :accept="accept"
     />
     <div
       class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
@@ -73,6 +74,10 @@ export default {
     },
     modelValue: {
       required: true,
+    },
+    accept: {
+      type: String,
+      default: '*/*'
     },
   },
   data() {
