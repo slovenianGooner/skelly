@@ -1,7 +1,7 @@
 {
     "sideEffects": false,
     "name": "sg-skelly",
-    "version": "3.0.82",
+    "version": "3.0.83",
     "description": "",
     "main": "index.js",
     "repository": {
@@ -29,14 +29,7 @@
         "nanoid": "^3.1.20",
         "vue": "^3.0.10",
         "vue-flatpickr-component": "^9.0.3",
-        "vue3-autocomplete": "^1.0.1",
         "vue3-click-away": "^1.1.0",
-        "vuedraggable": "^4.0.1",
-        "ansi-regex": "3.0.1",
-        "axios": "0.21.3",
-        "decode-uri-component": "0.2.2",
-        "semver": "7.5.2",
-        "loader-utils": "2.0.3",
-        "unset-value": "2.0.1"
+        "vuedraggable": "^4.0.1"
     }
 }
