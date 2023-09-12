@@ -3,7 +3,7 @@
     <XInputText
       input-class="rounded-r-none"
       class="flex items-stretch flex-grow focus-within:z-10 text-sm"
-      v-model="modelValue"
+      v-model="value"
       v-bind="omit($attrs, 'type')"
     />
     <XButtonForm
@@ -27,6 +27,16 @@ export default {
   components: {
     XButtonForm,
     XInputText,
+  },
+  data() {
+    return {
+      value: this.modelValue
+    }
+  },
+  watch: {
+    value() {
+      this.$emit("update:modelValue", this.value);
+    },
   },
   inheritAttrs: false,
   props: {

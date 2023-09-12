@@ -3,7 +3,7 @@
     <XInputSelect
       input-class="rounded-r-none"
       class="flex items-stretch flex-grow focus-within:z-10"
-      v-model="modelValue"
+      v-model="value"
       @update:modelValue="$emit('update:modelValue', $event)"
       :options="options"
       :labelResolver="labelResolver"
@@ -31,6 +31,11 @@ export default {
     XButtonForm,
   },
   inheritAttrs: false,
+  data() {
+    return {
+      value: this.modelValue,
+    };
+  },
   props: {
     options: {
       type: Array,

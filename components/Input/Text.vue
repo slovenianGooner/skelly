@@ -8,7 +8,7 @@
           : '',
         inputClass,
       ]"
-      v-model="modelValue"
+      v-model="value"
       v-bind="$attrs"
     />
     <div
@@ -26,6 +26,16 @@ export default {
     ExclamationCircleIcon,
   },
   inheritAttrs: false,
+  data() {
+    return {
+      value: this.modelValue
+    };
+  },
+  watch: {
+    value() {
+      this.$emit("update:modelValue", this.value);
+    },
+  },
   props: {
     inputClass: {
       type: String,

@@ -1,16 +1,16 @@
 <template>
   <div class="flex rounded-md shadow-sm">
     <div v-if="$slots.leading">
-      <slot name="leading" />
+      <slot name="leading"/>
     </div>
     <XInputText
       :input-class="textInputClass"
       class="flex items-stretch flex-grow focus-within:z-10 text-sm"
-      v-model="modelValue"
+      v-model="value"
       v-bind="omit($attrs, 'type')"
     />
     <div v-if="$slots.trailing">
-      <slot name="trailing" />
+      <slot name="trailing"/>
     </div>
   </div>
 </template>
@@ -18,12 +18,18 @@
 import omit from "lodash/omit";
 import XButtonForm from "../Button/Form";
 import XInputText from "./Text";
+
 export default {
   components: {
     XButtonForm,
     XInputText,
   },
   inheritAttrs: false,
+  watch: {
+    value() {
+      this.$emit("update:modelValue", this.value);
+    },
+  },
   props: {
     errors: {
       type: [Array, String],
@@ -39,6 +45,7 @@ export default {
   data() {
     return {
       omit: omit,
+      value: this.modelValue
     };
   },
   computed: {
